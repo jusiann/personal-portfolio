@@ -65,11 +65,11 @@
   @keyframes web-pulse {
     0%, 100% {
       transform: scale(1);
-      opacity: 0.7;
+      opacity: 0.6;
     }
     50% {
-      transform: scale(1.05);
-      opacity: 0.95;
+      transform: scale(1.2);
+      opacity: 1;
     }
   }
   @keyframes ambient-float {
@@ -184,29 +184,41 @@
 
 @utility web-node {
   @apply absolute rounded-full transition-all duration-300;
-  background: radial-gradient(circle, rgba(220, 38, 38, 0.9) 0%, rgba(185, 28, 28, 0.6) 50%, rgba(185, 28, 28, 0.2) 80%, transparent 100%);
-  box-shadow: 0 0 20px 4px rgba(220, 38, 38, 0.6), 0 0 10px 2px rgba(220, 38, 38, 0.8);
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.8) 0%, rgba(185, 28, 28, 0.4) 50%, transparent 100%);
+  box-shadow: 0 0 15px 3px rgba(220, 38, 38, 0.4);
 }
 
-@utility web-thread {
-  stroke-linecap: round;
-  stroke-dasharray: 0;
-  transition: all 0.3s ease;
+.dark @utility web-node {
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.9) 0%, rgba(220, 38, 38, 0.5) 50%, transparent 100%);
+  box-shadow: 0 0 20px 4px rgba(239, 68, 68, 0.5);
+}
+
+@utility crimson-glow {
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.3) 0%, rgba(185, 28, 28, 0.1) 50%, transparent 100%);
+}
+
+.dark @utility crimson-glow {
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.05) 50%, transparent 100%);
 }
 
 @utility crimson-stop-start {
   stop-color: rgb(220, 38, 38);
-  stop-opacity: 0.9;
+  stop-opacity: 0.3;
 }
 
-@utility crimson-stop-mid {
-  stop-color: rgb(200, 35, 35);
-  stop-opacity: 0.8;
+.dark @utility crimson-stop-start {
+  stop-color: rgb(239, 68, 68);
+  stop-opacity: 0.4;
 }
 
 @utility crimson-stop-end {
   stop-color: rgb(185, 28, 28);
-  stop-opacity: 0.7;
+  stop-opacity: 0.1;
+}
+
+.dark @utility crimson-stop-end {
+  stop-color: rgb(220, 38, 38);
+  stop-opacity: 0.2;
 }
 
 @utility ambient-particle {
@@ -215,31 +227,9 @@
   box-shadow: 0 0 10px 2px rgba(220, 38, 38, 0.3);
 }
 
-.dark {
-  & .web-node {
-    background: radial-gradient(circle, rgba(239, 68, 68, 1) 0%, rgba(220, 38, 38, 0.7) 50%, rgba(220, 38, 38, 0.3) 80%, transparent 100%);
-    box-shadow: 0 0 25px 5px rgba(239, 68, 68, 0.7), 0 0 15px 3px rgba(239, 68, 68, 0.9);
-  }
-  
-  & .crimson-stop-start {
-    stop-color: rgb(239, 68, 68);
-    stop-opacity: 1;
-  }
-  
-  & .crimson-stop-mid {
-    stop-color: rgb(230, 50, 50);
-    stop-opacity: 0.9;
-  }
-  
-  & .crimson-stop-end {
-    stop-color: rgb(220, 38, 38);
-    stop-opacity: 0.8;
-  }
-  
-  & .ambient-particle {
-    background: radial-gradient(circle, rgba(239, 68, 68, 0.8) 0%, transparent 70%);
-    box-shadow: 0 0 18px 4px rgba(239, 68, 68, 0.5);
-  }
+.dark @utility ambient-particle {
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.7) 0%, transparent 70%);
+  box-shadow: 0 0 15px 3px rgba(239, 68, 68, 0.4);
 }
 
 #root {
