@@ -6,7 +6,7 @@ export const CrimsonWebBackground = () => {
 
   const generatelines = useCallback((nodeList) => {
     const newLines = [];
-    const maxDistance = 25;
+    const maxDistance = 22;
     const maxLinesPerNode = 5;
     const nodeLines = new Array(nodeList.length).fill(0);
 
@@ -110,7 +110,7 @@ export const CrimsonWebBackground = () => {
         
         return newNodes;
       });
-    }, 50);
+    }, 100);
 
     return () => clearInterval(interval);
   }, [generatelines]);
@@ -118,21 +118,19 @@ export const CrimsonWebBackground = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
 
-      {/* RADIAL GRADIENT */}
+      {/* Radial gradient overlay */}
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background/50" />
 
-      {/* SVG FOR LINES */}
+      {/* SVG for lines - Örümcek ağı görünümü */}
       <svg className="absolute inset-0 w-full h-full">
         <defs>
-
-          {/* LINE GRADIENT */}
           <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" className="crimson-stop-start" />
             <stop offset="50%" className="crimson-stop-mid" />
             <stop offset="100%" className="crimson-stop-end" />
           </linearGradient>
-
-          {/* SVG FOR GLOW EFFECT */}
+          
+          {/* Örümcek ağı için filtre efekti */}
           <filter id="glow">
             <feGaussianBlur stdDeviation="1.2" result="coloredBlur"/>
             <feMerge>
@@ -140,10 +138,8 @@ export const CrimsonWebBackground = () => {
               <feMergeNode in="SourceGraphic"/>
             </feMerge>
           </filter>
-
         </defs>
 
-        {/* RENDER LINES WITH GLOW EFFECT */}
         {
           lines.map((connection) => (
             <line
@@ -162,7 +158,7 @@ export const CrimsonWebBackground = () => {
         ))}
       </svg>
 
-      {/* RENDER NODES WITH PULSE EFFECT */}
+      {/* Nodes */}
       {
         nodes.map((node) => (
           <div

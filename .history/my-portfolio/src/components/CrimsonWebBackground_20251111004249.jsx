@@ -118,21 +118,20 @@ export const CrimsonWebBackground = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
 
-      {/* RADIAL GRADIENT */}
+      {/* Tam ekran arkaplan konteyneri; kullanıcı etkileşimini engellemez */}
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background/50" />
 
-      {/* SVG FOR LINES */}
+      {/* SVG: ağ çizgilerini çizdiğimiz vektör katmanı */}
       <svg className="absolute inset-0 w-full h-full">
         <defs>
-
-          {/* LINE GRADIENT */}
+          {/* Çizgilerde kullanılacak kırmızı tonlu gradient */}
           <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" className="crimson-stop-start" />
             <stop offset="50%" className="crimson-stop-mid" />
             <stop offset="100%" className="crimson-stop-end" />
           </linearGradient>
-
-          {/* SVG FOR GLOW EFFECT */}
+          
+          {/* Hafif parıltı için blur filtre tanımı */}
           <filter id="glow">
             <feGaussianBlur stdDeviation="1.2" result="coloredBlur"/>
             <feMerge>
@@ -140,43 +139,40 @@ export const CrimsonWebBackground = () => {
               <feMergeNode in="SourceGraphic"/>
             </feMerge>
           </filter>
-
         </defs>
 
-        {/* RENDER LINES WITH GLOW EFFECT */}
-        {
-          lines.map((connection) => (
-            <line
-              key={connection.id}
-              x1={`${connection.x1}%`}
-              y1={`${connection.y1}%`}
-              x2={`${connection.x2}%`}
-              y2={`${connection.y2}%`}
-              stroke="url(#lineGradient)"
-              strokeWidth="1.6"
-              opacity={connection.opacity}
-              className="web-thread"
-              style={{ transition: 'opacity 0.5s ease-out' }}
-              filter="url(#glow)"
-            />
+        {/* Her bağlantı için bir <line> element render edilir (konum ve opacity state'ten gelir) */}
+        {lines.map((connection) => (
+          <line
+            key={connection.id}
+            x1={`${connection.x1}%`}
+            y1={`${connection.y1}%`}
+            x2={`${connection.x2}%`}
+            y2={`${connection.y2}%`}
+            stroke="url(#lineGradient)"
+            strokeWidth="1.6"
+            opacity={connection.opacity}
+            className="web-thread"
+            style={{ transition: 'opacity 0.5s ease-out' }}
+            filter="url(#glow)"
+          />
         ))}
       </svg>
 
-      {/* RENDER NODES WITH PULSE EFFECT */}
-      {
-        nodes.map((node) => (
-          <div
-            key={node.id}
-            className="web-node animate-web-pulse"
-            style={{
-              width: node.size + "px",
-              height: node.size + "px",
-              left: node.x + "%",
-              top: node.y + "%",
-              opacity: node.opacity,
-              animationDelay: node.pulseDelay + "s",
-            }}
-          />
+      {/* Her nokta için DOM içinde küçük bir div (görünür nokta ve hafif pulse animasyonu) */}
+      {nodes.map((node) => (
+        <div
+          key={node.id}
+          className="web-node animate-web-pulse"
+          style={{
+            width: node.size + "px",
+            height: node.size + "px",
+            left: node.x + "%",
+            top: node.y + "%",
+            opacity: node.opacity,
+            animationDelay: node.pulseDelay + "s",
+          }}
+        />
       ))}
     </div>
   );

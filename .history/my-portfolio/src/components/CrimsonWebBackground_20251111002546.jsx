@@ -5,15 +5,15 @@ export const CrimsonWebBackground = () => {
   const [lines, setLines] = useState([]);
 
   const generatelines = useCallback((nodeList) => {
-    const newLines = [];
-    const maxDistance = 25;
-    const maxLinesPerNode = 5;
-    const nodeLines = new Array(nodeList.length).fill(0);
+    const newlines = [];
+    const maxDistance = 22;
+    const maxlinesPerNode = 5;
+    const nodelines = new Array(nodeList.length).fill(0);
 
     for (let i = 0; i < nodeList.length; i++) {
       for (let j = i + 1; j < nodeList.length; j++) {
-        if (nodeLines[i] >= maxLinesPerNode || 
-            nodeLines[j] >= maxLinesPerNode) {
+        if (nodelines[i] >= maxlinesPerNode || 
+            nodelines[j] >= maxlinesPerNode) {
           continue;
         }
 
@@ -22,7 +22,7 @@ export const CrimsonWebBackground = () => {
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < maxDistance) {
-          newLines.push({
+          newlines.push({
             id: `${i}-${j}`,
             x1: nodeList[i].x,
             y1: nodeList[i].y,
@@ -31,19 +31,19 @@ export const CrimsonWebBackground = () => {
             opacity: (1 - distance / maxDistance) * 0.7,
             distance: distance,
           });
-          nodeLines[i]++;
-          nodeLines[j]++;
+          nodelines[i]++;
+          nodelines[j]++;
         }
       }
     }
 
-    setLines(newLines);
+    setLines(newlines);
   }, []);
 
   useEffect(() => {
     const generateNodes = () => {
       const numberOfNodes = Math.floor(
-        (window.innerWidth * window.innerHeight) / 7500
+        (window.innerWidth * window.innerHeight) / 20000 // Daha fazla düğüm
       );
 
       const newNodes = [];
@@ -53,20 +53,20 @@ export const CrimsonWebBackground = () => {
           id: i,
           x: Math.random() * 100,
           y: Math.random() * 100,
-          size: Math.random() * 2 + 1.5,
-          speedX: (Math.random() - 0.5) * 0.05,
+          size: Math.random() * 2 + 1.5, // 1.5-3.5px
+          speedX: (Math.random() - 0.5) * 0.05, // Daha yavaş, smooth
           speedY: (Math.random() - 0.5) * 0.05,
           opacity: Math.random() * 0.3 + 0.6,
           pulseDelay: Math.random() * 5,
         });
       }
+
       setNodes(newNodes);
       generatelines(newNodes);
     };
 
     generateNodes();
     
-    // GENERATE NODES ON RESIZE
     const handleResize = () => {
       generateNodes();
     };
@@ -78,6 +78,7 @@ export const CrimsonWebBackground = () => {
     };
   }, [generatelines]);
 
+  // Animate nodes ve bağlantıları güncelle
   useEffect(() => {
     const interval = setInterval(() => {
       setNodes((prevNodes) => {
@@ -87,7 +88,7 @@ export const CrimsonWebBackground = () => {
           let newSpeedX = node.speedX;
           let newSpeedY = node.speedY;
 
-          // BOUNCE OFF EDGES - REVERSE DIRECTION
+          // Bounce off edges
           if (newX <= 0 || newX >= 100) {
             newSpeedX = -node.speedX;
             newX = newX <= 0 ? 0 : 100;
@@ -106,6 +107,7 @@ export const CrimsonWebBackground = () => {
           };
         });
 
+        // Her hareket sonrası bağlantıları güncelle
         generatelines(newNodes);
         
         return newNodes;
@@ -117,22 +119,19 @@ export const CrimsonWebBackground = () => {
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-
-      {/* RADIAL GRADIENT */}
+      {/* Radial gradient overlay */}
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background/50" />
 
-      {/* SVG FOR LINES */}
+      {/* SVG for lines - Örümcek ağı görünümü */}
       <svg className="absolute inset-0 w-full h-full">
         <defs>
-
-          {/* LINE GRADIENT */}
           <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" className="crimson-stop-start" />
             <stop offset="50%" className="crimson-stop-mid" />
             <stop offset="100%" className="crimson-stop-end" />
           </linearGradient>
-
-          {/* SVG FOR GLOW EFFECT */}
+          
+          {/* Örümcek ağı için filtre efekti */}
           <filter id="glow">
             <feGaussianBlur stdDeviation="1.2" result="coloredBlur"/>
             <feMerge>
@@ -140,43 +139,39 @@ export const CrimsonWebBackground = () => {
               <feMergeNode in="SourceGraphic"/>
             </feMerge>
           </filter>
-
         </defs>
 
-        {/* RENDER LINES WITH GLOW EFFECT */}
-        {
-          lines.map((connection) => (
-            <line
-              key={connection.id}
-              x1={`${connection.x1}%`}
-              y1={`${connection.y1}%`}
-              x2={`${connection.x2}%`}
-              y2={`${connection.y2}%`}
-              stroke="url(#lineGradient)"
-              strokeWidth="1.6"
-              opacity={connection.opacity}
-              className="web-thread"
-              style={{ transition: 'opacity 0.5s ease-out' }}
-              filter="url(#glow)"
-            />
+        {lines.map((connection) => (
+          <line
+            key={connection.id}
+            x1={`${connection.x1}%`}
+            y1={`${connection.y1}%`}
+            x2={`${connection.x2}%`}
+            y2={`${connection.y2}%`}
+            stroke="url(#lineGradient)"
+            strokeWidth="1.6"
+            opacity={connection.opacity}
+            className="web-thread"
+            style={{ transition: 'opacity 0.5s ease-out' }}
+            filter="url(#glow)"
+          />
         ))}
       </svg>
 
-      {/* RENDER NODES WITH PULSE EFFECT */}
-      {
-        nodes.map((node) => (
-          <div
-            key={node.id}
-            className="web-node animate-web-pulse"
-            style={{
-              width: node.size + "px",
-              height: node.size + "px",
-              left: node.x + "%",
-              top: node.y + "%",
-              opacity: node.opacity,
-              animationDelay: node.pulseDelay + "s",
-            }}
-          />
+      {/* Nodes */}
+      {nodes.map((node) => (
+        <div
+          key={node.id}
+          className="web-node animate-web-pulse"
+          style={{
+            width: node.size + "px",
+            height: node.size + "px",
+            left: node.x + "%",
+            top: node.y + "%",
+            opacity: node.opacity,
+            animationDelay: node.pulseDelay + "s",
+          }}
+        />
       ))}
     </div>
   );
