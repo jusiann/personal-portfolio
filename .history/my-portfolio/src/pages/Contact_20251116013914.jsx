@@ -1,0 +1,32 @@
+import {ThemeToggle} from "../components/ThemeToggle";
+import {LanguageToggle} from "../components/LanguageToggle";
+import {CrimsonWebBackground} from "../components/CrimsonWebBackground";
+import {Navbar} from "../components/Navbar";
+
+export const Contact = () => {
+    return (
+        <div className="
+                        min-h-screen 
+                        bg-background 
+                        text-foreground 
+                        overflow-x-hidden">
+            {/* THEME TOGGLE */}
+            <ThemeToggle />
+            {/* LANGUAGE TOGGLE */}
+            <LanguageToggle />
+            {/* BACKGROUND EFFECTS */}
+            <CrimsonWebBackground />
+
+            {/* NAVBAR */}
+            <Navbar />
+            
+            {/* MAIN CONTENT */}
+            <div className="container pt-32">
+                <h1 className="text-4xl font-bold text-primary">Contact</h1>
+                {/* Contact content buraya gelecek */}
+            </div>
+
+            {/* FOOTER */}
+        </div>
+    );
+};
