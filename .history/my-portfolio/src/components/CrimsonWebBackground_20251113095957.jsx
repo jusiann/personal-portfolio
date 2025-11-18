@@ -1,4 +1,4 @@
-import {useEffect, useState, useCallback} from "react";
+import { useEffect, useState, useCallback } from "react";
 
 export const CrimsonWebBackground = () => {
   const [nodes, setNodes] = useState([]);
@@ -43,7 +43,7 @@ export const CrimsonWebBackground = () => {
   useEffect(() => {
     const generateNodes = () => {
       const numberOfNodes = Math.floor(
-        (window.innerWidth * window.innerHeight) / 50000
+        (window.innerWidth * window.innerHeight) / 7500
       );
 
       const newNodes = [];

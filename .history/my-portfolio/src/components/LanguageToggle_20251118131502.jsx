@@ -1,5 +1,6 @@
 import {useNavigate, useLocation } from 'react-router-dom';
 import {cn} from '../lib/utils';
+import { FiGlobe } from 'react-icons/fi';
 
 export const LanguageToggle = () => {
     const navigate = useNavigate();

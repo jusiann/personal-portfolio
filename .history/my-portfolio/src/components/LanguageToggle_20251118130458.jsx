@@ -15,7 +15,7 @@ export const LanguageToggle = () => {
         <button
             onClick={toggleLanguage}
             className={cn(
-                "fixed max-sm:hidden top-5 right-20 z-50 transition-all duration-300",
+                "fixed max-sm:hidden top-5 right-16 z-50 transition-all duration-300",
                 "hover:scale-110 active:scale-95",
                 "focus:outline-none text-foreground/80 hover:text-foreground",
                 "text-sm font-medium uppercase"

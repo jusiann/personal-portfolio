@@ -17,13 +17,6 @@ export const Navbar = () => {
     { name: translations[lang].contact, href: `/${lang}/contact` },
   ];
 
-  const isActiveRoute = (href) => {
-    if (href === `/${lang}`) {
-      return location.pathname === `/${lang}` || location.pathname === `/${lang}/`;
-    }
-    return location.pathname.startsWith(href);
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -57,18 +50,10 @@ export const Navbar = () => {
             <Link
               key={key}
               to={item.href}
-              className={`relative px-4 py-3 font-medium transition-colors duration-300 group ${
-                isActiveRoute(item.href) 
-                  ? 'text-primary' 
-                  : 'text-foreground/80 hover:text-primary'
-              }`}
+              className="relative px-4 py-3 font-medium text-foreground/80 hover:text-primary transition-colors duration-300 group"
             >
-              {/* Linear crimson line effect - Always visible for active, hover for others */}
-              <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent transition-transform duration-500 origin-center ${
-                isActiveRoute(item.href)
-                  ? 'scale-x-100'
-                  : 'scale-x-0 group-hover:scale-x-100'
-              }`} />
+              {/* Linear crimson line effect - Bottom only */}
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
               
               {/* Text */}
               <span className="relative z-10">
@@ -102,19 +87,11 @@ export const Navbar = () => {
               <Link
                 key={key}
                 to={item.href}
-                className={`relative px-4 py-2 transition-colors duration-300 group ${
-                  isActiveRoute(item.href)
-                    ? 'text-primary'
-                    : 'text-foreground/80 hover:text-primary'
-                }`}
+                className="relative px-4 py-2 text-foreground/80 hover:text-primary transition-colors duration-300 group"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {/* Mobile crimson line - always visible for active, hover for others */}
-                <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent transition-transform duration-500 ${
-                  isActiveRoute(item.href)
-                    ? 'scale-x-100'
-                    : 'scale-x-0 group-hover:scale-x-100'
-                }`} />
+                {/* Mobile crimson line - bottom only */}
+                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                 
                 <span className="relative z-10">
                   {item.name}

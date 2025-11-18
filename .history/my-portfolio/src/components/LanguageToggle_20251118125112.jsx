@@ -1,5 +1,6 @@
 import {useNavigate, useLocation } from 'react-router-dom';
 import {cn} from '../lib/utils';
+import { FaGlobe, FaLanguage } from 'react-icons/fa';
 
 export const LanguageToggle = () => {
     const navigate = useNavigate();
@@ -17,11 +18,10 @@ export const LanguageToggle = () => {
             className={cn(
                 "fixed max-sm:hidden top-5 right-20 z-50 transition-all duration-300",
                 "hover:scale-110 active:scale-95",
-                "focus:outline-none text-foreground/80 hover:text-foreground",
-                "text-sm font-medium uppercase"
+                "focus:outline-hidden text-3xl"
             )}
         >
-            {currentLang === 'tr' ? 'EN' : 'TR'}
+            {currentLang === 'tr' ? '🇬🇧' : '🇹🇷'}
         </button>
     );
 };

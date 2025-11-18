@@ -17,13 +17,6 @@ export const Navbar = () => {
     { name: translations[lang].contact, href: `/${lang}/contact` },
   ];
 
-  const isActiveRoute = (href) => {
-    if (href === `/${lang}`) {
-      return location.pathname === `/${lang}` || location.pathname === `/${lang}/`;
-    }
-    return location.pathname.startsWith(href);
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -57,18 +50,10 @@ export const Navbar = () => {
             <Link
               key={key}
               to={item.href}
-              className={`relative px-4 py-3 font-medium transition-colors duration-300 group ${
-                isActiveRoute(item.href) 
-                  ? 'text-primary' 
-                  : 'text-foreground/80 hover:text-primary'
-              }`}
+              className="relative px-4 py-3 font-medium text-foreground/80 hover:text-primary transition-colors duration-300 group"
             >
-              {/* Linear crimson line effect - Always visible for active, hover for others */}
-              <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent transition-transform duration-500 origin-center ${
-                isActiveRoute(item.href)
-                  ? 'scale-x-100'
-                  : 'scale-x-0 group-hover:scale-x-100'
-              }`} />
+              {/* Linear crimson line effect - Bottom only */}
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
               
               {/* Text */}
               <span className="relative z-10">
@@ -82,10 +67,16 @@ export const Navbar = () => {
 
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50 hover:text-primary transition-colors duration-300"
+          className="md:hidden p-3 text-foreground z-50 relative group rounded-lg overflow-hidden"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {/* Button hover effect */}
+          <div className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg" />
+          <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+          
+          <span className="relative z-10 block group-hover:text-primary transition-colors duration-300">
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </span>
         </button>
 
         <div
@@ -97,26 +88,32 @@ export const Navbar = () => {
               : "opacity-0 pointer-events-none"
           )}
         >
-          <div className="flex flex-col space-y-8 text-xl">
+          <div className="flex flex-col space-y-6 text-xl">
             {navItems.map((item, key) => (
               <Link
                 key={key}
                 to={item.href}
-                className={`relative px-4 py-2 transition-colors duration-300 group ${
-                  isActiveRoute(item.href)
-                    ? 'text-primary'
-                    : 'text-foreground/80 hover:text-primary'
-                }`}
+                className="relative px-8 py-4 text-foreground/80 hover:text-primary transition-all duration-500 group rounded-xl overflow-hidden font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {/* Mobile crimson line - always visible for active, hover for others */}
-                <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent transition-transform duration-500 ${
-                  isActiveRoute(item.href)
-                    ? 'scale-x-100'
-                    : 'scale-x-0 group-hover:scale-x-100'
-                }`} />
+                {/* Mobile background effect */}
+                <div className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-xl" />
                 
-                <span className="relative z-10">
+                {/* Mobile crimson line */}
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                
+                {/* Mobile diagonal sweep */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary/15 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-700 rounded-xl" 
+                       style={{
+                         background: 'linear-gradient(45deg, transparent 30%, rgba(220, 38, 38, 0.2) 50%, transparent 70%)',
+                         width: '120%',
+                         left: '-20%'
+                       }}
+                  />
+                </div>
+                
+                <span className="relative z-10 group-hover:tracking-widest transition-all duration-300">
                   {item.name}
                 </span>
               </Link>

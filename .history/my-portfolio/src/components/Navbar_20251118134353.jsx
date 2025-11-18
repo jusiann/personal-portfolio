@@ -17,13 +17,6 @@ export const Navbar = () => {
     { name: translations[lang].contact, href: `/${lang}/contact` },
   ];
 
-  const isActiveRoute = (href) => {
-    if (href === `/${lang}`) {
-      return location.pathname === `/${lang}` || location.pathname === `/${lang}/`;
-    }
-    return location.pathname.startsWith(href);
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -42,13 +35,21 @@ export const Navbar = () => {
     >
       <div className="container flex items-center justify-between h-8 pr-24">
         <a
-          className="text-xl font-heading font-bold text-primary flex items-center"
+          className="text-xl font-heading font-bold text-primary flex items-center group relative"
           href="#hero"
         >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground"> Adil </span>{" "}
-            Portfolio
+          <span className="relative z-10 transition-all duration-300">
+            <span className="text-glow text-foreground group-hover:text-primary transition-colors duration-300"> Adil </span>{" "}
+            <span className="group-hover:tracking-wide transition-all duration-300">Portfolio</span>
           </span>
+          {/* Diagonal hover effect */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary/5 to-transparent" 
+                 style={{
+                   background: 'linear-gradient(45deg, transparent 40%, rgba(220, 38, 38, 0.1) 50%, transparent 60%)'
+                 }}
+            />
+          </div>
         </a>
 
         {/* desktop nav */}
@@ -57,23 +58,9 @@ export const Navbar = () => {
             <Link
               key={key}
               to={item.href}
-              className={`relative px-4 py-3 font-medium transition-colors duration-300 group ${
-                isActiveRoute(item.href) 
-                  ? 'text-primary' 
-                  : 'text-foreground/80 hover:text-primary'
-              }`}
+              className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >
-              {/* Linear crimson line effect - Always visible for active, hover for others */}
-              <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent transition-transform duration-500 origin-center ${
-                isActiveRoute(item.href)
-                  ? 'scale-x-100'
-                  : 'scale-x-0 group-hover:scale-x-100'
-              }`} />
-              
-              {/* Text */}
-              <span className="relative z-10">
-                {item.name}
-              </span>
+              {item.name}
             </Link>
           ))}
         </div>
@@ -82,10 +69,10 @@ export const Navbar = () => {
 
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50 hover:text-primary transition-colors duration-300"
+          className="md:hidden p-2 text-foreground z-50"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
         </button>
 
         <div
@@ -102,23 +89,10 @@ export const Navbar = () => {
               <Link
                 key={key}
                 to={item.href}
-                className={`relative px-4 py-2 transition-colors duration-300 group ${
-                  isActiveRoute(item.href)
-                    ? 'text-primary'
-                    : 'text-foreground/80 hover:text-primary'
-                }`}
+                className="text-foreground/80 hover:text-primary transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {/* Mobile crimson line - always visible for active, hover for others */}
-                <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent transition-transform duration-500 ${
-                  isActiveRoute(item.href)
-                    ? 'scale-x-100'
-                    : 'scale-x-0 group-hover:scale-x-100'
-                }`} />
-                
-                <span className="relative z-10">
-                  {item.name}
-                </span>
+                {item.name}
               </Link>
             ))}
           </div>
