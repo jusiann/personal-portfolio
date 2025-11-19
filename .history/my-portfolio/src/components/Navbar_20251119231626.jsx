@@ -3,8 +3,6 @@ import {Menu, X} from "lucide-react";
 import {useEffect, useState} from "react";
 import {useLocation, Link} from "react-router-dom";
 import {translations} from "../lib/translations";
-import {ThemeToggle} from "./ThemeToggle";
-import {LanguageToggle} from "./LanguageToggle";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,31 +36,22 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "relative w-full transition-all duration-300 py-5 mt-4"
+        "relative w-full transition-all duration-300 py-5"
       )}
     >
-      <div className="w-[90%] mx-auto flex items-center justify-between h-8">
-        {/* Sol taraf - Logo + Theme + Language */}
-        <div className="flex items-center gap-6">
-          <a
-            className="text-xl font-heading font-bold text-primary flex items-center"
-            href="#hero"
-          >
-            <span className="relative z-10">
-              <span className="text-glow text-foreground"> Adil </span>{" "}
-              Portfolio
-            </span>
-          </a>
-          
-          {/* Theme & Language Toggles */}
-          <div className="flex items-center gap-2">
-            <ThemeToggle />
-            <LanguageToggle />
-          </div>
-        </div>
+      <div className="container flex items-center justify-between h-8 pr-24">
+        <a
+          className="text-xl font-heading font-bold text-primary flex items-center"
+          href="#hero"
+        >
+          <span className="relative z-10">
+            <span className="text-glow text-foreground"> Adil </span>{" "}
+            Portfolio
+          </span>
+        </a>
 
-        {/* Sağ taraf - Desktop nav */}
-        <div className="hidden md:flex items-center space-x-4">
+        {/* desktop nav */}
+        <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item, key) => (
             <Link
               key={key}
@@ -120,7 +109,7 @@ export const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 {/* Mobile crimson line - always visible for active, hover for others */}
-                <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-primary to-transparent transition-transform duration-500 ${
+                <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent transition-transform duration-500 ${
                   isActiveRoute(item.href)
                     ? 'scale-x-100'
                     : 'scale-x-0 group-hover:scale-x-100'

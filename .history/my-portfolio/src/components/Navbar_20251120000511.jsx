@@ -38,10 +38,10 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "relative w-full transition-all duration-300 py-5 mt-4"
+        "relative w-full transition-all duration-300 py-5"
       )}
     >
-      <div className="w-[90%] mx-auto flex items-center justify-between h-8">
+      <div className="container flex items-center justify-between h-8">
         {/* Sol taraf - Logo + Theme + Language */}
         <div className="flex items-center gap-6">
           <a
