@@ -15,11 +15,6 @@ export const translations = {
         view_projects: 'Projelerimi Görüntüle',
         contact_me: 'Bana Ulaşın',
         
-        // Profile
-        profile_name: 'Adil',
-        profile_surname: 'Efe',
-        profile_tagline: 'Web teknolojileri ve yazılım geliştirme konusunda tutkulu bir geliştiriciyim. Kullanıcı deneyimini ön planda tutarak modern ve performanslı uygulamalar oluşturuyorum.',
-        
         // About section
         about_title: 'Hakkımda',
         about_description: 'Web geliştirme tutkunu bir yazılım geliştiriciyim.',
@@ -53,11 +48,6 @@ export const translations = {
         hero_description: 'I build user-friendly and performant applications with modern web technologies.',
         view_projects: 'View My Projects',
         contact_me: 'Contact Me',
-        
-        // Profile
-        profile_name: 'Adil',
-        profile_surname: 'Efe',
-        profile_tagline: 'Passionate developer focused on web technologies and software development. I create modern and performant applications with user experience as a top priority.',
         
         // About section
         about_title: 'About Me',

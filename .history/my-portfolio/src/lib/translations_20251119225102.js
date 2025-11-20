@@ -15,10 +15,13 @@ export const translations = {
         view_projects: 'Projelerimi Görüntüle',
         contact_me: 'Bana Ulaşın',
         
-        // Profile
-        profile_name: 'Adil',
-        profile_surname: 'Efe',
-        profile_tagline: 'Web teknolojileri ve yazılım geliştirme konusunda tutkulu bir geliştiriciyim. Kullanıcı deneyimini ön planda tutarak modern ve performanslı uygulamalar oluşturuyorum.',
+        // Profile section
+        'home.profile.name': 'Adil Erişir',
+        'home.profile.bio': 'Frontend geliştirici • React, Vite, modern UI tasarımı ve kullanıcı deneyimi odaklı çözümler',
+        'home.profile.links.github': 'GitHub',
+        'home.profile.links.linkedin': 'LinkedIn',
+        'home.profile.links.twitter': 'Twitter',
+        'home.profile.links.mail': 'Email',
         
         // About section
         about_title: 'Hakkımda',
@@ -54,10 +57,13 @@ export const translations = {
         view_projects: 'View My Projects',
         contact_me: 'Contact Me',
         
-        // Profile
-        profile_name: 'Adil',
-        profile_surname: 'Efe',
-        profile_tagline: 'Passionate developer focused on web technologies and software development. I create modern and performant applications with user experience as a top priority.',
+        // Profile section
+        'home.profile.name': 'Adil Erişir',
+        'home.profile.bio': 'Frontend Developer • React, Vite, modern UI design and user experience focused solutions',
+        'home.profile.links.github': 'GitHub',
+        'home.profile.links.linkedin': 'LinkedIn',
+        'home.profile.links.twitter': 'Twitter',
+        'home.profile.links.mail': 'Email',
         
         // About section
         about_title: 'About Me',

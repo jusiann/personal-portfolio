@@ -1,16 +1,23 @@
+import {ThemeToggle} from "../components/ThemeToggle";
+import {LanguageToggle} from "../components/LanguageToggle";
 import {CrimsonWebBackground} from "../components/CrimsonWebBackground";
 import {Navbar} from "../components/Navbar";
 import {PageTransition} from "../components/PageTransition";
-import {HomeCard} from "../components/HomeCard";
 
 export const Home = () => {
     return (
         <PageTransition>
         <div className="
-                        min-h-screen 
+                        mih-h-screen 
                         bg-background 
                         text-foreground 
                         overflow-x-hidden">
+
+            {/* THEME TOGGLE */}
+            <ThemeToggle />
+
+            {/* LANGUAGE TOGGLE */}
+            <LanguageToggle />
 
             {/* BACKGROUND EFFECTS */}
             <CrimsonWebBackground />
@@ -19,7 +26,8 @@ export const Home = () => {
             <Navbar />
             
             {/* MAIN CONTENT */}
-            <HomeCard />
+
+            {/* FOOTER */}
         </div>
         </PageTransition>
     ); 
