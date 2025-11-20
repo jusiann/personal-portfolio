@@ -1,7 +1,8 @@
+import {ThemeToggle} from "../components/ThemeToggle";
+import {LanguageToggle} from "../components/LanguageToggle";
 import {CrimsonWebBackground} from "../components/CrimsonWebBackground";
 import {Navbar} from "../components/Navbar";
 import {PageTransition} from "../components/PageTransition";
-import {ResumeCard} from "../components/ResumeCard";
 
 
 export const Resume = () => {
@@ -20,7 +21,10 @@ export const Resume = () => {
             <Navbar />
             
             {/* MAIN CONTENT */}
-            <ResumeCard />
+            <div className="container pt-32">
+                <h1 className="text-4xl font-bold text-primary">Pesume</h1>
+                {/* Projects content buraya gelecek */}
+            </div>
 
             {/* FOOTER */}
         </div>
