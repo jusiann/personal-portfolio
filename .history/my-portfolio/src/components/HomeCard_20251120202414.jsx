@@ -6,26 +6,25 @@ export const HomeCard = () => {
     const {t} = useLanguage();
 
     return (
-        <div className="relative w-[90%] mx-auto min-h-[calc(100vh-8rem)] flex items-center justify-center pt-32 pb-8">
-            <div className="flex items-center gap-12 w-full max-w-7xl">
-                <div 
-                    className="
-                        relative 
-                        flex-1
-                        bg-card/10 
-                        backdrop-blur-sm
-                        rounded-2xl 
-                        border-l-4 
-                        border-primary
-                        shadow-2xl
-                        p-8
-                        md:p-12
-                        transition-all 
-                        duration-500
-                        hover:scale-[1.01]
-                        animate-fade-in
-                    "
-                >
+        <div className="relative w-[90%] mx-auto py-8 mt-32 flex items-center gap-12">
+            <div 
+                className="
+                    relative 
+                    flex-1
+                    bg-card/10 
+                    backdrop-blur-sm
+                    rounded-2xl 
+                    border-l-4 
+                    border-primary
+                    shadow-2xl
+                    p-8
+                    md:p-12
+                    transition-all 
+                    duration-500
+                    hover:scale-[1.01]
+                    animate-fade-in
+                "
+            >
                 <div className="relative z-10">
                     <div className="md:hidden mb-8">
                         <HomeImage 
@@ -80,25 +79,24 @@ export const HomeCard = () => {
                 </div>
             </div>
 
-                <div className="hidden md:block">
-                    <HomeImage 
-                        src="/src/assets/images/profile_photo.png" 
-                        alt={`${t('profile_name')} ${t('profile_surname')}`}
-                    />
-                </div>
-
-                <div 
-                    className="
-                        absolute 
-                        -inset-4 
-                        bg-primary/5 
-                        blur-3xl 
-                        -z-10 
-                        opacity-50
-                        animate-pulse-subtle
-                    "
+            <div className="hidden md:block">
+                <HomeImage 
+                    src="/src/assets/images/profile_photo.png" 
+                    alt={`${t('profile_name')} ${t('profile_surname')}`}
                 />
             </div>
+
+            <div 
+                className="
+                    absolute 
+                    -inset-4 
+                    bg-primary/5 
+                    blur-3xl 
+                    -z-10 
+                    opacity-50
+                    animate-pulse-subtle
+                "
+            />
         </div>
     );
 };
