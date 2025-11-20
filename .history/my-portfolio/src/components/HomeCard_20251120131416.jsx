@@ -1,9 +1,9 @@
-import {HomeImage} from "./HomeImage";
-import {SocialLinks} from "./SocialLinks";
-import {useLanguage} from "../lib/utils";
+import { HomeImage } from "./HomeImage";
+import { SocialLinks } from "./SocialLinks";
+import { useLanguage } from "../lib/utils";
 
 export const HomeCard = () => {
-    const {t} = useLanguage();
+    const { t } = useLanguage();
 
     return (
         <div className="relative w-[90%] mx-auto py-8 mt-32 flex items-center gap-12">
@@ -58,6 +58,7 @@ export const HomeCard = () => {
                         </p>
                     </div>
 
+                    {/* Açıklama */}
                     <div className="
                         text-center
                         md:text-left 
@@ -75,10 +76,12 @@ export const HomeCard = () => {
                         </p>
                     </div>
 
+                    {/* Sosyal Medya Linkleri */}
                     <SocialLinks />
                 </div>
             </div>
 
+            {/* Profil Resmi - Card Dışında Sağda */}
             <div className="hidden md:block">
                 <HomeImage 
                     src="/src/assets/images/profile_photo.png" 
@@ -86,6 +89,7 @@ export const HomeCard = () => {
                 />
             </div>
 
+            {/* Ambient glow efekti */}
             <div 
                 className="
                     absolute 

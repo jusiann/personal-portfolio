@@ -92,27 +92,26 @@ export const SocialLinks = () => {
 
     return (
         <div className="flex justify-center md:justify-start gap-6 mt-8 animate-fade-in-delay-3">
-            {
-                socialMedia.map((social, index) => (
-                    <a
-                        key={social.name}
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="
-                            p-3
-                            text-foreground/70
-                            hover:text-primary
-                            transition-all
-                            duration-300
-                            hover:scale-110
-                            animate-fade-in-delay-3
-                        "
-                        style={{ animationDelay: `${0.8 + index * 0.1}s` }}
-                        aria-label={social.name}
-                    >
-                        {social.icon}
-                    </a>
+            {socialMedia.map((social, index) => (
+                <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                        p-3
+                        text-foreground/70
+                        hover:text-primary
+                        transition-all
+                        duration-300
+                        hover:scale-110
+                        animate-fade-in-delay-3
+                    "
+                    style={{ animationDelay: `${0.8 + index * 0.1}s` }}
+                    aria-label={social.name}
+                >
+                    {social.icon}
+                </a>
             ))}
         </div>
     );

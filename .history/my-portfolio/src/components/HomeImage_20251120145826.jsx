@@ -10,7 +10,7 @@ export const HomeImage = ({ src, alt = "Profile" }) => {
                     animate-pulse-subtle
                 "
             >
-                {/* GRADIENT BORDER CIRCLE */}
+                {/* Gradient border halka */}
                 <div 
                     className="
                         absolute 
@@ -27,7 +27,7 @@ export const HomeImage = ({ src, alt = "Profile" }) => {
                     "
                 />
                 
-                {/* IMAGE CONTAINER */}
+                {/* Resim container */}
                 <div 
                     className="
                         relative 

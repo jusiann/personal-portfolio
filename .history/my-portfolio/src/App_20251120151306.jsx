@@ -16,13 +16,13 @@ function AnimatedRoutes() {
         {/* TURKISH ROUTES */}
         <Route path="/" element={<Navigate to="/en" replace />} />
         <Route path="/tr" element={<Home />}/>
-        <Route path="/tr/resume" element={<Resume />}/>
+        <Route path="/tr/skills" element={<Skills />}/>
         <Route path="/tr/projects" element={<Projects />}/>
         <Route path="/tr/contact" element={<Contact />}/>
         
         {/* ENGLISH ROUTES */}
         <Route path="/en" element={<Home />}/>
-        <Route path="/en/resume" element={<Resume />}/>
+        <Route path="/en/skills" element={<Skills />}/>
         <Route path="/en/projects" element={<Projects />}/>
         <Route path="/en/contact" element={<Contact />}/>
         <Route path="*" element={<NotFound />} />

@@ -14,7 +14,7 @@ export const Navbar = () => {
 
   const navItems = [
     { name: translations[lang].home, href: `/${lang}` },
-    { name: translations[lang].resume, href: `/${lang}/resume`},
+    { name: translations[lang].skills, href: `/${lang}/skills`},
     { name: translations[lang].projects, href: `/${lang}/projects` },
     { name: translations[lang].contact, href: `/${lang}/contact` },
   ];
@@ -43,48 +43,53 @@ export const Navbar = () => {
       )}
     >
       <div className="w-[90%] mx-auto flex items-center justify-between h-8">
+        {/* Sol taraf - Logo + Theme + Language */}
         <div className="flex items-center gap-6">
           <a
             className="text-xl font-heading font-bold text-primary flex items-center"
             href="#hero"
           >
             <span className="relative z-10">
-              <span className="text-glow/50 text-foreground"> Adil </span>{" "}
+              <span className="text-glow text-foreground"> Adil </span>{" "}
               Portfolio
             </span>
           </a>
           
+          {/* Theme & Language Toggles */}
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <LanguageToggle />
           </div>
         </div>
 
+        {/* Sağ taraf - Desktop nav */}
         <div className="hidden md:flex items-center space-x-4">
-          {
-            navItems.map((item, key) => (
-              <Link
-                key={key}
-                to={item.href}
-                className={`relative px-4 py-3 font-medium transition-colors duration-300 group ${
-                  isActiveRoute(item.href) 
-                    ? 'text-primary' 
-                    : 'text-foreground/80 hover:text-primary'
-                }`}
-              >
-                <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-primary to-transparent transition-transform duration-500 origin-center ${
-                  isActiveRoute(item.href)
-                    ? 'scale-x-100'
-                    : 'scale-x-0 group-hover:scale-x-100'
-                }`} 
-                />
+          {navItems.map((item, key) => (
+            <Link
+              key={key}
+              to={item.href}
+              className={`relative px-4 py-3 font-medium transition-colors duration-300 group ${
+                isActiveRoute(item.href) 
+                  ? 'text-primary' 
+                  : 'text-foreground/80 hover:text-primary'
+              }`}
+            >
+              {/* Linear crimson line effect - Always visible for active, hover for others */}
+              <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-primary to-transparent transition-transform duration-500 origin-center ${
+                isActiveRoute(item.href)
+                  ? 'scale-x-100'
+                  : 'scale-x-0 group-hover:scale-x-100'
+              }`} />
               
-                <span className="relative z-10">
-                  {item.name}
-                </span>
-              </Link>
+              {/* Text */}
+              <span className="relative z-10">
+                {item.name}
+              </span>
+            </Link>
           ))}
         </div>
+
+        {/* mobile nav */}
 
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -104,28 +109,28 @@ export const Navbar = () => {
           )}
         >
           <div className="flex flex-col space-y-8 text-xl">
-            {
-              navItems.map((item, key) => (
-                <Link
-                  key={key}
-                  to={item.href}
-                  className={`relative px-4 py-2 transition-colors duration-300 group ${
-                    isActiveRoute(item.href)
-                      ? 'text-primary'
-                      : 'text-foreground/80 hover:text-primary'
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-primary to-transparent transition-transform duration-500 ${
-                    isActiveRoute(item.href)
-                      ? 'scale-x-100'
-                      : 'scale-x-0 group-hover:scale-x-100'
-                  }`} />
-                  
-                  <span className="relative z-10">
-                    {item.name}
-                  </span>
-                </Link>
+            {navItems.map((item, key) => (
+              <Link
+                key={key}
+                to={item.href}
+                className={`relative px-4 py-2 transition-colors duration-300 group ${
+                  isActiveRoute(item.href)
+                    ? 'text-primary'
+                    : 'text-foreground/80 hover:text-primary'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {/* Mobile crimson line - always visible for active, hover for others */}
+                <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-primary to-transparent transition-transform duration-500 ${
+                  isActiveRoute(item.href)
+                    ? 'scale-x-100'
+                    : 'scale-x-0 group-hover:scale-x-100'
+                }`} />
+                
+                <span className="relative z-10">
+                  {item.name}
+                </span>
+              </Link>
             ))}
           </div>
         </div>

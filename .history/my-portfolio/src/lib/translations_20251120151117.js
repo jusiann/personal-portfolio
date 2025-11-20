@@ -3,7 +3,7 @@ export const translations = {
         // Navbar
         home: 'Ana Sayfa',
         about: 'Hakkımda',
-        resume: 'Özgeçmiş',
+        skills: 'Yetenekler',
         projects: 'Projeler',
         contact: 'İletişim',
         
@@ -35,20 +35,6 @@ export const translations = {
         contact_description: 'Benimle iletişime geçin',
         send_message: 'Mesaj Gönder',
         
-        // Resume section
-        resume_title: 'Özgeçmiş',
-        resume_subtitle: 'Profesyonel geçmişim ve yeteneklerim',
-        resume_about_title: 'Hakkımda',
-        resume_about_text: '[BURAYA HAKKINDA METNİNİ YAZ]',
-        resume_skills_title: 'Teknik Yetenekler',
-        resume_skills_frontend: 'Frontend',
-        resume_skills_backend: 'Backend',
-        resume_skills_tools: 'Araçlar & Diğer',
-        resume_skills_languages: 'Diller',
-        resume_education_title: 'Eğitim',
-        resume_experience_title: 'İş Deneyimi',
-        resume_certificates_title: 'Sertifikalar',
-        
         // Footer
         rights_reserved: 'Tüm hakları saklıdır',
     },
@@ -56,7 +42,7 @@ export const translations = {
         // Navbar
         home: 'Home',
         about: 'About',
-        resume: 'Resume',
+        skills: 'Skills',
         projects: 'Projects',
         contact: 'Contact',
         
@@ -87,20 +73,6 @@ export const translations = {
         contact_title: 'Contact',
         contact_description: 'Get in touch with me',
         send_message: 'Send Message',
-        
-        // Resume section
-        resume_title: 'Resume',
-        resume_subtitle: 'My professional background and skills',
-        resume_about_title: 'About Me',
-        resume_about_text: '[WRITE YOUR ABOUT TEXT HERE]',
-        resume_skills_title: 'Technical Skills',
-        resume_skills_frontend: 'Frontend',
-        resume_skills_backend: 'Backend',
-        resume_skills_tools: 'Tools & Others',
-        resume_skills_languages: 'Languages',
-        resume_education_title: 'Education',
-        resume_experience_title: 'Work Experience',
-        resume_certificates_title: 'Certificates',
         
         // Footer
         rights_reserved: 'All rights reserved',

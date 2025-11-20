@@ -3,7 +3,7 @@ import {SocialLinks} from "./SocialLinks";
 import {useLanguage} from "../lib/utils";
 
 export const HomeCard = () => {
-    const {t} = useLanguage();
+    const { t } = useLanguage();
 
     return (
         <div className="relative w-[90%] mx-auto py-8 mt-32 flex items-center gap-12">

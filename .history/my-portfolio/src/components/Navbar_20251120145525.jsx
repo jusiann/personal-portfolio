@@ -14,7 +14,7 @@ export const Navbar = () => {
 
   const navItems = [
     { name: translations[lang].home, href: `/${lang}` },
-    { name: translations[lang].resume, href: `/${lang}/resume`},
+    { name: translations[lang].skills, href: `/${lang}/skills`},
     { name: translations[lang].projects, href: `/${lang}/projects` },
     { name: translations[lang].contact, href: `/${lang}/contact` },
   ];
