@@ -23,7 +23,6 @@ export const HomeCard = () => {
                         transition-all 
                         duration-500
                         hover:scale-[1.01]
-                        animate-fade-in
                     "
                 >
                 <div className="relative z-10">
@@ -34,7 +33,7 @@ export const HomeCard = () => {
                         />
                     </div>
 
-                    <div className="text-center md:text-left mb-6 animate-fade-in-delay-2">
+                    <div className="text-center md:text-left mb-6">
                         <h1 className="
                             text-4xl 
                             md:text-5xl 
@@ -64,7 +63,6 @@ export const HomeCard = () => {
                         md:text-left 
                         mb-8 
                         max-w-2xl
-                        animate-fade-in-delay-2
                     ">
                         <p className="
                             text-base 

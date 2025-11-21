@@ -1,6 +1,6 @@
 export const HomeImage = ({ src, alt = "Profile" }) => {
     return (
-        <div className="flex justify-center mb-8 animate-fade-in-delay-1">
+        <div className="flex justify-center mb-8">
             
             { /* OUTER GLOW CIRCLE */ }
             <div 

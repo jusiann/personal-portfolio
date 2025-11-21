@@ -91,7 +91,7 @@ export const SocialLinks = () => {
     ];
 
     return (
-        <div className="flex justify-center md:justify-start gap-6 mt-8 animate-fade-in-delay-3">
+        <div className="flex justify-center md:justify-start gap-6 mt-8">
             {
                 socialMedia.map((social, index) => (
                     <a
@@ -106,9 +106,7 @@ export const SocialLinks = () => {
                             transition-all
                             duration-300
                             hover:scale-110
-                            animate-fade-in-delay-3
                         "
-                        style={{ animationDelay: `${0.8 + index * 0.1}s` }}
                         aria-label={social.name}
                     >
                         {social.icon}

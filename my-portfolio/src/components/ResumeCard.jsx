@@ -3,12 +3,11 @@ import { useLanguage } from "../lib/utils";
 import { cn } from "../lib/utils";
 import { 
     SiHtml5, SiCss3, SiJavascript, SiReact, SiBootstrap, SiTailwindcss,
-    SiC, SiCplusplus, SiPython, SiPostgresql, SiMongodb,
-    SiGit, SiFigma, SiPostman, SiBlender, SiUnity
+    SiCplusplus, SiPython, SiPostgresql, SiMongodb, SiMysql, SiNodedotjs, SiExpress,
+    SiGit, SiFigma, SiPostman, SiBlender, SiUnity, SiJsonwebtokens, SiNpm, SiJira, SiEslint,
 } from 'react-icons/si';
-import { TbBrandCSharp } from 'react-icons/tb';
 import { FaJava } from 'react-icons/fa';
-import { VscCode } from 'react-icons/vsc';
+import { VscVscode } from 'react-icons/vsc';
 
 export const ResumeCard = () => {
     const { t } = useLanguage();
@@ -17,6 +16,7 @@ export const ResumeCard = () => {
     const tabs = [
         { id: 'about', label: t('resume_about_title') },
         { id: 'education', label: t('resume_education_title') },
+        { id: 'experience', label: t('resume_experience_title') },
         { id: 'skills', label: t('resume_skills_title') },
     ];
 
@@ -24,56 +24,100 @@ export const ResumeCard = () => {
         switch (activeTab) {
             case 'about':
                 return (
-                    <div className="animate-fade-in">
+                    <div>
                         <h3 className="text-2xl font-heading font-bold text-foreground mb-4">
                             {t('resume_about_title')}
                         </h3>
-                        <p className="text-foreground/80 leading-relaxed text-lg">
-                            {t('profile_tagline')}
+                        <p className="text-foreground/80 leading-relaxed text-lg mb-8">
+                            {t('profile_about_text')}
                         </p>
-                        <div className="mt-6 grid grid-cols-2 gap-4 text-sm">
-                            <div>
-                                <span className="text-primary font-semibold">Ad:</span> {t('profile_name')}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="space-y-3">
+                                <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
+                                    <span className="text-primary font-semibold text-sm w-[110px] shrink-0">{t('full_name')}:</span>
+                                    <span className="text-foreground/80 text-sm">{t('profile_name')} {t('profile_surname')}</span>
+                                </div>
+                                <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
+                                    <span className="text-primary font-semibold text-sm w-[110px] shrink-0">{t('birth_date')}:</span>
+                                    <span className="text-foreground/80 text-sm">7 {t('february')} 2004</span>
+                                </div>
+                                <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
+                                    <span className="text-primary font-semibold text-sm w-[110px] shrink-0">{t('position')}:</span>
+                                    <span className="text-foreground/80 text-sm">{t('current_position')}</span>
+                                </div>
+                                <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
+                                    <span className="text-primary font-semibold text-sm w-[110px] shrink-0">{t('location')}:</span>
+                                    <span className="text-foreground/80 text-sm">Kartal / İstanbul</span>
+                                </div>
                             </div>
-                            <div>
-                                <span className="text-primary font-semibold">Soyad:</span> {t('profile_surname')}
-                            </div>
-                            <div>
-                                <span className="text-primary font-semibold">Pozisyon:</span> {t('hero_subtitle')}
-                            </div>
-                            <div>
-                                <span className="text-primary font-semibold">Konum:</span> İstanbul, TR
+                            <div className="space-y-3">
+                                <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
+                                    <span className="text-primary font-semibold text-sm w-[110px] shrink-0">{t('email')}:</span>
+                                    <span className="text-foreground/80 text-sm">adilefe257@gmail.com</span>
+                                </div>
+                                <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
+                                    <span className="text-primary font-semibold text-sm w-[110px] shrink-0">{t('phone')}:</span>
+                                    <span className="text-foreground/80 text-sm">+90 545 676 43 24</span>
+                                </div>
+                                <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
+                                    <span className="text-primary font-semibold text-sm w-[110px] shrink-0">{t('language_label')}:</span>
+                                    <span className="text-foreground/80 text-sm">{t('turkish')} ({t('native')}), {t('english')} (B1)</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 );
             case 'education':
                 return (
-                    <div className="animate-fade-in">
+                    <div>
                         <h3 className="text-2xl font-heading font-bold text-foreground mb-6">
                             {t('resume_education_title')}
                         </h3>
                         <div className="space-y-4">
                             <div className="border-l-4 border-primary pl-4">
                                 <h4 className="text-lg font-semibold text-foreground">
-                                    Bilgisayar Mühendisliği
+                                    {t('education_university_degree')}
                                 </h4>
                                 <p className="text-primary font-medium">
-                                    İstanbul Teknik Üniversitesi
+                                    {t('education_university_name')}
+                                </p>
+                                <p className="text-sm text-foreground/60">
+                                    2023 - {t('present')}
+                                </p>
+                            </div>
+                            <div className="border-l-4 border-primary/50 pl-4">
+                                <h4 className="text-lg font-semibold text-foreground">
+                                    {t('education_highschool_degree')}
+                                </h4>
+                                <p className="text-primary/80 font-medium">
+                                    {t('education_highschool_name')}
                                 </p>
                                 <p className="text-sm text-foreground/60">
                                     2018 - 2022
                                 </p>
                             </div>
-                            <div className="border-l-4 border-primary/50 pl-4">
+                        </div>
+                    </div>
+                );
+            case 'experience':
+                return (
+                    <div>
+                        <h3 className="text-2xl font-heading font-bold text-foreground mb-6">
+                            {t('resume_experience_title')}
+                        </h3>
+                        <div className="space-y-6">
+                            <div className="border-l-4 border-primary pl-4">
                                 <h4 className="text-lg font-semibold text-foreground">
-                                    Lise Diploması
+                                    {t('experience_yapiradar_title')}
                                 </h4>
-                                <p className="text-primary/80 font-medium">
-                                    Fen Lisesi
+                                <p className="text-primary font-medium">
+                                    {t('experience_yapiradar_company')}
                                 </p>
-                                <p className="text-sm text-foreground/60">
-                                    2014 - 2018
+                                <p className="text-sm text-foreground/60 mb-2">
+                                    2024 - {t('present')}
+                                </p>
+                                <p className="text-sm text-foreground/70">
+                                    {t('experience_yapiradar_description')}
                                 </p>
                             </div>
                         </div>
@@ -90,26 +134,30 @@ export const ResumeCard = () => {
                         { name: 'Tailwind CSS', icon: SiTailwindcss },
                     ],
                     backend: [
-                        { name: 'C', icon: SiC },
                         { name: 'C++', icon: SiCplusplus },
-                        { name: 'C#', icon: TbBrandCSharp },
                         { name: 'Java', icon: FaJava },
                         { name: 'Python', icon: SiPython },
+                        { name: 'Node.js', icon: SiNodedotjs },
+                        { name: 'Express', icon: SiExpress },
                         { name: 'PostgreSQL', icon: SiPostgresql },
                         { name: 'MongoDB', icon: SiMongodb },
+                        { name: 'MySQL', icon: SiMysql },
                     ],
                     tools: [
                         { name: 'Git', icon: SiGit },
-                        { name: 'VS Code', icon: VscCode },
-                        // { name: 'Figma', icon: SiFigma },
+                        { name: 'VS Code', icon: VscVscode },
                         { name: 'Postman', icon: SiPostman },
+                        { name: 'JWT', icon: SiJsonwebtokens },
+                        { name: 'NPM', icon: SiNpm },
+                        { name: 'Jira', icon: SiJira },
+                        { name: 'ESLint', icon: SiEslint },
                         { name: 'Blender', icon: SiBlender },
                         { name: 'Unity', icon: SiUnity },
                     ]
                 };
 
                 return (
-                    <div className="animate-fade-in">
+                    <div>
                         <h3 className="text-2xl font-heading font-bold text-foreground mb-6">
                             {t('resume_skills_title')}
                         </h3>
@@ -187,15 +235,14 @@ export const ResumeCard = () => {
         <div className="relative w-[90%] mx-auto min-h-[calc(100vh-8rem)] flex flex-col items-center justify-center pt-32 pb-8">
             <div className="w-full max-w-6xl">
                 {/* Tab Navigation */}
-                <div className="mb-6 animate-fade-in">
+                <div className="mb-6">
                     <div className="flex flex-col md:flex-row overflow-x-auto justify-center bg-background/20 backdrop-blur-sm rounded-lg p-1 gap-1">
-                        {tabs.map((tab, index) => (
+                        {tabs.map((tab) => (
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
                                 className={cn(
                                     "px-6 py-2 text-sm font-medium transition-all duration-200 rounded-md min-w-fit w-full md:w-auto",
-                                    "animate-fade-in-delay-" + (index + 1),
                                     activeTab === tab.id
                                         ? "text-primary bg-primary/10 shadow-sm"
                                         : "text-foreground/60 hover:text-foreground hover:bg-primary/5"
@@ -221,7 +268,6 @@ export const ResumeCard = () => {
                         transition-all 
                         duration-500
                         hover:scale-[1.01]
-                        animate-fade-in-delay-2
                     "
                 >
                     {/* Content */}

@@ -19,6 +19,39 @@ export const translations = {
         profile_name: 'Adil',
         profile_surname: 'Efe',
         profile_tagline: 'Web teknolojileri ve yazılım geliştirme konusunda tutkulu bir geliştiriciyim. Kullanıcı deneyimini ön planda tutarak modern ve performanslı uygulamalar oluşturuyorum.',
+        profile_about_text: 'İstanbul Rumeli Üniversitesi\'nde Bilgisayar Mühendisliği 3. sınıf öğrencisiyim. Özellikle backend geliştirme ve web teknolojilerine ilgi duyuyorum. Takım çalışmasına yatkın, öğrenmeye açık ve sorumluluk sahibi biriyim. Projelerimde sürekli kendimi geliştirmeye ve yeni teknolojiler öğrenmeye çalışıyorum.',
+        
+        // Personal Info
+        full_name: 'Tam Ad',
+        birth_date: 'Doğum Tarihi',
+        position: 'Pozisyon',
+        location: 'Konum',
+        email: 'E-posta',
+        phone: 'Telefon',
+        current_position: 'Backend Geliştirme ve Teknik Destek',
+        present: 'Devam Ediyor',
+        february: 'Şubat',
+        
+        // Education
+        education_university_degree: 'Bilgisayar Mühendisliği',
+        education_university_name: 'İstanbul Rumeli Üniversitesi',
+        education_highschool_degree: 'Lise',
+        education_highschool_name: 'Atilla Uras Anadolu Lisesi',
+        
+        // Experience
+        experience_yapiradar_title: 'Backend Teknik Destek',
+        experience_yapiradar_company: 'Yapıradar A.Ş.',
+        experience_yapiradar_description: 'Backend geliştirme süreçlerinde aktif olarak çalışıyor, teknik destek sağlıyor, hata ayıklama ve sistem bakımı yapıyorum.',
+        experience_desktop_title: 'Masaüstü Uygulaması Geliştirme',
+        experience_desktop_description: 'JavaFX kullanarak masaüstü uygulaması geliştirdim. Bu süreçte arayüz tasarımı, kullanıcı etkileşimi ve temel işlevselliklerin uygulanması konularında deneyim kazandım.',
+        personal_project: 'Kişisel Proje',
+        
+        // Languages
+        language_label: 'Dil',
+        turkish: 'Türkçe',
+        english: 'İngilizce',
+        native: 'Ana Dil',
+        intermediate: 'Orta Seviye',
         
         // About section
         about_title: 'Hakkımda',
@@ -43,7 +76,7 @@ export const translations = {
         resume_skills_title: 'Teknik Yetenekler',
         resume_skills_frontend: 'Frontend',
         resume_skills_backend: 'Backend',
-        resume_skills_tools: 'Araçlar & Diğer',
+        resume_skills_tools: 'Araçlar & Platform',
         resume_skills_languages: 'Diller',
         resume_education_title: 'Eğitim',
         resume_experience_title: 'İş Deneyimi',
@@ -72,6 +105,39 @@ export const translations = {
         profile_name: 'Adil',
         profile_surname: 'Efe',
         profile_tagline: 'Passionate developer focused on web technologies and software development. I create modern and performant applications with user experience as a top priority.',
+        profile_about_text: 'I am a 3rd year Computer Engineering student at Istanbul Rumeli University. I am particularly interested in backend development and web technologies. I am team-oriented, open to learning, and responsible. I constantly strive to improve myself and learn new technologies in my projects.',
+        
+        // Personal Info
+        full_name: 'Full Name',
+        birth_date: 'Birth Date',
+        position: 'Position',
+        location: 'Location',
+        email: 'Email',
+        phone: 'Phone',
+        current_position: 'Backend Development and Technical Support',
+        present: 'Present',
+        february: 'February',
+        
+        // Education
+        education_university_degree: 'Computer Engineering',
+        education_university_name: 'Istanbul Rumeli University',
+        education_highschool_degree: 'High School',
+        education_highschool_name: 'Atilla Uras Anatolian High School',
+        
+        // Experience
+        experience_yapiradar_title: 'Backend Technical Support',
+        experience_yapiradar_company: 'Yapiradar Inc.',
+        experience_yapiradar_description: 'Actively working on backend development processes, providing technical support, debugging and performing system maintenance.',
+        experience_desktop_title: 'Desktop Application Development',
+        experience_desktop_description: 'Developed desktop application using JavaFX. Gained experience in interface design, user interaction and implementation of basic functionalities during this process.',
+        personal_project: 'Personal Project',
+        
+        // Languages
+        language_label: 'Language',
+        turkish: 'Turkish',
+        english: 'English',
+        native: 'Native',
+        intermediate: 'Intermediate',
         
         // About section
         about_title: 'About Me',
@@ -96,7 +162,7 @@ export const translations = {
         resume_skills_title: 'Technical Skills',
         resume_skills_frontend: 'Frontend',
         resume_skills_backend: 'Backend',
-        resume_skills_tools: 'Tools & Others',
+        resume_skills_tools: 'Tools & Platform',
         resume_skills_languages: 'Languages',
         resume_education_title: 'Education',
         resume_experience_title: 'Work Experience',
