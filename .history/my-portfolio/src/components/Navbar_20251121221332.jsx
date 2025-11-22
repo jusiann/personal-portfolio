@@ -42,6 +42,7 @@ export const Navbar = () => {
         isScrolled ? "bg-background/80 backdrop-blur-md shadow-lg" : "bg-transparent"
       )}
     >
+
       <div className="w-[90%] mx-auto flex items-center justify-between h-8">
         
         {/* HERO LINK AND TOGGLES */}
@@ -90,7 +91,7 @@ export const Navbar = () => {
         </div>
 
 
-        {/* MOBILE MENU BUTTON */}
+        {/* MOBILE MENU BUTTON AND OVERLAY */}
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
           className="md:hidden p-2 text-foreground z-50 hover:text-primary transition-colors duration-300"
@@ -99,7 +100,7 @@ export const Navbar = () => {
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* MOBILE NAVIGATION */}
+        {/* MOBILE MENU OVERLAY */}
         <div
           className={cn(
             "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",

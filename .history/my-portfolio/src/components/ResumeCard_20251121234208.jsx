@@ -8,7 +8,7 @@ import {
 } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
 import { VscVscode } from 'react-icons/vsc';
-import { FiMail, FiPhone, FiUser, FiCalendar, FiBriefcase, FiMapPin, FiGlobe } from 'react-icons/fi';
+import { FiMail, FiPhone } from 'react-icons/fi';
 
 export const ResumeCard = () => {
     const { t } = useLanguage();
@@ -35,20 +35,20 @@ export const ResumeCard = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="space-y-3">
                                 <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
-                                    <FiUser className="text-primary mt-0.5 shrink-0" />
+                                    <span className="text-primary font-semibold text-sm w-[110px] shrink-0">{t('full_name')}:</span>
                                     <span className="text-foreground/80 text-sm">{t('profile_name')} {t('profile_surname')}</span>
                                 </div>
                                 <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
-                                    <FiCalendar className="text-primary mt-0.5 shrink-0" />
+                                    <span className="text-primary font-semibold text-sm w-[110px] shrink-0">{t('birth_date')}:</span>
                                     <span className="text-foreground/80 text-sm">7 {t('february')} 2004</span>
                                 </div>
                                 <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
-                                    <FiBriefcase className="text-primary mt-0.5 shrink-0" />
+                                    <span className="text-primary font-semibold text-sm w-[110px] shrink-0">{t('position')}:</span>
                                     <span className="text-foreground/80 text-sm">{t('current_position')}</span>
                                 </div>
                                 <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
-                                    <FiMapPin className="text-primary mt-0.5 shrink-0" />
-                                    <span className="text-foreground/80 text-sm">{t('location_city')}</span>
+                                    <span className="text-primary font-semibold text-sm w-[110px] shrink-0">{t('location')}:</span>
+                                    <span className="text-foreground/80 text-sm">Kartal / İstanbul</span>
                                 </div>
                             </div>
                             <div className="space-y-3">
@@ -61,7 +61,7 @@ export const ResumeCard = () => {
                                     <span className="text-foreground/80 text-sm">+90 545 676 43 24</span>
                                 </div>
                                 <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
-                                    <FiGlobe className="text-primary mt-0.5 shrink-0" />
+                                    <span className="text-primary font-semibold text-sm w-[110px] shrink-0">{t('language_label')}:</span>
                                     <span className="text-foreground/80 text-sm">{t('turkish')} ({t('native')}), {t('english')} (B1)</span>
                                 </div>
                             </div>

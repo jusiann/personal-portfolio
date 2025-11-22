@@ -26,7 +26,6 @@ export const translations = {
         birth_date: 'Doğum Tarihi',
         position: 'Pozisyon',
         location: 'Konum',
-        location_city: 'İstanbul / Türkiye',
         email: 'E-posta',
         phone: 'Telefon',
         current_position: 'Backend Geliştirme ve Teknik Destek',
@@ -64,30 +63,9 @@ export const translations = {
         view_demo: 'Demo',
         view_code: 'Kod',
         
-        // Project Data
-        project_parkour_name: 'Parkour Shooter Game',
-        project_parkour_description: '',
-        project_endless_name: 'Endless Survival Game',
-        project_endless_description: '',
-        project_myhabits_name: 'MyHabits Desktop App',
-        project_myhabits_description: '',
-        project_chatting_name: 'Chatting App',
-        project_chatting_description: '',
-        project_habits_mobile_name: 'Habits Mobile App',
-        project_habits_mobile_description: '',
-        
         // Contact section
         contact_title: 'İletişim',
-        contact_subtitle: 'Benimle iletişime geçin',
         contact_description: 'Benimle iletişime geçin',
-        contact_first_name: 'Ad',
-        contact_first_name_placeholder: 'Adınız',
-        contact_last_name: 'Soyad',
-        contact_last_name_placeholder: 'Soyadınız',
-        contact_subject: 'Konu',
-        contact_message: 'Mesajınız',
-        contact_message_placeholder: 'Mesajınızı buraya yazın...',
-        contact_submit: 'Gönder',
         send_message: 'Mesaj Gönder',
         
         // Resume section
@@ -134,7 +112,6 @@ export const translations = {
         birth_date: 'Birth Date',
         position: 'Position',
         location: 'Location',
-        location_city: 'Istanbul / Turkey',
         email: 'Email',
         phone: 'Phone',
         current_position: 'Backend Development and Technical Support',
@@ -172,30 +149,9 @@ export const translations = {
         view_demo: 'Demo',
         view_code: 'Code',
         
-        // Project Data
-        project_parkour_name: 'Parkour Shooter Game',
-        project_parkour_description: '',
-        project_endless_name: 'Endless Survival Game',
-        project_endless_description: '',
-        project_myhabits_name: 'MyHabits Desktop App',
-        project_myhabits_description: '',
-        project_chatting_name: 'Chatting App',
-        project_chatting_description: '',
-        project_habits_mobile_name: 'Habits Mobile App',
-        project_habits_mobile_description: '',
-        
         // Contact section
         contact_title: 'Contact',
-        contact_subtitle: 'Get in touch with me',
         contact_description: 'Get in touch with me',
-        contact_first_name: 'First Name',
-        contact_first_name_placeholder: 'Your first name',
-        contact_last_name: 'Last Name',
-        contact_last_name_placeholder: 'Your last name',
-        contact_subject: 'Subject',
-        contact_message: 'Your Message',
-        contact_message_placeholder: 'Write your message here...',
-        contact_submit: 'Send',
         send_message: 'Send Message',
         
         // Resume section

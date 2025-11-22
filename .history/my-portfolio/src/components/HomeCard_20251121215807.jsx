@@ -39,6 +39,14 @@ export const HomeCard = () => {
                             />
                         </div>
 
+                         {/* PROFILE IMAGE FOR DESKTOP */}
+                        <div className="hidden md:block">
+                            <HomeImage 
+                                src="/src/assets/images/profile_photo.png" 
+                                alt={`${t('profile_name')} ${t('profile_surname')}`}
+                            />
+                        </div>
+
                         {/* NAME SURNAME TITLE */}
                         <div className="text-center md:text-left mb-6">
                             <h1 className="
@@ -84,14 +92,6 @@ export const HomeCard = () => {
 
                         <SocialLinks />
                     </div>
-                </div>
-
-                {/* PROFILE IMAGE FOR DESKTOP */}
-                <div className="hidden md:block">
-                    <HomeImage 
-                        src="/src/assets/images/profile_photo.png" 
-                        alt={`${t('profile_name')} ${t('profile_surname')}`}
-                    />
                 </div>
 
                 {/* GLOW EFFECT FOR CARD */}

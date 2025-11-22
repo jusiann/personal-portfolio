@@ -48,7 +48,7 @@ export const ResumeCard = () => {
                                 </div>
                                 <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
                                     <FiMapPin className="text-primary mt-0.5 shrink-0" />
-                                    <span className="text-foreground/80 text-sm">{t('location_city')}</span>
+                                    <span className="text-foreground/80 text-sm">İstanbul / Turkiye</span>
                                 </div>
                             </div>
                             <div className="space-y-3">

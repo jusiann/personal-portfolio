@@ -8,6 +8,15 @@ export const HomeCard = () => {
     return (
         <div className="relative w-[90%] mx-auto min-h-[calc(100vh-8rem)] flex items-center justify-center pt-32 pb-8">
             
+                {/* PROFILE IMAGE FOR DESKTOP */}
+                <div className="hidden md:block">
+                    <HomeImage 
+                        src="/src/assets/images/profile_photo.png" 
+                        alt={`${t('profile_name')} ${t('profile_surname')}`}
+                    />
+                </div>
+
+
             {/* CARD CONTAINER */}
             <div className="flex items-center gap-12 w-full max-w-7xl">
                 <div 
@@ -84,14 +93,6 @@ export const HomeCard = () => {
 
                         <SocialLinks />
                     </div>
-                </div>
-
-                {/* PROFILE IMAGE FOR DESKTOP */}
-                <div className="hidden md:block">
-                    <HomeImage 
-                        src="/src/assets/images/profile_photo.png" 
-                        alt={`${t('profile_name')} ${t('profile_surname')}`}
-                    />
                 </div>
 
                 {/* GLOW EFFECT FOR CARD */}

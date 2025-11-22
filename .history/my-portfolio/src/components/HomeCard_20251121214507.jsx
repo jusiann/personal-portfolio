@@ -39,7 +39,7 @@ export const HomeCard = () => {
                             />
                         </div>
 
-                        {/* NAME SURNAME TITLE */}
+                        {/* TEXT CONTENT */}
                         <div className="text-center md:text-left mb-6">
                             <h1 className="
                                 text-4xl 
@@ -65,7 +65,7 @@ export const HomeCard = () => {
                             </p>
                         </div>
 
-                        {/* DESCRIPTION */}
+                        {/* TAGLINE */}
                         <div className="
                             text-center
                             md:text-left 

@@ -26,7 +26,6 @@ export const translations = {
         birth_date: 'Doğum Tarihi',
         position: 'Pozisyon',
         location: 'Konum',
-        location_city: 'İstanbul / Türkiye',
         email: 'E-posta',
         phone: 'Telefon',
         current_position: 'Backend Geliştirme ve Teknik Destek',
@@ -134,7 +133,6 @@ export const translations = {
         birth_date: 'Birth Date',
         position: 'Position',
         location: 'Location',
-        location_city: 'Istanbul / Turkey',
         email: 'Email',
         phone: 'Phone',
         current_position: 'Backend Development and Technical Support',
@@ -186,16 +184,7 @@ export const translations = {
         
         // Contact section
         contact_title: 'Contact',
-        contact_subtitle: 'Get in touch with me',
         contact_description: 'Get in touch with me',
-        contact_first_name: 'First Name',
-        contact_first_name_placeholder: 'Your first name',
-        contact_last_name: 'Last Name',
-        contact_last_name_placeholder: 'Your last name',
-        contact_subject: 'Subject',
-        contact_message: 'Your Message',
-        contact_message_placeholder: 'Write your message here...',
-        contact_submit: 'Send',
         send_message: 'Send Message',
         
         // Resume section
