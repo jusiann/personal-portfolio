@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLanguage } from "../lib/utils";
 import { cn } from "../lib/utils";
-import { 
+import {
     SiHtml5, SiCss3, SiJavascript, SiReact, SiBootstrap, SiTailwindcss,
     SiCplusplus, SiPython, SiPostgresql, SiMongodb, SiMysql, SiNodedotjs, SiExpress,
     SiGit, SiFigma, SiPostman, SiBlender, SiUnity, SiJsonwebtokens, SiNpm, SiJira, SiEslint,
@@ -169,8 +169,8 @@ export const ResumeCard = () => {
                                 </h4>
                                 <div className="flex flex-wrap gap-3">
                                     {skillsData.frontend.map(skill => (
-                                        <div 
-                                            key={skill.name} 
+                                        <div
+                                            key={skill.name}
                                             className="relative group"
                                         >
                                             <div className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 cursor-pointer text-foreground/70 hover:text-primary">
@@ -189,8 +189,8 @@ export const ResumeCard = () => {
                                 </h4>
                                 <div className="flex flex-wrap gap-3">
                                     {skillsData.backend.map(skill => (
-                                        <div 
-                                            key={skill.name} 
+                                        <div
+                                            key={skill.name}
                                             className="relative group"
                                         >
                                             <div className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 cursor-pointer text-foreground/70 hover:text-primary">
@@ -209,8 +209,8 @@ export const ResumeCard = () => {
                                 </h4>
                                 <div className="flex flex-wrap gap-3">
                                     {skillsData.tools.map(skill => (
-                                        <div 
-                                            key={skill.name} 
+                                        <div
+                                            key={skill.name}
                                             className="relative group"
                                         >
                                             <div className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 cursor-pointer text-foreground/70 hover:text-primary">
@@ -256,7 +256,7 @@ export const ResumeCard = () => {
                 </div>
 
                 {/* Card */}
-                <div 
+                <div
                     className="
                         relative 
                         bg-card/10 
@@ -278,7 +278,7 @@ export const ResumeCard = () => {
                 </div>
 
                 {/* Glow Effect */}
-                <div 
+                <div
                     className="
                         absolute 
                         -inset-4 

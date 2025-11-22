@@ -25,18 +25,18 @@ export const ContactCard = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         const subject = subjects.find(s => s.value === formData.subject)?.label || formData.subject;
         const mailtoLink = `mailto:adilefe257@gmail.com?subject=${encodeURIComponent("Contact from " + formData.firstName + " " + formData.lastName + " - " + subject)}&body=${encodeURIComponent(formData.message)}`;
-        
+
         window.location.href = mailtoLink;
     };
 
     return (
         <div className="relative w-[90%] mx-auto min-h-[calc(100vh-8rem)] flex items-center justify-center pt-32 pb-8">
-            
+
             <div className="flex items-center justify-center w-full max-w-4xl">
-                <div 
+                <div
                     className="
                         relative 
                         w-full
@@ -250,18 +250,20 @@ export const ContactCard = () => {
                         </form>
                     </div>
 
-                    <div 
-                        className="
-                            absolute 
-                            -inset-4 
-                            bg-primary/5 
-                            blur-3xl 
-                            -z-10 
-                            opacity-50
-                            animate-pulse-subtle
-                        " 
-                    />
                 </div>
+
+                {/* GLOW EFFECT FOR CARD */}
+                <div
+                    className="
+                        absolute 
+                        -inset-4 
+                        bg-primary/5 
+                        blur-3xl 
+                        -z-10 
+                        opacity-50
+                        animate-pulse-subtle
+                    "
+                />
             </div>
         </div>
     );

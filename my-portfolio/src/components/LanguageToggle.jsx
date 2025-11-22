@@ -1,5 +1,5 @@
-import {useNavigate, useLocation } from 'react-router-dom';
-import {cn} from '../lib/utils';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { cn } from '../lib/utils';
 
 export const LanguageToggle = () => {
     const navigate = useNavigate();
@@ -8,12 +8,13 @@ export const LanguageToggle = () => {
 
     const toggleLanguage = () => {
         const newLang = currentLang === 'tr' ? 'en' : 'tr';
-        navigate(`/${newLang}${location.hash}`);
+        const newPath = location.pathname.replace(`/${currentLang}`, `/${newLang}`);
+        navigate(`${newPath}${location.hash}`);
     };
 
     return (
         <>
-            {/* LANGUAGE TOGGLE BUTTON */}  
+            {/* LANGUAGE TOGGLE BUTTON */}
             <button
                 onClick={toggleLanguage}
                 className={cn(

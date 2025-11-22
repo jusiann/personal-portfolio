@@ -1,10 +1,10 @@
-import {cn} from "../lib/utils";
-import {Menu, X} from "lucide-react";
-import {useEffect, useState} from "react";
-import {useLocation, Link} from "react-router-dom";
-import {translations} from "../lib/translations";
-import {ThemeToggle} from "./ThemeToggle";
-import {LanguageToggle} from "./LanguageToggle";
+import { cn } from "../lib/utils";
+import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useLocation, Link } from "react-router-dom";
+import { translations } from "../lib/translations";
+import { ThemeToggle } from "./ThemeToggle";
+import { LanguageToggle } from "./LanguageToggle";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,7 +14,7 @@ export const Navbar = () => {
 
   const navItems = [
     { name: translations[lang].home, href: `/${lang}` },
-    { name: translations[lang].resume, href: `/${lang}/resume`},
+    { name: translations[lang].resume, href: `/${lang}/resume` },
     { name: translations[lang].projects, href: `/${lang}/projects` },
     { name: translations[lang].contact, href: `/${lang}/contact` },
   ];
@@ -34,7 +34,7 @@ export const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
+
   return (
     <nav
       className={cn(
@@ -43,19 +43,19 @@ export const Navbar = () => {
       )}
     >
       <div className="w-[90%] mx-auto flex items-center justify-between h-8">
-        
+
         {/* HERO LINK AND TOGGLES */}
         <div className="flex items-center gap-6">
-          <a
+          <Link
             className="text-xl font-heading font-bold text-primary flex items-center"
-            href="#hero"
+            to={`/${lang}`}
           >
             <span className="relative z-10">
               <span className="text-glow/50 text-foreground"> Adil </span>{" "}
               Portfolio
             </span>
-          </a>
-          
+          </Link>
+
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <LanguageToggle />
@@ -69,24 +69,22 @@ export const Navbar = () => {
               <Link
                 key={key}
                 to={item.href}
-                className={`relative px-4 py-3 font-medium transition-colors duration-300 group ${
-                  isActiveRoute(item.href) 
-                    ? 'text-primary' 
-                    : 'text-foreground/80 hover:text-primary'
-                }`}
+                className={`relative px-4 py-3 font-medium transition-colors duration-300 group ${isActiveRoute(item.href)
+                  ? 'text-primary'
+                  : 'text-foreground/80 hover:text-primary'
+                  }`}
               >
-                <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-primary to-transparent transition-transform duration-500 origin-center ${
-                  isActiveRoute(item.href)
-                    ? 'scale-x-100'
-                    : 'scale-x-0 group-hover:scale-x-100'
-                }`} 
+                <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-primary to-transparent transition-transform duration-500 origin-center ${isActiveRoute(item.href)
+                  ? 'scale-x-100'
+                  : 'scale-x-0 group-hover:scale-x-100'
+                  }`}
                 />
-              
+
                 <span className="relative z-10">
                   {item.name}
                 </span>
               </Link>
-          ))}
+            ))}
         </div>
 
 
@@ -117,27 +115,25 @@ export const Navbar = () => {
                 <Link
                   key={key}
                   to={item.href}
-                  className={`relative px-4 py-2 transition-colors duration-300 group ${
-                    isActiveRoute(item.href)
-                      ? 'text-primary'
-                      : 'text-foreground/80 hover:text-primary'
-                  }`}
+                  className={`relative px-4 py-2 transition-colors duration-300 group ${isActiveRoute(item.href)
+                    ? 'text-primary'
+                    : 'text-foreground/80 hover:text-primary'
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-primary to-transparent transition-transform duration-500 ${
-                    isActiveRoute(item.href)
-                      ? 'scale-x-100'
-                      : 'scale-x-0 group-hover:scale-x-100'
-                  }`} />
-                  
+                  <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-primary to-transparent transition-transform duration-500 ${isActiveRoute(item.href)
+                    ? 'scale-x-100'
+                    : 'scale-x-0 group-hover:scale-x-100'
+                    }`} />
+
                   <span className="relative z-10">
                     {item.name}
                   </span>
                 </Link>
-            ))}
+              ))}
           </div>
         </div>
       </div>
     </nav>
   );
-}; 
+};
