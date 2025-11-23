@@ -176,7 +176,7 @@ export const ResumeCard = () => {
                                             <div className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-colors duration-200 md:hover:scale-110 md:transition-transform cursor-pointer text-foreground/70 hover:text-primary">
                                                 <skill.icon className="w-7 h-7" />
                                             </div>
-                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
+                                            <div className="hidden md:block absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
                                                 {skill.name}
                                             </div>
                                         </div>
@@ -196,7 +196,7 @@ export const ResumeCard = () => {
                                             <div className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-colors duration-200 md:hover:scale-110 md:transition-transform cursor-pointer text-foreground/70 hover:text-primary">
                                                 <skill.icon className="w-7 h-7" />
                                             </div>
-                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
+                                            <div className="hidden md:block absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
                                                 {skill.name}
                                             </div>
                                         </div>
@@ -216,7 +216,7 @@ export const ResumeCard = () => {
                                             <div className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-colors duration-200 md:hover:scale-110 md:transition-transform cursor-pointer text-foreground/70 hover:text-primary">
                                                 <skill.icon className="w-7 h-7" />
                                             </div>
-                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
+                                            <div className="hidden md:block absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
                                                 {skill.name}
                                             </div>
                                         </div>
@@ -271,7 +271,7 @@ export const ResumeCard = () => {
                     "
                 >
                     {/* CONTENT */}
-                    <div className="p-6 md:p-8 h-[460px] overflow-y-auto">
+                    <div className="p-6 md:p-8 h-[480px] overflow-y-auto">
                         {renderContent()}
                     </div>
                 </div>
