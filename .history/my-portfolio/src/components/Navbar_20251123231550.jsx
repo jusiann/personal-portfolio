@@ -90,7 +90,12 @@ export const Navbar = () => {
 
         {/* MOBILE MENU BUTTON */}
         <button
-          onClick={() => setIsMenuOpen((previous) => !previous)}
+          onClick={() => {
+            setIsMenuOpen((previous) => !previous);
+            if (!isMenuOpen) {
+              window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+          }}
           className="md:hidden p-2 text-foreground z-50 hover:text-primary transition-colors duration-300"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
@@ -100,11 +105,11 @@ export const Navbar = () => {
         {/* MOBILE NAVIGATION */}
         <div
           className={cn(
-            "fixed top-0 right-0 h-screen w-full bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
-            "transition-transform duration-300 md:hidden",
+            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
+            "transition-all duration-300 md:hidden",
             isMenuOpen
-              ? "translate-x-0"
-              : "translate-x-full"
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
           )}
         >
 
