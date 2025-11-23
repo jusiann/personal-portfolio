@@ -29,10 +29,12 @@ export const ResumeCard = () => {
                         <h3 className="text-2xl font-heading font-bold text-foreground mb-4">
                             {translate('resume_about_title')}
                         </h3>
-                        <p className="text-foreground/80 leading-relaxed text-lg mb-8 text-justify">
-                            {translate('profile_about_text')}
-                        </p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="flex items-center min-h-[400px]">
+                            <div className="w-full">
+                                <p className="text-foreground/80 leading-relaxed text-lg mb-8 text-justify">
+                                    {translate('profile_about_text')}
+                                </p>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="space-y-3">
                                 <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
                                     <FiUser className="text-primary mt-0.5 shrink-0" />
@@ -65,6 +67,8 @@ export const ResumeCard = () => {
                                     <span className="text-foreground/80 text-sm">{translate('turkish')} ({translate('native')}), {translate('english')} ({translate('english_level')})</span>
                                 </div>
                             </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 );
@@ -74,7 +78,8 @@ export const ResumeCard = () => {
                         <h3 className="text-2xl font-heading font-bold text-foreground mb-6">
                             {translate('resume_education_title')}
                         </h3>
-                        <div className="space-y-4">
+                        <div className="flex items-center min-h-[400px]">
+                            <div className="w-full space-y-4">
                             <div className="border-l-4 border-primary pl-4">
                                 <h4 className="text-lg font-semibold text-foreground">
                                     {translate('education_university_degree')}
@@ -97,6 +102,7 @@ export const ResumeCard = () => {
                                     {translate('education_highschool_start')} - {translate('education_highschool_end')}
                                 </p>
                             </div>
+                            </div>
                         </div>
                     </div>
                 );
@@ -106,7 +112,8 @@ export const ResumeCard = () => {
                         <h3 className="text-2xl font-heading font-bold text-foreground mb-6">
                             {translate('resume_experience_title')}
                         </h3>
-                        <div className="space-y-6">
+                        <div className="flex items-center min-h-[400px]">
+                            <div className="w-full space-y-6">
                             <div className="border-l-4 border-primary pl-4">
                                 <h4 className="text-lg font-semibold text-foreground">
                                     {translate('experience_yapiradar_title')}
@@ -120,6 +127,7 @@ export const ResumeCard = () => {
                                 <p className="text-sm text-foreground/70">
                                     {translate('experience_yapiradar_description')}
                                 </p>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -162,7 +170,8 @@ export const ResumeCard = () => {
                         <h3 className="text-2xl font-heading font-bold text-foreground mb-6">
                             {translate('resume_skills_title')}
                         </h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="flex items-center min-h-[400px]">
+                            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <h4 className="text-lg font-semibold text-primary mb-3">
                                     {translate('resume_skills_frontend')}
@@ -176,7 +185,7 @@ export const ResumeCard = () => {
                                             <div className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-colors duration-200 md:hover:scale-110 md:transition-transform cursor-pointer text-foreground/70 hover:text-primary">
                                                 <skill.icon className="w-7 h-7" />
                                             </div>
-                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
+                                            <div className="hidden md:block absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
                                                 {skill.name}
                                             </div>
                                         </div>
@@ -196,7 +205,7 @@ export const ResumeCard = () => {
                                             <div className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-colors duration-200 md:hover:scale-110 md:transition-transform cursor-pointer text-foreground/70 hover:text-primary">
                                                 <skill.icon className="w-7 h-7" />
                                             </div>
-                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
+                                            <div className="hidden md:block absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
                                                 {skill.name}
                                             </div>
                                         </div>
@@ -216,12 +225,13 @@ export const ResumeCard = () => {
                                             <div className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-colors duration-200 md:hover:scale-110 md:transition-transform cursor-pointer text-foreground/70 hover:text-primary">
                                                 <skill.icon className="w-7 h-7" />
                                             </div>
-                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
+                                            <div className="hidden md:block absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
                                                 {skill.name}
                                             </div>
                                         </div>
                                     ))}
                                 </div>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -235,8 +245,7 @@ export const ResumeCard = () => {
     return (
         <div className="relative w-[90%] mx-auto min-h-[calc(100vh-8rem)] flex flex-col items-center justify-center pt-32 pb-8">
             <div className="w-full max-w-6xl">
-
-                {/* TAB NAVIGATION */}
+                {/* Tab Navigation */}
                 <div className="mb-6 flex flex-col md:flex-row justify-center gap-2">
                     {tabs.map((tab) => (
                         <button
@@ -254,7 +263,7 @@ export const ResumeCard = () => {
                     ))}
                 </div>
 
-                {/* CARD */}
+                {/* Card */}
                 <div
                     className="
                         relative 
@@ -270,13 +279,15 @@ export const ResumeCard = () => {
                         hover:scale-[1.01]
                     "
                 >
-                    {/* CONTENT */}
-                    <div className="p-6 md:p-8 h-[460px] overflow-y-auto">
-                        {renderContent()}
+                    {/* Content */}
+                    <div className="p-6 md:p-8 h-[500px] overflow-y-auto md:overflow-visible flex items-center">
+                        <div className="w-full">
+                            {renderContent()}
+                        </div>
                     </div>
                 </div>
 
-                {/* GLOW EFFECT */}
+                {/* Glow Effect */}
                 <div
                     className="
                         absolute 

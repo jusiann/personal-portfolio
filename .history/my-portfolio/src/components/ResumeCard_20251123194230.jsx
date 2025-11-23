@@ -176,7 +176,7 @@ export const ResumeCard = () => {
                                             <div className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-colors duration-200 md:hover:scale-110 md:transition-transform cursor-pointer text-foreground/70 hover:text-primary">
                                                 <skill.icon className="w-7 h-7" />
                                             </div>
-                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
+                                            <div className="hidden md:block absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
                                                 {skill.name}
                                             </div>
                                         </div>
@@ -196,7 +196,7 @@ export const ResumeCard = () => {
                                             <div className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-colors duration-200 md:hover:scale-110 md:transition-transform cursor-pointer text-foreground/70 hover:text-primary">
                                                 <skill.icon className="w-7 h-7" />
                                             </div>
-                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
+                                            <div className="hidden md:block absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
                                                 {skill.name}
                                             </div>
                                         </div>
@@ -216,7 +216,7 @@ export const ResumeCard = () => {
                                             <div className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-colors duration-200 md:hover:scale-110 md:transition-transform cursor-pointer text-foreground/70 hover:text-primary">
                                                 <skill.icon className="w-7 h-7" />
                                             </div>
-                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
+                                            <div className="hidden md:block absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
                                                 {skill.name}
                                             </div>
                                         </div>
@@ -235,26 +235,27 @@ export const ResumeCard = () => {
     return (
         <div className="relative w-[90%] mx-auto min-h-[calc(100vh-8rem)] flex flex-col items-center justify-center pt-32 pb-8">
             <div className="w-full max-w-6xl">
-
-                {/* TAB NAVIGATION */}
-                <div className="mb-6 flex flex-col md:flex-row justify-center gap-2">
-                    {tabs.map((tab) => (
-                        <button
-                            key={tab.id}
-                            onClick={() => setActiveTab(tab.id)}
-                            className={cn(
-                                "px-6 py-2 text-sm font-medium transition-all duration-200 rounded-md min-w-fit w-full md:w-auto",
-                                activeTab === tab.id
-                                    ? "text-primary bg-primary/10 shadow-sm"
-                                    : "text-foreground/60 hover:text-foreground hover:bg-primary/5"
-                            )}
-                        >
-                            {tab.label}
-                        </button>
-                    ))}
+                {/* Tab Navigation */}
+                <div className="mb-6">
+                    <div className="flex flex-col md:flex-row overflow-x-auto justify-center bg-background/20 backdrop-blur-sm rounded-lg p-1 gap-1">
+                        {tabs.map((tab) => (
+                            <button
+                                key={tab.id}
+                                onClick={() => setActiveTab(tab.id)}
+                                className={cn(
+                                    "px-6 py-2 text-sm font-medium transition-all duration-200 rounded-md min-w-fit w-full md:w-auto",
+                                    activeTab === tab.id
+                                        ? "text-primary bg-primary/10 shadow-sm"
+                                        : "text-foreground/60 hover:text-foreground hover:bg-primary/5"
+                                )}
+                            >
+                                {tab.label}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
-                {/* CARD */}
+                {/* Card */}
                 <div
                     className="
                         relative 
@@ -270,13 +271,13 @@ export const ResumeCard = () => {
                         hover:scale-[1.01]
                     "
                 >
-                    {/* CONTENT */}
-                    <div className="p-6 md:p-8 h-[460px] overflow-y-auto">
+                    {/* Content */}
+                    <div className="p-6 md:p-8 min-h-[400px]">
                         {renderContent()}
                     </div>
                 </div>
 
-                {/* GLOW EFFECT */}
+                {/* Glow Effect */}
                 <div
                     className="
                         absolute 
