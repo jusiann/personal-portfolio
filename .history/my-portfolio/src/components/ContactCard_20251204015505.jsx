@@ -16,7 +16,7 @@ export const ContactCard = () => {
         {value: "frontend", label: "Frontend Development"},
         {value: "web-design", label: "Web Design / UI UX"},
         {value: "mobile-app", label: "Desktop/Mobile App"},
-        {value: "other", label: "Other"},
+        {value: "other", label: "Other Inquiries"},
     ];
 
     const handleChange = (event) => {

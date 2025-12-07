@@ -1,24 +1,24 @@
-import {useState} from 'react';
-import {useLanguage} from '../lib/utils';
-import {cn} from '../lib/utils';
+import { useState } from 'react';
+import { useLanguage } from '../lib/utils';
+import { cn } from '../lib/utils';
 import {
     SiHtml5, SiCss3, SiJavascript, SiReact, SiBootstrap, SiTailwindcss,
     SiCplusplus, SiPython, SiPostgresql, SiMongodb, SiMysql, SiNodedotjs, SiExpress,
     SiGit, SiFigma, SiPostman, SiBlender, SiUnity, SiJsonwebtokens, SiNpm, SiJira, SiEslint,
 } from 'react-icons/si';
-import {FaJava} from 'react-icons/fa';
-import {VscVscode} from 'react-icons/vsc';
-import {FiMail, FiPhone, FiUser, FiCalendar, FiBriefcase, FiMapPin, FiGlobe} from 'react-icons/fi';
+import { FaJava } from 'react-icons/fa';
+import { VscVscode } from 'react-icons/vsc';
+import { FiMail, FiPhone, FiUser, FiCalendar, FiBriefcase, FiMapPin, FiGlobe } from 'react-icons/fi';
 
 export const ResumeCard = () => {
-    const {translate} = useLanguage();
+    const { translate } = useLanguage();
     const [activeTab, setActiveTab] = useState('about');
 
     const tabs = [
-        {id: 'about', label: translate('resume_about_title')},
-        {id: 'education', label: translate('resume_education_title')},
-        {id: 'experience', label: translate('resume_experience_title')},
-        {id: 'skills', label: translate('resume_skills_title')},
+        { id: 'about', label: translate('resume_about_title') },
+        { id: 'education', label: translate('resume_education_title') },
+        { id: 'experience', label: translate('resume_experience_title') },
+        { id: 'skills', label: translate('resume_skills_title') },
     ];
 
     const renderContent = () => {
@@ -71,31 +71,53 @@ export const ResumeCard = () => {
             case 'education':
                 return (
                     <div>
-                        <h3 className="text-2xl font-heading font-bold text-foreground mb-6">
+                        <h3 className="text-2xl font-heading font-bold text-foreground mb-8 text-center">
                             {translate('resume_education_title')}
                         </h3>
-                        <div className="space-y-4">
-                            <div className="border-l-4 border-primary pl-4">
-                                <h4 className="text-lg font-semibold text-foreground">
-                                    {translate('education_university_degree')}
-                                </h4>
-                                <p className="text-primary font-medium">
-                                    {translate('education_university_name')}
-                                </p>
-                                <p className="text-sm text-foreground/60">
-                                    {translate('education_university_start')} - {translate('present')}
-                                </p>
+
+                        {/* Timeline */}
+                        <div className="relative pl-8">
+                            {/* Timeline Line - starts below the first dot */}
+                            <div className="absolute left-[7px] top-12 bottom-8 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20" />
+
+                            {/* University */}
+                            <div className="relative pb-6 group">
+                                {/* Timeline Dot with pulse */}
+                                <div className="absolute -left-8 top-6 w-4 h-4 rounded-full bg-primary shadow-lg shadow-primary/40 ring-4 ring-background group-hover:scale-125 transition-transform duration-300 z-10">
+                                    <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-30" />
+                                </div>
+
+                                <div className="bg-card/5 group-hover:bg-card/10 rounded-xl p-6 transition-all duration-300 border border-primary/10 group-hover:border-primary/30 text-center">
+                                    <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-3">
+                                        {translate('education_university_start')} - {translate('present')}
+                                    </span>
+                                    <h4 className="text-xl font-semibold text-foreground mb-2">
+                                        {translate('education_university_degree')}
+                                    </h4>
+                                    <p className="text-primary font-medium">
+                                        {translate('education_university_name')}
+                                    </p>
+                                </div>
                             </div>
-                            <div className="border-l-4 border-primary/50 pl-4">
-                                <h4 className="text-lg font-semibold text-foreground">
-                                    {translate('education_highschool_degree')}
-                                </h4>
-                                <p className="text-primary/80 font-medium">
-                                    {translate('education_highschool_name')}
-                                </p>
-                                <p className="text-sm text-foreground/60">
-                                    {translate('education_highschool_start')} - {translate('education_highschool_end')}
-                                </p>
+
+                            {/* High School */}
+                            <div className="relative group">
+                                {/* Timeline Dot with pulse */}
+                                <div className="absolute -left-8 top-6 w-4 h-4 rounded-full bg-primary/50 shadow-lg shadow-primary/20 ring-4 ring-background group-hover:scale-125 transition-transform duration-300 z-10">
+                                    <div className="absolute inset-0 rounded-full bg-primary/50 animate-ping opacity-30" />
+                                </div>
+
+                                <div className="bg-card/5 group-hover:bg-card/10 rounded-xl p-6 transition-all duration-300 border border-primary/10 group-hover:border-primary/30 text-center">
+                                    <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary/70 text-xs font-medium mb-3">
+                                        {translate('education_highschool_start')} - {translate('education_highschool_end')}
+                                    </span>
+                                    <h4 className="text-xl font-semibold text-foreground mb-2">
+                                        {translate('education_highschool_degree')}
+                                    </h4>
+                                    <p className="text-primary/70 font-medium">
+                                        {translate('education_highschool_name')}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -103,23 +125,36 @@ export const ResumeCard = () => {
             case 'experience':
                 return (
                     <div>
-                        <h3 className="text-2xl font-heading font-bold text-foreground mb-6">
+                        <h3 className="text-2xl font-heading font-bold text-foreground mb-8 text-center">
                             {translate('resume_experience_title')}
                         </h3>
-                        <div className="space-y-6">
-                            <div className="border-l-4 border-primary pl-4">
-                                <h4 className="text-lg font-semibold text-foreground">
-                                    {translate('experience_yapiradar_title')}
-                                </h4>
-                                <p className="text-primary font-medium">
-                                    {translate('experience_yapiradar_company')}
-                                </p>
-                                <p className="text-sm text-foreground/60 mb-2">
-                                    {translate('experience_yapiradar_start')} - {translate('present')}
-                                </p>
-                                <p className="text-sm text-foreground/70">
-                                    {translate('experience_yapiradar_description')}
-                                </p>
+
+                        {/* Timeline */}
+                        <div className="relative pl-8">
+                            {/* Timeline Line - starts below the dot */}
+                            <div className="absolute left-[7px] top-12 bottom-0 w-0.5 bg-gradient-to-b from-primary to-primary/30" />
+
+                            {/* YAPIRADAR */}
+                            <div className="relative group">
+                                {/* Timeline Dot with pulse */}
+                                <div className="absolute -left-8 top-6 w-4 h-4 rounded-full bg-primary shadow-lg shadow-primary/40 ring-4 ring-background group-hover:scale-125 transition-transform duration-300 z-10">
+                                    <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-30" />
+                                </div>
+
+                                <div className="bg-card/5 group-hover:bg-card/10 rounded-xl p-6 transition-all duration-300 border border-primary/10 group-hover:border-primary/30 text-center">
+                                    <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-3">
+                                        {translate('experience_yapiradar_start')} - {translate('present')}
+                                    </span>
+                                    <h4 className="text-xl font-semibold text-foreground mb-2">
+                                        {translate('experience_yapiradar_title')}
+                                    </h4>
+                                    <p className="text-primary font-medium mb-3">
+                                        {translate('experience_yapiradar_company')}
+                                    </p>
+                                    <p className="text-sm text-foreground/70 leading-relaxed">
+                                        {translate('experience_yapiradar_description')}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -127,96 +162,102 @@ export const ResumeCard = () => {
             case 'skills': {
                 const skillsData = {
                     frontend: [
-                        {name: 'HTML5', icon: SiHtml5},
-                        {name: 'CSS3', icon: SiCss3},
-                        {name: 'JavaScript', icon: SiJavascript},
-                        {name: 'React', icon: SiReact},
-                        {name: 'Bootstrap', icon: SiBootstrap},
-                        {name: 'Tailwind CSS', icon: SiTailwindcss},
+                        { name: 'HTML5', icon: SiHtml5 },
+                        { name: 'CSS3', icon: SiCss3 },
+                        { name: 'JavaScript', icon: SiJavascript },
+                        { name: 'React', icon: SiReact },
+                        { name: 'Bootstrap', icon: SiBootstrap },
+                        { name: 'Tailwind CSS', icon: SiTailwindcss },
                     ],
                     backend: [
-                        {name: 'C++', icon: SiCplusplus},
-                        {name: 'Java', icon: FaJava},
-                        {name: 'Python', icon: SiPython},
-                        {name: 'Node.js', icon: SiNodedotjs},
-                        {name: 'Express', icon: SiExpress},
-                        {name: 'PostgreSQL', icon: SiPostgresql},
-                        {name: 'MongoDB', icon: SiMongodb},
-                        {name: 'MySQL', icon: SiMysql},
+                        { name: 'C++', icon: SiCplusplus },
+                        { name: 'Java', icon: FaJava },
+                        { name: 'Python', icon: SiPython },
+                        { name: 'Node.js', icon: SiNodedotjs },
+                        { name: 'Express', icon: SiExpress },
+                        { name: 'PostgreSQL', icon: SiPostgresql },
+                        { name: 'MongoDB', icon: SiMongodb },
+                        { name: 'MySQL', icon: SiMysql },
                     ],
                     tools: [
-                        {name: 'Git', icon: SiGit},
-                        {name: 'VS Code', icon: VscVscode},
-                        {name: 'Postman', icon: SiPostman},
-                        {name: 'JWT', icon: SiJsonwebtokens},
-                        {name: 'NPM', icon: SiNpm},
-                        {name: 'Jira', icon: SiJira},
-                        {name: 'ESLint', icon: SiEslint},
-                        {name: 'Blender', icon: SiBlender},
-                        {name: 'Unity', icon: SiUnity},
+                        { name: 'Git', icon: SiGit },
+                        { name: 'VS Code', icon: VscVscode },
+                        { name: 'Postman', icon: SiPostman },
+                        { name: 'JWT', icon: SiJsonwebtokens },
+                        { name: 'NPM', icon: SiNpm },
+                        { name: 'Jira', icon: SiJira },
+                        { name: 'ESLint', icon: SiEslint },
+                        { name: 'Blender', icon: SiBlender },
+                        { name: 'Unity', icon: SiUnity },
                     ]
-               };
+                };
 
                 return (
                     <div>
-                        <h3 className="text-2xl font-heading font-bold text-foreground mb-6">
+                        <h3 className="text-2xl font-heading font-bold text-foreground mb-8 text-center">
                             {translate('resume_skills_title')}
                         </h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                        <div className="space-y-8">
+                            {/* Frontend */}
                             <div>
-                                <h4 className="text-lg font-semibold text-primary mb-3">
+                                <h4 className="text-lg font-semibold text-primary mb-4 text-center">
                                     {translate('resume_skills_frontend')}
                                 </h4>
-                                <div className="flex flex-wrap gap-3">
+                                <div className="flex flex-wrap justify-center gap-4">
                                     {skillsData.frontend.map(skill => (
                                         <div
                                             key={skill.name}
                                             className="relative group"
                                         >
-                                            <div className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-colors duration-200 md:hover:scale-110 md:transition-transform cursor-pointer text-foreground/70 hover:text-primary">
-                                                <skill.icon className="w-7 h-7" />
+                                            <div className="w-14 h-14 bg-primary/10 hover:bg-primary/20 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20 cursor-pointer text-foreground/70 hover:text-primary">
+                                                <skill.icon className="w-8 h-8" />
                                             </div>
-                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
+                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg z-20">
                                                 {skill.name}
                                             </div>
                                         </div>
                                     ))}
                                 </div>
                             </div>
+
+                            {/* Backend */}
                             <div>
-                                <h4 className="text-lg font-semibold text-primary mb-3">
+                                <h4 className="text-lg font-semibold text-primary mb-4 text-center">
                                     {translate('resume_skills_backend')}
                                 </h4>
-                                <div className="flex flex-wrap gap-3">
+                                <div className="flex flex-wrap justify-center gap-4">
                                     {skillsData.backend.map(skill => (
                                         <div
                                             key={skill.name}
                                             className="relative group"
                                         >
-                                            <div className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-colors duration-200 md:hover:scale-110 md:transition-transform cursor-pointer text-foreground/70 hover:text-primary">
-                                                <skill.icon className="w-7 h-7" />
+                                            <div className="w-14 h-14 bg-primary/10 hover:bg-primary/20 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20 cursor-pointer text-foreground/70 hover:text-primary">
+                                                <skill.icon className="w-8 h-8" />
                                             </div>
-                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
+                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg z-20">
                                                 {skill.name}
                                             </div>
                                         </div>
                                     ))}
                                 </div>
                             </div>
+
+                            {/* Tools */}
                             <div>
-                                <h4 className="text-lg font-semibold text-primary mb-3">
+                                <h4 className="text-lg font-semibold text-primary mb-4 text-center">
                                     {translate('resume_skills_tools')}
                                 </h4>
-                                <div className="flex flex-wrap gap-3">
+                                <div className="flex flex-wrap justify-center gap-4">
                                     {skillsData.tools.map(skill => (
                                         <div
                                             key={skill.name}
                                             className="relative group"
                                         >
-                                            <div className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-colors duration-200 md:hover:scale-110 md:transition-transform cursor-pointer text-foreground/70 hover:text-primary">
-                                                <skill.icon className="w-7 h-7" />
+                                            <div className="w-14 h-14 bg-primary/10 hover:bg-primary/20 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20 cursor-pointer text-foreground/70 hover:text-primary">
+                                                <skill.icon className="w-8 h-8" />
                                             </div>
-                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg">
+                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg z-20">
                                                 {skill.name}
                                             </div>
                                         </div>
@@ -226,11 +267,11 @@ export const ResumeCard = () => {
                         </div>
                     </div>
                 );
-           }
+            }
             default:
                 return null;
-       }
-   };
+        }
+    };
 
     return (
         <div className="relative w-[90%] mx-auto min-h-[calc(100vh-8rem)] flex flex-col items-center justify-center pt-32 pb-8">

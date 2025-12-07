@@ -1,15 +1,20 @@
-import {HomeImage} from './HomeImage';
-import {SocialLinks} from './SocialLinks';
-import {useLanguage} from '../lib/utils';
+import { HomeImage } from './HomeImage';
+import { SocialLinks } from './SocialLinks';
+import { TypingEffect } from './TypingEffect';
+import { useLanguage } from '../lib/utils';
 
 export const HomeCard = () => {
-    const {translate} = useLanguage();
+    const { translate, lang } = useLanguage();
+
+    const typingTexts = lang === 'tr'
+        ? ['Full Stack Geliştirici', 'Backend Geliştirici', 'Mobil Uygulama Geliştirici', 'Oyun Geliştirici']
+        : ['Full Stack Developer', 'Backend Developer', 'Mobile App Developer', 'Game Developer'];
 
     return (
         <div className="relative w-[90%] mx-auto min-h-[calc(100vh-8rem)] flex items-center justify-center pt-32 pb-8">
 
             {/* CARD CONTAINER */}
-            <div className="flex items-center gap-12 w-full max-w-7xl">
+            <div className="flex items-stretch gap-12 w-full max-w-7xl">
                 <div
                     className="
                         relative 
@@ -60,8 +65,9 @@ export const HomeCard = () => {
                                 md:text-xl 
                                 text-foreground/60 
                                 font-code
+                                h-7
                             ">
-                                {translate('hero_subtitle')}
+                                <TypingEffect texts={typingTexts} />
                             </p>
                         </div>
 
@@ -88,10 +94,11 @@ export const HomeCard = () => {
                 </div>
 
                 {/* PROFILE IMAGE FOR DESKTOP */}
-                <div className="hidden md:block">
+                <div className="hidden md:flex items-center justify-center shrink-0">
                     <HomeImage
                         src="/assets/images/profile_photo.png"
                         alt={`${translate('profile_name')} ${translate('profile_surname')}`}
+                        size="large"
                     />
                 </div>
 

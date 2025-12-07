@@ -1,17 +1,22 @@
-export const HomeImage = ({ src, alt = "Profile" }) => {
+export const HomeImage = ({ src, alt = "Profile", size = "default" }) => {
+    // Size classes based on prop
+    const sizeClasses = size === "large"
+        ? "w-64 h-64 md:w-80 md:h-80"
+        : "w-40 h-40 md:w-64 md:h-64";
+
     return (
-        <div className="flex justify-center mb-8">
-            
-            { /* OUTER GLOW CIRCLE */ }
-            <div 
+        <div className={size === "large" ? "flex justify-center" : "flex justify-center mb-8"}>
+
+            { /* OUTER GLOW CIRCLE */}
+            <div
                 className="
                     relative 
                     group
                     animate-pulse-subtle
             ">
-                
+
                 {/* GRADIENT BORDER CIRCLE */}
-                <div 
+                <div
                     className="
                         absolute 
                         -inset-1 
@@ -25,15 +30,12 @@ export const HomeImage = ({ src, alt = "Profile" }) => {
                         transition-all 
                         duration-300
                 "/>
-                
+
                 {/* IMAGE CONTAINER */}
-                <div 
-                    className="
+                <div
+                    className={`
                         relative 
-                        w-40 
-                        h-40 
-                        md:w-64 
-                        md:h-64 
+                        ${sizeClasses}
                         rounded-full 
                         overflow-hidden
                         border-4 
@@ -42,9 +44,9 @@ export const HomeImage = ({ src, alt = "Profile" }) => {
                         group-hover:scale-105
                         transition-transform
                         duration-300
-                ">
-                    <img 
-                        src={src} 
+                    `}>
+                    <img
+                        src={src}
                         alt={alt}
                         className="
                             w-full 
@@ -58,7 +60,7 @@ export const HomeImage = ({ src, alt = "Profile" }) => {
                 </div>
 
                 {/* INNER GLOW */}
-                <div 
+                <div
                     className="
                         absolute 
                         inset-0 

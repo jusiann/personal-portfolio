@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import {useEffect, useState, useCallback} from "react";
 
 export const CrimsonWebBackground = () => {
   const [nodes, setNodes] = useState([]);
@@ -12,8 +12,8 @@ export const CrimsonWebBackground = () => {
 
     for (let i = 0; i < nodeList.length; i++) {
       for (let j = i + 1; j < nodeList.length; j++) {
-        if (nodeLines[i] >= maxLinesPerNode ||
-          nodeLines[j] >= maxLinesPerNode) {
+        if (nodeLines[i] >= maxLinesPerNode || 
+            nodeLines[j] >= maxLinesPerNode) {
           continue;
         }
 
@@ -43,7 +43,7 @@ export const CrimsonWebBackground = () => {
   useEffect(() => {
     const generateNodes = () => {
       const numberOfNodes = Math.floor(
-        (window.innerWidth * window.innerHeight) / 25000
+        (window.innerWidth * window.innerHeight) / 30000
       );
 
       const newNodes = [];
@@ -65,7 +65,7 @@ export const CrimsonWebBackground = () => {
     };
 
     generateNodes();
-
+    
     // GENERATE NODES ON RESIZE
     const handleResize = () => {
       generateNodes();
@@ -107,7 +107,7 @@ export const CrimsonWebBackground = () => {
         });
 
         generatelines(newNodes);
-
+        
         return newNodes;
       });
     }, 50);
@@ -134,10 +134,10 @@ export const CrimsonWebBackground = () => {
 
           {/* SVG FOR GLOW EFFECT */}
           <filter id="glow">
-            <feGaussianBlur stdDeviation="1.2" result="coloredBlur" />
+            <feGaussianBlur stdDeviation="1.2" result="coloredBlur"/>
             <feMerge>
-              <feMergeNode in="coloredBlur" />
-              <feMergeNode in="SourceGraphic" />
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
             </feMerge>
           </filter>
 
@@ -159,7 +159,7 @@ export const CrimsonWebBackground = () => {
               style={{ transition: 'opacity 0.5s ease-out' }}
               filter="url(#glow)"
             />
-          ))}
+        ))}
       </svg>
 
       {/* RENDER NODES WITH PULSE EFFECT */}
@@ -177,7 +177,7 @@ export const CrimsonWebBackground = () => {
               animationDelay: node.pulseDelay + "s",
             }}
           />
-        ))}
+      ))}
     </div>
   );
 };
