@@ -1,4 +1,4 @@
-import {useEffect, useState, useCallback} from "react";
+import { useEffect, useState, useCallback } from "react";
 
 export const CrimsonWebBackground = () => {
   const [nodes, setNodes] = useState([]);
