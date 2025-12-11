@@ -102,10 +102,9 @@ export const ResumeCard = () => {
 
                             {/* High School */}
                             <div className="relative group">
-                                {/* Timeline Dot with pulse */}
-                                <div className="absolute -left-8 top-6 w-4 h-4 rounded-full bg-primary/50 shadow-lg shadow-primary/20 ring-4 ring-background group-hover:scale-125 transition-transform duration-300 z-10">
-                                    <div className="absolute inset-0 rounded-full bg-primary/50 animate-ping opacity-30" />
-                                </div>
+                                {/* Timeline Dot - no pulse for completed education */}
+                                <div className="absolute -left-8 top-6 w-4 h-4 rounded-full bg-primary/50 shadow-lg shadow-primary/20 ring-4 ring-background group-hover:scale-125 transition-transform duration-300 z-10" />
+
 
                                 <div className="bg-card/5 group-hover:bg-card/10 rounded-xl p-6 transition-all duration-300 border border-primary/10 group-hover:border-primary/30 text-center">
                                     <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary/70 text-xs font-medium mb-3">

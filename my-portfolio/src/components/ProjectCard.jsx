@@ -1,8 +1,8 @@
-import {useState, useEffect} from 'react';
-import {useLanguage} from '../lib/utils';
+import { useState, useEffect } from 'react';
+import { useLanguage } from '../lib/utils';
 
 export const ProjectCard = () => {
-    const {translate} = useLanguage();
+    const { translate } = useLanguage();
     const [currentProject, setCurrentProject] = useState(0);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isZoomed, setIsZoomed] = useState(false);
@@ -66,7 +66,7 @@ export const ProjectCard = () => {
     ];
 
     useEffect(() => {
-        if (isZoomed) 
+        if (isZoomed)
             return;
 
         const timer = setInterval(() => {
@@ -176,25 +176,57 @@ export const ProjectCard = () => {
                         </div>
 
                         {/* PROJECT NAVIGATION */}
-                        <div className="flex gap-4 justify-end">
-                            <button
-                                onClick={prevProject}
-                                className="text-primary hover:text-primary/80 transition-colors"
-                                aria-label="Previous project"
-                            >
-                                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
-                                </svg>
-                            </button>
-                            <button
-                                onClick={nextProject}
-                                className="text-primary hover:text-primary/80 transition-colors"
-                                aria-label="Next project"
-                            >
-                                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </button>
+                        <div className="flex items-center justify-between">
+                            {/* Project Counter */}
+                            <div className="flex items-center gap-3">
+                                <span className="text-4xl font-bold text-primary font-heading">
+                                    {String(currentProject + 1).padStart(2, '0')}
+                                </span>
+                                <div className="flex flex-col">
+                                    <span className="text-xs text-foreground/40 uppercase tracking-widest">of</span>
+                                    <span className="text-lg text-foreground/60 font-medium">{String(projects.length).padStart(2, '0')}</span>
+                                </div>
+                            </div>
+
+                            {/* Navigation Buttons */}
+                            <div className="flex gap-4">
+                                <button
+                                    onClick={prevProject}
+                                    className="
+                                        group
+                                        relative
+                                        p-2
+                                        text-primary hover:text-primary/80
+                                        transition-all duration-300
+                                        hover:scale-110
+                                    "
+                                    aria-label="Previous project"
+                                >
+                                    {/* Pulse effect on hover */}
+                                    <span className="absolute inset-2.5 rounded-full bg-primary/20 opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
+                                    <svg className="w-10 h-10 relative z-10 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+                                    </svg>
+                                </button>
+                                <button
+                                    onClick={nextProject}
+                                    className="
+                                        group
+                                        relative
+                                        p-2
+                                        text-primary hover:text-primary/80
+                                        transition-all duration-300
+                                        hover:scale-110
+                                    "
+                                    aria-label="Next project"
+                                >
+                                    {/* Pulse effect on hover */}
+                                    <span className="absolute inset-2.5 rounded-full bg-primary/20 opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
+                                    <svg className="w-10 h-10 relative z-10 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -258,7 +290,7 @@ export const ProjectCard = () => {
                             </svg>
                         </button>
                     </div>
-            )}
+                )}
         </div>
     );
 };
