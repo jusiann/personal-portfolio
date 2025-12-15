@@ -1,4 +1,4 @@
-import {useEffect, useState, useCallback} from "react";
+import { useEffect, useState, useCallback } from "react";
 
 export const CrimsonWebBackground = () => {
   const [nodes, setNodes] = useState([]);
@@ -66,16 +66,16 @@ export const CrimsonWebBackground = () => {
 
     generateNodes();
 
-    // // GENERATE NODES ON RESIZE
-    // const handleResize = () => {
-    //   generateNodes();
-    // };
+    // GENERATE NODES ON RESIZE
+    const handleResize = () => {
+      generateNodes();
+    };
 
-    // window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize);
 
-    // return () => {
-    //   window.removeEventListener("resize", handleResize);
-    // };
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [generatelines]);
 
   useEffect(() => {
