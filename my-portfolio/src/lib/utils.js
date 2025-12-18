@@ -8,5 +8,11 @@ export const cn = (...inputs) => {
 
 export const useLanguage = () => {
     const { language, translate, t, toggleLanguage } = useLanguageContext();
-    return { lang: language, translate, t, toggleLanguage };
+
+    return {
+        lang: language,
+        translate,
+        t,
+        toggleLanguage,
+    };
 };

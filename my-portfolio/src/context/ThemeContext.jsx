@@ -29,8 +29,8 @@ export const ThemeProvider = ({ children }) => {
             setIsDarkMode(true);
         }
 
-        // Execute callback if provided (for transition effects)
-        if (callback) callback();
+        if (callback)
+            callback();
     };
 
     return (

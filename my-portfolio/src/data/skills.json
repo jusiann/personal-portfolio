@@ -2,99 +2,122 @@
     "frontend": [
         {
             "name": "HTML5",
-            "icon": "SiHtml5"
+            "icon": "SiHtml5",
+            "level": 5
         },
         {
             "name": "CSS3",
-            "icon": "SiCss3"
+            "icon": "SiCss3",
+            "level": 4
         },
         {
             "name": "JavaScript",
-            "icon": "SiJavascript"
+            "icon": "SiJavascript",
+            "level": 4
         },
         {
             "name": "React",
-            "icon": "SiReact"
+            "icon": "SiReact",
+            "level": 4
         },
         {
             "name": "Bootstrap",
-            "icon": "SiBootstrap"
+            "icon": "SiBootstrap",
+            "level": 4
         },
         {
             "name": "Tailwind CSS",
-            "icon": "SiTailwindcss"
+            "icon": "SiTailwindcss",
+            "level": 4
         }
     ],
     "backend": [
         {
             "name": "C++",
-            "icon": "SiCplusplus"
+            "icon": "SiCplusplus",
+            "level": 3
         },
         {
             "name": "Java",
-            "icon": "FaJava"
+            "icon": "FaJava",
+            "level": 4
         },
         {
             "name": "Python",
-            "icon": "SiPython"
+            "icon": "SiPython",
+            "level": 3
         },
         {
             "name": "Node.js",
-            "icon": "SiNodedotjs"
+            "icon": "SiNodedotjs",
+            "level": 4
         },
         {
             "name": "Express",
-            "icon": "SiExpress"
+            "icon": "SiExpress",
+            "level": 4
         },
         {
             "name": "PostgreSQL",
-            "icon": "SiPostgresql"
+            "icon": "SiPostgresql",
+            "level": 4
         },
         {
             "name": "MongoDB",
-            "icon": "SiMongodb"
+            "icon": "SiMongodb",
+            "level": 3
         },
         {
             "name": "MySQL",
-            "icon": "SiMysql"
+            "icon": "SiMysql",
+            "level": 3
         }
     ],
     "tools": [
         {
             "name": "Git",
-            "icon": "SiGit"
+            "icon": "SiGit",
+            "level": 4
         },
         {
             "name": "VS Code",
-            "icon": "VscVscode"
+            "icon": "VscVscode",
+            "level": 5
         },
         {
             "name": "Postman",
-            "icon": "SiPostman"
+            "icon": "SiPostman",
+            "level": 4
         },
         {
             "name": "JWT",
-            "icon": "SiJsonwebtokens"
+            "icon": "SiJsonwebtokens",
+            "level": 4
         },
         {
             "name": "NPM",
-            "icon": "SiNpm"
+            "icon": "SiNpm",
+            "level": 4
         },
         {
             "name": "Jira",
-            "icon": "SiJira"
+            "icon": "SiJira",
+            "level": 3
         },
         {
             "name": "ESLint",
-            "icon": "SiEslint"
+            "icon": "SiEslint",
+            "level": 3
         },
         {
             "name": "Blender",
-            "icon": "SiBlender"
+            "icon": "SiBlender",
+            "level": 3
         },
         {
             "name": "Unity",
-            "icon": "SiUnity"
+            "icon": "SiUnity",
+            "level": 3
         }
     ]
 }

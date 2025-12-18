@@ -7,18 +7,15 @@ const translations = { tr, en };
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-    // Initialize from localStorage or default to 'en'
     const [language, setLanguage] = useState(() => {
         const stored = localStorage.getItem("language");
         return (stored === "tr" || stored === "en") ? stored : "en";
     });
 
-    // Save to localStorage whenever language changes
     useEffect(() => {
         localStorage.setItem("language", language);
     }, [language]);
 
-    // Helper to get nested object values
     const getNestedTranslation = (obj, path) => {
         return path.split('.').reduce((acc, part) => acc && acc[part], obj);
     };
@@ -26,7 +23,7 @@ export const LanguageProvider = ({ children }) => {
     const translate = (key) => {
         const langData = translations[language];
         const text = getNestedTranslation(langData, key);
-        return text || key; // Return key if translation not found
+        return text || key;
     };
 
     const toggleLanguage = () => {
@@ -38,7 +35,7 @@ export const LanguageProvider = ({ children }) => {
         setLanguage,
         translate,
         toggleLanguage,
-        t: translate, // Shorthand
+        t: translate,
         isRtl: false
     };
 

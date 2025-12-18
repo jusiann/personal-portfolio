@@ -1,23 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { useLanguage } from '../lib/utils';
-import { cn } from '../lib/utils';
-import {
-    SiHtml5, SiCss3, SiJavascript, SiReact, SiBootstrap, SiTailwindcss,
-    SiCplusplus, SiPython, SiPostgresql, SiMongodb, SiMysql, SiNodedotjs, SiExpress,
-    SiGit, SiFigma, SiPostman, SiBlender, SiUnity, SiJsonwebtokens, SiNpm, SiJira, SiEslint,
-} from 'react-icons/si';
-import { FaJava } from 'react-icons/fa';
-import { VscVscode } from 'react-icons/vsc';
-import { FiMail, FiPhone, FiUser, FiCalendar, FiBriefcase, FiMapPin, FiGlobe } from 'react-icons/fi';
+import { useLanguage, cn } from '../lib/utils';
+import { getSkillIcon, FiMail, FiPhone, FiUser, FiCalendar, FiBriefcase, FiMapPin, FiGlobe } from '../lib/icons';
 
 import skillsData from '../data/skills.json';
-
-// Helper to map string icon names to React components
-const iconMap = {
-    SiHtml5, SiCss3, SiJavascript, SiReact, SiBootstrap, SiTailwindcss,
-    SiCplusplus, FaJava, SiPython, SiNodedotjs, SiExpress, SiPostgresql, SiMongodb, SiMysql,
-    SiGit, VscVscode, SiPostman, SiJsonwebtokens, SiNpm, SiJira, SiEslint, SiBlender, SiUnity
-};
 
 export const ResumeCard = () => {
     const { translate } = useLanguage();
@@ -181,19 +166,83 @@ export const ResumeCard = () => {
                     </div>
                 );
             case 'skills': {
-                // Transform JSON data to add icon components
                 const skillsDataWithIcons = {
-                    frontend: skillsData.frontend.map(s => ({ ...s, icon: getIcon(s.icon) })),
-                    backend: skillsData.backend.map(s => ({ ...s, icon: getIcon(s.icon) })),
-                    tools: skillsData.tools.map(s => ({ ...s, icon: getIcon(s.icon) }))
+                    frontend: skillsData.frontend.map(s => ({ ...s, icon: getSkillIcon(s.icon) })),
+                    backend: skillsData.backend.map(s => ({ ...s, icon: getSkillIcon(s.icon) })),
+                    tools: skillsData.tools.map(s => ({ ...s, icon: getSkillIcon(s.icon) }))
                 };
 
-                const SkillBadge = ({ skill }) => (
-                    <div className="flex items-center gap-2 px-3 py-1.5 bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-200 hover:scale-105 cursor-default">
-                        <skill.icon className="w-4 h-4 text-primary" />
-                        <span className="text-sm text-foreground/80">{skill.name}</span>
-                    </div>
-                );
+                const SkillCard = ({ skill }) => {
+                    const totalSegments = 5;
+                    const filledSegments = skill.level;
+                    const radius = 16;
+                    const cx = 22;
+                    const cy = 22;
+                    const gapDegrees = 20;
+                    const segmentDegrees = (360 - (gapDegrees * totalSegments)) / totalSegments;
+
+                    const describeArc = (startAngle, endAngle) => {
+                        const start = {
+                            x: cx + radius * Math.cos((startAngle - 90) * Math.PI / 180),
+                            y: cy + radius * Math.sin((startAngle - 90) * Math.PI / 180)
+                        };
+                        const end = {
+                            x: cx + radius * Math.cos((endAngle - 90) * Math.PI / 180),
+                            y: cy + radius * Math.sin((endAngle - 90) * Math.PI / 180)
+                        };
+                        const largeArcFlag = endAngle - startAngle <= 180 ? 0 : 1;
+                        return `M ${start.x} ${start.y} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${end.x} ${end.y}`;
+                    };
+
+                    const getSegmentPath = (index) => {
+                        const startAngle = index * (segmentDegrees + gapDegrees);
+                        const endAngle = startAngle + segmentDegrees;
+                        return describeArc(startAngle, endAngle);
+                    };
+
+                    return (
+                        <div className="
+                            group
+                            relative
+                            flex flex-col items-center
+                            p-4
+                            rounded-xl
+                            bg-card/5
+                            hover:bg-primary/5
+                            transition-all duration-300
+                            hover:scale-105
+                            cursor-default
+                        ">
+                            {/* Glow effect on hover */}
+                            <div className="absolute inset-0 rounded-xl bg-primary/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 -z-10" />
+
+                            {/* 5-Segment Circular Progress */}
+                            <div className="relative w-14 h-14 mb-2">
+                                <svg className="w-14 h-14" viewBox="0 0 44 44">
+                                    {/* 5 dilim çiz */}
+                                    {[...Array(totalSegments)].map((_, i) => (
+                                        <path
+                                            key={i}
+                                            d={getSegmentPath(i)}
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            className={i < filledSegments ? "text-primary" : "text-foreground/15"}
+                                        />
+                                    ))}
+                                </svg>
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <skill.icon className="w-5 h-5 text-primary" />
+                                </div>
+                            </div>
+
+                            <span className="text-xs text-foreground/70 text-center font-medium group-hover:text-foreground/90 transition-colors">
+                                {skill.name}
+                            </span>
+                        </div>
+                    );
+                };
 
                 return (
                     <div>
@@ -204,36 +253,36 @@ export const ResumeCard = () => {
                         <div className="space-y-6">
                             {/* Frontend */}
                             <div>
-                                <h4 className="text-sm font-semibold text-primary mb-2 text-center uppercase tracking-wider">
+                                <h4 className="text-sm font-semibold text-primary mb-3 text-center uppercase tracking-wider">
                                     {translate('resume_skills_frontend')}
                                 </h4>
-                                <div className="flex flex-wrap justify-center gap-2">
+                                <div className="flex flex-wrap justify-center gap-3">
                                     {skillsDataWithIcons.frontend.map(skill => (
-                                        <SkillBadge key={skill.name} skill={skill} />
+                                        <SkillCard key={skill.name} skill={skill} />
                                     ))}
                                 </div>
                             </div>
 
                             {/* Backend */}
                             <div>
-                                <h4 className="text-sm font-semibold text-primary mb-2 text-center uppercase tracking-wider">
+                                <h4 className="text-sm font-semibold text-primary mb-3 text-center uppercase tracking-wider">
                                     {translate('resume_skills_backend')}
                                 </h4>
-                                <div className="flex flex-wrap justify-center gap-2">
+                                <div className="flex flex-wrap justify-center gap-3">
                                     {skillsDataWithIcons.backend.map(skill => (
-                                        <SkillBadge key={skill.name} skill={skill} />
+                                        <SkillCard key={skill.name} skill={skill} />
                                     ))}
                                 </div>
                             </div>
 
                             {/* Tools */}
                             <div>
-                                <h4 className="text-sm font-semibold text-primary mb-2 text-center uppercase tracking-wider">
+                                <h4 className="text-sm font-semibold text-primary mb-3 text-center uppercase tracking-wider">
                                     {translate('resume_skills_tools')}
                                 </h4>
-                                <div className="flex flex-wrap justify-center gap-2">
+                                <div className="flex flex-wrap justify-center gap-3">
                                     {skillsDataWithIcons.tools.map(skill => (
-                                        <SkillBadge key={skill.name} skill={skill} />
+                                        <SkillCard key={skill.name} skill={skill} />
                                     ))}
                                 </div>
                             </div>

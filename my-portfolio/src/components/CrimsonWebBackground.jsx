@@ -1,4 +1,4 @@
-import {useEffect, useState, useCallback} from "react";
+import { useEffect, useState, useCallback } from "react";
 
 export const CrimsonWebBackground = () => {
   const [nodes, setNodes] = useState([]);
@@ -43,7 +43,7 @@ export const CrimsonWebBackground = () => {
   useEffect(() => {
     const generateNodes = () => {
       const numberOfNodes = Math.floor(
-        (window.innerWidth * window.innerHeight) / 30000
+        (window.innerWidth * window.innerHeight) / 50000
       );
 
       const newNodes = [];
@@ -79,7 +79,21 @@ export const CrimsonWebBackground = () => {
   }, [generatelines]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    let animationId;
+    let lastTime = 0;
+    let frameCount = 0;
+    const targetFPS = 30; // 30 FPS hedef
+    const frameInterval = 1000 / targetFPS;
+
+    const animate = (currentTime) => {
+      animationId = requestAnimationFrame(animate);
+
+      const deltaTime = currentTime - lastTime;
+      if (deltaTime < frameInterval) return;
+
+      lastTime = currentTime - (deltaTime % frameInterval);
+      frameCount++;
+
       setNodes((previousNodes) => {
         const newNodes = previousNodes.map((node) => {
           let newX = node.x + node.speedX;
@@ -106,13 +120,18 @@ export const CrimsonWebBackground = () => {
           };
         });
 
-        generatelines(newNodes);
+        // Line'ları her 4 frame'de bir güncelle (performans için)
+        if (frameCount % 4 === 0) {
+          generatelines(newNodes);
+        }
 
         return newNodes;
       });
-    }, 50);
+    };
 
-    return () => clearInterval(interval);
+    animationId = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationId);
   }, [generatelines]);
 
   return (
