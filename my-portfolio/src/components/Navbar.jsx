@@ -1,27 +1,26 @@
-import {cn} from '../lib/utils';
-import {Menu, X} from 'lucide-react';
-import {useEffect, useState} from 'react';
-import {useLocation, Link} from 'react-router-dom';
-import {translations} from '../lib/translations';
-import {ThemeToggle} from './ThemeToggle';
-import {LanguageToggle} from './LanguageToggle';
+import { cn, useLanguage } from '../lib/utils';
+import { Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { useLocation, Link } from 'react-router-dom';
+import { ThemeToggle } from './ThemeToggle';
+import { LanguageToggle } from './LanguageToggle';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const lang = location.pathname.startsWith("/en") ? "en" : "tr";
+  const { translate } = useLanguage();
 
   const navItems = [
-    {name: translations[lang].home, href: `/${lang}`},
-    {name: translations[lang].resume, href: `/${lang}/resume`},
-    {name: translations[lang].projects, href: `/${lang}/projects`},
-    {name: translations[lang].contact, href: `/${lang}/contact`},
+    { name: translate('home'), href: '/' },
+    { name: translate('resume'), href: '/resume' },
+    { name: translate('projects'), href: '/projects' },
+    { name: translate('contact'), href: '/contact' },
   ];
 
   const isActiveRoute = (href) => {
-    if (href === `/${lang}`) {
-      return location.pathname === `/${lang}` || location.pathname === `/${lang}/`;
+    if (href === '/') {
+      return location.pathname === '/' || location.pathname === '';
     }
     return location.pathname.startsWith(href);
   };
@@ -48,7 +47,7 @@ export const Navbar = () => {
         <div className="flex items-center gap-6">
           <Link
             className="text-xl font-heading font-bold text-primary flex items-center"
-            to={`/${lang}`}
+            to="/"
           >
             <span className="relative z-10">
               <span className="text-glow/50 text-foreground"> Aidy </span>{" "}

@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "nameKey": "project_parkour_name",
+        "descriptionKey": "project_parkour_description",
+        "images": [
+            "/assets/images/projects/parkour_shooter_game/1.png",
+            "/assets/images/projects/parkour_shooter_game/2.png",
+            "/assets/images/projects/parkour_shooter_game/3.png",
+            "/assets/images/projects/parkour_shooter_game/4.png",
+            "/assets/images/projects/parkour_shooter_game/5.png"
+        ]
+    },
+    {
+        "id": 2,
+        "nameKey": "project_endless_name",
+        "descriptionKey": "project_endless_description",
+        "images": [
+            "/assets/images/projects/endless_survival_game/1.png",
+            "/assets/images/projects/endless_survival_game/2.png",
+            "/assets/images/projects/endless_survival_game/3.png",
+            "/assets/images/projects/endless_survival_game/4.png",
+            "/assets/images/projects/endless_survival_game/5.png"
+        ]
+    },
+    {
+        "id": 3,
+        "nameKey": "project_myhabits_name",
+        "descriptionKey": "project_myhabits_description",
+        "images": [
+            "/assets/images/projects/myhabits_desktop_app/1.png",
+            "/assets/images/projects/myhabits_desktop_app/2.png",
+            "/assets/images/projects/myhabits_desktop_app/3.png",
+            "/assets/images/projects/myhabits_desktop_app/4.png",
+            "/assets/images/projects/myhabits_desktop_app/5.png"
+        ]
+    },
+    {
+        "id": 4,
+        "nameKey": "project_chatting_name",
+        "descriptionKey": "project_chatting_description",
+        "images": [
+            "/assets/images/projects/chatting_app/1.jpg",
+            "/assets/images/projects/chatting_app/2.jpg",
+            "/assets/images/projects/chatting_app/3.jpg",
+            "/assets/images/projects/chatting_app/4.jpg",
+            "/assets/images/projects/chatting_app/5.jpg"
+        ]
+    },
+    {
+        "id": 5,
+        "nameKey": "project_habits_mobile_name",
+        "descriptionKey": "project_habits_mobile_description",
+        "images": [
+            "/assets/images/projects/habits_mobile_app/1.jpg",
+            "/assets/images/projects/habits_mobile_app/2.jpg",
+            "/assets/images/projects/habits_mobile_app/3.jpg",
+            "/assets/images/projects/habits_mobile_app/4.png",
+            "/assets/images/projects/habits_mobile_app/5.jpg"
+        ]
+    }
+]

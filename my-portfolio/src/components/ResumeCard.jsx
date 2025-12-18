@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../lib/utils';
 import { cn } from '../lib/utils';
 import {
@@ -10,9 +10,26 @@ import { FaJava } from 'react-icons/fa';
 import { VscVscode } from 'react-icons/vsc';
 import { FiMail, FiPhone, FiUser, FiCalendar, FiBriefcase, FiMapPin, FiGlobe } from 'react-icons/fi';
 
+import skillsData from '../data/skills.json';
+
+// Helper to map string icon names to React components
+const iconMap = {
+    SiHtml5, SiCss3, SiJavascript, SiReact, SiBootstrap, SiTailwindcss,
+    SiCplusplus, FaJava, SiPython, SiNodedotjs, SiExpress, SiPostgresql, SiMongodb, SiMysql,
+    SiGit, VscVscode, SiPostman, SiJsonwebtokens, SiNpm, SiJira, SiEslint, SiBlender, SiUnity
+};
+
 export const ResumeCard = () => {
     const { translate } = useLanguage();
     const [activeTab, setActiveTab] = useState('about');
+    const contentRef = useRef(null);
+
+    // Reset scroll position instantly when tab changes to prevent animation effect
+    useEffect(() => {
+        if (contentRef.current) {
+            contentRef.current.scrollTop = 0;
+        }
+    }, [activeTab]);
 
     const tabs = [
         { id: 'about', label: translate('resume_about_title') },
@@ -21,8 +38,13 @@ export const ResumeCard = () => {
         { id: 'skills', label: translate('resume_skills_title') },
     ];
 
+    const getIcon = (iconName) => iconMap[iconName] || SiJavascript; // Fallback
+
     const renderContent = () => {
         switch (activeTab) {
+            // ... (about, education, experience cases remain mostly same but could rely on profile.json too)
+            // For now let's focus on the massive Skills object.
+
             case 'about':
                 return (
                     <div>
@@ -87,7 +109,7 @@ export const ResumeCard = () => {
                                     <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-30" />
                                 </div>
 
-                                <div className="bg-card/5 group-hover:bg-card/10 rounded-xl p-6 transition-all duration-300 border border-primary/10 group-hover:border-primary/30 text-center">
+                                <div className="bg-card/5 group-hover:bg-card/10 rounded-xl p-6 transition-colors duration-300 border border-primary/10 group-hover:border-primary/30 text-center">
                                     <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-3">
                                         {translate('education_university_start')} - {translate('present')}
                                     </span>
@@ -106,7 +128,7 @@ export const ResumeCard = () => {
                                 <div className="absolute -left-8 top-6 w-4 h-4 rounded-full bg-primary/50 shadow-lg shadow-primary/20 ring-4 ring-background group-hover:scale-125 transition-transform duration-300 z-10" />
 
 
-                                <div className="bg-card/5 group-hover:bg-card/10 rounded-xl p-6 transition-all duration-300 border border-primary/10 group-hover:border-primary/30 text-center">
+                                <div className="bg-card/5 group-hover:bg-card/10 rounded-xl p-6 transition-colors duration-300 border border-primary/10 group-hover:border-primary/30 text-center">
                                     <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary/70 text-xs font-medium mb-3">
                                         {translate('education_highschool_start')} - {translate('education_highschool_end')}
                                     </span>
@@ -140,7 +162,7 @@ export const ResumeCard = () => {
                                     <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-30" />
                                 </div>
 
-                                <div className="bg-card/5 group-hover:bg-card/10 rounded-xl p-6 transition-all duration-300 border border-primary/10 group-hover:border-primary/30 text-center">
+                                <div className="bg-card/5 group-hover:bg-card/10 rounded-xl p-6 transition-colors duration-300 border border-primary/10 group-hover:border-primary/30 text-center">
                                     <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-3">
                                         {translate('experience_yapiradar_start')} - {translate('present')}
                                     </span>
@@ -159,107 +181,59 @@ export const ResumeCard = () => {
                     </div>
                 );
             case 'skills': {
-                const skillsData = {
-                    frontend: [
-                        { name: 'HTML5', icon: SiHtml5 },
-                        { name: 'CSS3', icon: SiCss3 },
-                        { name: 'JavaScript', icon: SiJavascript },
-                        { name: 'React', icon: SiReact },
-                        { name: 'Bootstrap', icon: SiBootstrap },
-                        { name: 'Tailwind CSS', icon: SiTailwindcss },
-                    ],
-                    backend: [
-                        { name: 'C++', icon: SiCplusplus },
-                        { name: 'Java', icon: FaJava },
-                        { name: 'Python', icon: SiPython },
-                        { name: 'Node.js', icon: SiNodedotjs },
-                        { name: 'Express', icon: SiExpress },
-                        { name: 'PostgreSQL', icon: SiPostgresql },
-                        { name: 'MongoDB', icon: SiMongodb },
-                        { name: 'MySQL', icon: SiMysql },
-                    ],
-                    tools: [
-                        { name: 'Git', icon: SiGit },
-                        { name: 'VS Code', icon: VscVscode },
-                        { name: 'Postman', icon: SiPostman },
-                        { name: 'JWT', icon: SiJsonwebtokens },
-                        { name: 'NPM', icon: SiNpm },
-                        { name: 'Jira', icon: SiJira },
-                        { name: 'ESLint', icon: SiEslint },
-                        { name: 'Blender', icon: SiBlender },
-                        { name: 'Unity', icon: SiUnity },
-                    ]
+                // Transform JSON data to add icon components
+                const skillsDataWithIcons = {
+                    frontend: skillsData.frontend.map(s => ({ ...s, icon: getIcon(s.icon) })),
+                    backend: skillsData.backend.map(s => ({ ...s, icon: getIcon(s.icon) })),
+                    tools: skillsData.tools.map(s => ({ ...s, icon: getIcon(s.icon) }))
                 };
+
+                const SkillBadge = ({ skill }) => (
+                    <div className="flex items-center gap-2 px-3 py-1.5 bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-200 hover:scale-105 cursor-default">
+                        <skill.icon className="w-4 h-4 text-primary" />
+                        <span className="text-sm text-foreground/80">{skill.name}</span>
+                    </div>
+                );
 
                 return (
                     <div>
-                        <h3 className="text-2xl font-heading font-bold text-foreground mb-8 text-center">
+                        <h3 className="text-2xl font-heading font-bold text-foreground mb-6 text-center">
                             {translate('resume_skills_title')}
                         </h3>
 
-                        <div className="space-y-8">
+                        <div className="space-y-6">
                             {/* Frontend */}
                             <div>
-                                <h4 className="text-lg font-semibold text-primary mb-4 text-center">
+                                <h4 className="text-sm font-semibold text-primary mb-2 text-center uppercase tracking-wider">
                                     {translate('resume_skills_frontend')}
                                 </h4>
-                                <div className="flex flex-wrap justify-center gap-4">
-                                    {skillsData.frontend.map(skill => (
-                                        <div
-                                            key={skill.name}
-                                            className="relative group"
-                                        >
-                                            <div className="w-14 h-14 bg-primary/10 hover:bg-primary/20 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20 cursor-pointer text-foreground/70 hover:text-primary">
-                                                <skill.icon className="w-8 h-8" />
-                                            </div>
-                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg z-20">
-                                                {skill.name}
-                                            </div>
-                                        </div>
+                                <div className="flex flex-wrap justify-center gap-2">
+                                    {skillsDataWithIcons.frontend.map(skill => (
+                                        <SkillBadge key={skill.name} skill={skill} />
                                     ))}
                                 </div>
                             </div>
 
                             {/* Backend */}
                             <div>
-                                <h4 className="text-lg font-semibold text-primary mb-4 text-center">
+                                <h4 className="text-sm font-semibold text-primary mb-2 text-center uppercase tracking-wider">
                                     {translate('resume_skills_backend')}
                                 </h4>
-                                <div className="flex flex-wrap justify-center gap-4">
-                                    {skillsData.backend.map(skill => (
-                                        <div
-                                            key={skill.name}
-                                            className="relative group"
-                                        >
-                                            <div className="w-14 h-14 bg-primary/10 hover:bg-primary/20 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20 cursor-pointer text-foreground/70 hover:text-primary">
-                                                <skill.icon className="w-8 h-8" />
-                                            </div>
-                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg z-20">
-                                                {skill.name}
-                                            </div>
-                                        </div>
+                                <div className="flex flex-wrap justify-center gap-2">
+                                    {skillsDataWithIcons.backend.map(skill => (
+                                        <SkillBadge key={skill.name} skill={skill} />
                                     ))}
                                 </div>
                             </div>
 
                             {/* Tools */}
                             <div>
-                                <h4 className="text-lg font-semibold text-primary mb-4 text-center">
+                                <h4 className="text-sm font-semibold text-primary mb-2 text-center uppercase tracking-wider">
                                     {translate('resume_skills_tools')}
                                 </h4>
-                                <div className="flex flex-wrap justify-center gap-4">
-                                    {skillsData.tools.map(skill => (
-                                        <div
-                                            key={skill.name}
-                                            className="relative group"
-                                        >
-                                            <div className="w-14 h-14 bg-primary/10 hover:bg-primary/20 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20 cursor-pointer text-foreground/70 hover:text-primary">
-                                                <skill.icon className="w-8 h-8" />
-                                            </div>
-                                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/95 text-foreground text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-primary/20 shadow-lg z-20">
-                                                {skill.name}
-                                            </div>
-                                        </div>
+                                <div className="flex flex-wrap justify-center gap-2">
+                                    {skillsDataWithIcons.tools.map(skill => (
+                                        <SkillBadge key={skill.name} skill={skill} />
                                     ))}
                                 </div>
                             </div>
@@ -305,13 +279,13 @@ export const ResumeCard = () => {
                         border-primary
                         shadow-2xl
                         overflow-hidden
-                        transition-all 
+                        transition-transform 
                         duration-500
                         hover:scale-[1.01]
                     "
                 >
                     {/* CONTENT */}
-                    <div className="p-6 md:p-8 h-[460px] overflow-y-auto">
+                    <div ref={contentRef} className="p-6 md:p-8 h-[460px] overflow-y-auto">
                         {renderContent()}
                     </div>
                 </div>

@@ -1,19 +1,12 @@
-import {clsx} from 'clsx';
-import {twMerge} from 'tailwind-merge';
-import {useLocation} from 'react-router-dom';
-import {translations} from './translations';
+import { clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+import { useLanguageContext } from '../context/LanguageContext';
 
 export const cn = (...inputs) => {
     return twMerge(clsx(...inputs));
 };
 
 export const useLanguage = () => {
-    const location = useLocation();
-    const currentLang = location.pathname.startsWith('/tr') ? 'tr' : 'en';
-    
-    const translate = (key) => {
-        return translations[currentLang][key] || key;
-    };
-    
-    return {lang: currentLang, translate, t: translate};
+    const { language, translate, t, toggleLanguage } = useLanguageContext();
+    return { lang: language, translate, t, toggleLanguage };
 };

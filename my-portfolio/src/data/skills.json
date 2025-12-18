@@ -1,0 +1,100 @@
+{
+    "frontend": [
+        {
+            "name": "HTML5",
+            "icon": "SiHtml5"
+        },
+        {
+            "name": "CSS3",
+            "icon": "SiCss3"
+        },
+        {
+            "name": "JavaScript",
+            "icon": "SiJavascript"
+        },
+        {
+            "name": "React",
+            "icon": "SiReact"
+        },
+        {
+            "name": "Bootstrap",
+            "icon": "SiBootstrap"
+        },
+        {
+            "name": "Tailwind CSS",
+            "icon": "SiTailwindcss"
+        }
+    ],
+    "backend": [
+        {
+            "name": "C++",
+            "icon": "SiCplusplus"
+        },
+        {
+            "name": "Java",
+            "icon": "FaJava"
+        },
+        {
+            "name": "Python",
+            "icon": "SiPython"
+        },
+        {
+            "name": "Node.js",
+            "icon": "SiNodedotjs"
+        },
+        {
+            "name": "Express",
+            "icon": "SiExpress"
+        },
+        {
+            "name": "PostgreSQL",
+            "icon": "SiPostgresql"
+        },
+        {
+            "name": "MongoDB",
+            "icon": "SiMongodb"
+        },
+        {
+            "name": "MySQL",
+            "icon": "SiMysql"
+        }
+    ],
+    "tools": [
+        {
+            "name": "Git",
+            "icon": "SiGit"
+        },
+        {
+            "name": "VS Code",
+            "icon": "VscVscode"
+        },
+        {
+            "name": "Postman",
+            "icon": "SiPostman"
+        },
+        {
+            "name": "JWT",
+            "icon": "SiJsonwebtokens"
+        },
+        {
+            "name": "NPM",
+            "icon": "SiNpm"
+        },
+        {
+            "name": "Jira",
+            "icon": "SiJira"
+        },
+        {
+            "name": "ESLint",
+            "icon": "SiEslint"
+        },
+        {
+            "name": "Blender",
+            "icon": "SiBlender"
+        },
+        {
+            "name": "Unity",
+            "icon": "SiUnity"
+        }
+    ]
+}

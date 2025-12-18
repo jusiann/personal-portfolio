@@ -12,19 +12,10 @@ function AnimatedRoutes() {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-
-        {/* TURKISH ROUTES */}
-        <Route path="/" element={<Navigate to="/en" replace />} />
-        <Route path="/tr" element={<Home />} />
-        <Route path="/tr/resume" element={<Resume />} />
-        <Route path="/tr/projects" element={<Projects />} />
-        <Route path="/tr/contact" element={<Contact />} />
-
-        {/* ENGLISH ROUTES */}
-        <Route path="/en" element={<Home />} />
-        <Route path="/en/resume" element={<Resume />} />
-        <Route path="/en/projects" element={<Projects />} />
-        <Route path="/en/contact" element={<Contact />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/resume" element={<Resume />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

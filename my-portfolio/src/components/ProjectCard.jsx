@@ -1,69 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../lib/utils';
 
+import projectsData from '../data/projects.json';
+
 export const ProjectCard = () => {
     const { translate } = useLanguage();
     const [currentProject, setCurrentProject] = useState(0);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isZoomed, setIsZoomed] = useState(false);
 
-    const projects = [
-        {
-            name: translate('project_parkour_name'),
-            description: translate('project_parkour_description'),
-            images: [
-                '/assets/images/projects/parkour_shooter_game/1.png',
-                '/assets/images/projects/parkour_shooter_game/2.png',
-                '/assets/images/projects/parkour_shooter_game/3.png',
-                '/assets/images/projects/parkour_shooter_game/4.png',
-                '/assets/images/projects/parkour_shooter_game/5.png',
-            ],
-        },
-        {
-            name: translate('project_endless_name'),
-            description: translate('project_endless_description'),
-            images: [
-                '/assets/images/projects/endless_survival_game/1.png',
-                '/assets/images/projects/endless_survival_game/2.png',
-                '/assets/images/projects/endless_survival_game/3.png',
-                '/assets/images/projects/endless_survival_game/4.png',
-                '/assets/images/projects/endless_survival_game/5.png',
-            ],
-        },
-        {
-            name: translate('project_myhabits_name'),
-            description: translate('project_myhabits_description'),
-            images: [
-                '/assets/images/projects/myhabits_desktop_app/1.png',
-                '/assets/images/projects/myhabits_desktop_app/2.png',
-                '/assets/images/projects/myhabits_desktop_app/3.png',
-                '/assets/images/projects/myhabits_desktop_app/4.png',
-                '/assets/images/projects/myhabits_desktop_app/5.png',
-            ],
-        },
-        {
-            name: translate('project_chatting_name'),
-            description: translate('project_chatting_description'),
-            images: [
-                '/assets/images/projects/chatting_app/1.jpg',
-                '/assets/images/projects/chatting_app/2.jpg',
-                '/assets/images/projects/chatting_app/3.jpg',
-                '/assets/images/projects/chatting_app/4.jpg',
-                '/assets/images/projects/chatting_app/5.jpg',
-            ],
-        },
-        {
-            name: translate('project_habits_mobile_name'),
-            description: translate('project_habits_mobile_description'),
-            images: [
-                '/assets/images/projects/habits_mobile_app/1.jpg',
-                '/assets/images/projects/habits_mobile_app/2.jpg',
-                '/assets/images/projects/habits_mobile_app/3.jpg',
-                '/assets/images/projects/habits_mobile_app/4.png',
-                '/assets/images/projects/habits_mobile_app/5.jpg',
-            ],
-        },
-    ];
+    // Map JSON data to expected format with dynamic translation
+    const projects = projectsData.map(project => ({
+        ...project,
+        name: translate(project.nameKey),
+        description: translate(project.descriptionKey)
+    }));
 
     useEffect(() => {
         if (isZoomed)

@@ -1,47 +1,21 @@
 import { useEffect, useState } from 'react';
+import { useTheme } from '../context/ThemeContext';
 import { createPortal } from 'react-dom';
 import { Sun, Moon } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const ThemeToggle = () => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const { isDarkMode, toggleTheme, isMounted } = useTheme();
     const [isTransitioning, setIsTransitioning] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
 
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
-
-    useEffect(() => {
-        const storedTheme = localStorage.getItem("theme");
-        if (storedTheme === "dark") {
-            document.documentElement.classList.add("dark");
-            setIsDarkMode(true);
-        } else {
-            document.documentElement.classList.remove("dark");
-            setIsDarkMode(false);
-        }
-    }, []);
-
-    const toggleTheme = () => {
+    const handleToggle = () => {
         setIsTransitioning(true);
-
-        setTimeout(() => {
-            if (isDarkMode) {
-                document.documentElement.classList.remove("dark");
-                localStorage.setItem("theme", "light");
-                setIsDarkMode(false);
-            } else {
-                document.documentElement.classList.add("dark");
-                localStorage.setItem("theme", "dark");
-                setIsDarkMode(true);
-            }
-        }, 350);
-
-        setTimeout(() => {
-            setIsTransitioning(false);
-        }, 800);
+        toggleTheme(() => {
+            setTimeout(() => {
+                setIsTransitioning(false);
+            }, 800);
+        });
     };
 
     return (
@@ -49,7 +23,7 @@ export const ThemeToggle = () => {
 
             {/* THEME TOGGLE BUTTON */}
             <button
-                onClick={toggleTheme}
+                onClick={handleToggle}
                 className={cn(
                     "p-2 rounded-full transition-all duration-300",
                     "hover:scale-110 active:scale-95",

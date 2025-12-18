@@ -1,0 +1,30 @@
+{
+    "nameKey": "profile_name",
+    "surnameKey": "profile_surname",
+    "aboutTextKey": "profile_about_text",
+    "taglineKey": "profile_tagline",
+    "avatar": "/assets/images/profile_photo.png",
+    "education": [
+        {
+            "degreeKey": "education_university_degree",
+            "schoolKey": "education_university_name",
+            "startKey": "education_university_start",
+            "endKey": "present"
+        },
+        {
+            "degreeKey": "education_highschool_degree",
+            "schoolKey": "education_highschool_name",
+            "startKey": "education_highschool_start",
+            "endKey": "education_highschool_end"
+        }
+    ],
+    "experience": [
+        {
+            "titleKey": "experience_yapiradar_title",
+            "companyKey": "experience_yapiradar_company",
+            "startKey": "experience_yapiradar_start",
+            "endKey": "present",
+            "descriptionKey": "experience_yapiradar_description"
+        }
+    ]
+}

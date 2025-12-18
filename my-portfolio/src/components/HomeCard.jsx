@@ -1,5 +1,5 @@
-import {HomeImage} from './HomeImage';
-import {SocialLinks} from './SocialLinks';
+import { HomeImage } from './HomeImage';
+import { SocialLinks } from './SocialLinks';
 import { TypingEffect } from './TypingEffect';
 import { useLanguage } from '../lib/utils';
 

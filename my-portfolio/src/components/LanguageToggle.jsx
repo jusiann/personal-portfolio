@@ -1,16 +1,8 @@
-import {useNavigate, useLocation} from 'react-router-dom';
-import {cn} from '../lib/utils';
+import { useLanguageContext } from '../context/LanguageContext';
+import { cn } from '../lib/utils';
 
 export const LanguageToggle = () => {
-    const navigate = useNavigate();
-    const location = useLocation();
-    const currentLang = location.pathname.startsWith("/en") ? "en" : "tr";
-
-    const toggleLanguage = () => {
-        const newLang = currentLang === "tr" ? "en" : "tr";
-        const newPath = location.pathname.replace(`/${currentLang}`, `/${newLang}`);
-        navigate(`${newPath}${location.hash}`);
-    };
+    const { language, toggleLanguage } = useLanguageContext();
 
     return (
         <>
@@ -24,7 +16,7 @@ export const LanguageToggle = () => {
                     "text-sm font-medium uppercase"
                 )}
             >
-                {currentLang === "tr" ? "EN" : "TR"}
+                {language === "tr" ? "EN" : "TR"}
             </button>
         </>
     );
