@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-route
 import { AnimatePresence } from "framer-motion"
 import { Home } from "./pages/Home"
 import { Resume } from "./pages/Resume"
+import { Skills } from "./pages/Skills"
 import { Projects } from "./pages/Projects"
 import { Contact } from "./pages/Contact"
 import { NotFound } from "./pages/NotFound"
@@ -14,6 +15,7 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/resume" element={<Resume />} />
+        <Route path="/skills" element={<Skills />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />

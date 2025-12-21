@@ -1,8 +1,15 @@
 [
     {
         "id": 1,
-        "nameKey": "project_parkour_name",
-        "descriptionKey": "project_parkour_description",
+        "name": "projects.parkour.name",
+        "description": "projects.parkour.description",
+        "category": "desktop",
+        "technologies": [
+            "SiUnity",
+            "SiCplusplus",
+            "SiBlender"
+        ],
+        "githubUrl": "#",
         "images": [
             "/assets/images/projects/parkour_shooter_game/1.png",
             "/assets/images/projects/parkour_shooter_game/2.png",
@@ -13,8 +20,14 @@
     },
     {
         "id": 2,
-        "nameKey": "project_endless_name",
-        "descriptionKey": "project_endless_description",
+        "name": "projects.endless.name",
+        "description": "projects.endless.description",
+        "category": "mobile",
+        "technologies": [
+            "SiUnity",
+            "SiCplusplus"
+        ],
+        "githubUrl": "#",
         "images": [
             "/assets/images/projects/endless_survival_game/1.png",
             "/assets/images/projects/endless_survival_game/2.png",
@@ -25,8 +38,13 @@
     },
     {
         "id": 3,
-        "nameKey": "project_myhabits_name",
-        "descriptionKey": "project_myhabits_description",
+        "name": "projects.myhabits.name",
+        "description": "projects.myhabits.description",
+        "category": "desktop",
+        "technologies": [
+            "FaJava"
+        ],
+        "githubUrl": "https://github.com/jusiann/myhabits",
         "images": [
             "/assets/images/projects/myhabits_desktop_app/1.png",
             "/assets/images/projects/myhabits_desktop_app/2.png",
@@ -37,8 +55,16 @@
     },
     {
         "id": 4,
-        "nameKey": "project_chatting_name",
-        "descriptionKey": "project_chatting_description",
+        "name": "projects.chatting.name",
+        "description": "projects.chatting.description",
+        "category": "fullstack",
+        "technologies": [
+            "SiReact",
+            "SiNodedotjs",
+            "SiPostgresql",
+            "SiFlutter"
+        ],
+        "githubUrl": "#",
         "images": [
             "/assets/images/projects/chatting_app/1.jpg",
             "/assets/images/projects/chatting_app/2.jpg",
@@ -49,8 +75,15 @@
     },
     {
         "id": 5,
-        "nameKey": "project_habits_mobile_name",
-        "descriptionKey": "project_habits_mobile_description",
+        "name": "projects.habits_mobile.name",
+        "description": "projects.habits_mobile.description",
+        "category": "mobile",
+        "technologies": [
+            "SiReact",
+            "SiNodedotjs",
+            "SiMongodb"
+        ],
+        "githubUrl": "https://github.com/jusiann/habits-mobile",
         "images": [
             "/assets/images/projects/habits_mobile_app/1.jpg",
             "/assets/images/projects/habits_mobile_app/2.jpg",

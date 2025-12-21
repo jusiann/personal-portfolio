@@ -9,7 +9,7 @@ export const Home = () => {
         <PageTransition>
             <div className="
                 min-h-screen 
-                bg-background
+                bg-background 
                 text-foreground 
                 overflow-x-hidden
                 flex

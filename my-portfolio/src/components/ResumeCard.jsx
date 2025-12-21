@@ -17,10 +17,9 @@ export const ResumeCard = () => {
     }, [activeTab]);
 
     const tabs = [
-        { id: 'about', label: translate('resume_about_title') },
-        { id: 'education', label: translate('resume_education_title') },
-        { id: 'experience', label: translate('resume_experience_title') },
-        { id: 'skills', label: translate('resume_skills_title') },
+        { id: 'about', label: translate('resume.about_title') },
+        { id: 'education', label: translate('resume.education_title') },
+        { id: 'experience', label: translate('resume.experience_title') },
     ];
 
     const getIcon = (iconName) => iconMap[iconName] || SiJavascript; // Fallback
@@ -34,42 +33,42 @@ export const ResumeCard = () => {
                 return (
                     <div>
                         <h3 className="text-2xl font-heading font-bold text-foreground mb-4">
-                            {translate('resume_about_title')}
+                            {translate('resume.about_title')}
                         </h3>
                         <p className="text-foreground/80 leading-relaxed text-lg mb-8 text-justify">
-                            {translate('profile_about_text')}
+                            {translate('resume.about_text')}
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="space-y-3">
                                 <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
                                     <FiUser className="text-primary mt-0.5 shrink-0" />
-                                    <span className="text-foreground/80 text-sm">{translate('profile_name')} {translate('profile_surname')}</span>
+                                    <span className="text-foreground/80 text-sm">{translate('home.name')} {translate('home.surname')}</span>
                                 </div>
                                 <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
                                     <FiCalendar className="text-primary mt-0.5 shrink-0" />
-                                    <span className="text-foreground/80 text-sm">{translate('birth_day')} {translate('february')} {translate('birth_year')}</span>
+                                    <span className="text-foreground/80 text-sm">{translate('resume.birth_day')} {translate('resume.february')} {translate('resume.birth_year')}</span>
                                 </div>
                                 <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
                                     <FiBriefcase className="text-primary mt-0.5 shrink-0" />
-                                    <span className="text-foreground/80 text-sm">{translate('current_position')}</span>
+                                    <span className="text-foreground/80 text-sm">{translate('resume.position')}</span>
                                 </div>
                                 <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
                                     <FiMapPin className="text-primary mt-0.5 shrink-0" />
-                                    <span className="text-foreground/80 text-sm">{translate('location_city')}</span>
+                                    <span className="text-foreground/80 text-sm">{translate('resume.location')}</span>
                                 </div>
                             </div>
                             <div className="space-y-3">
                                 <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
                                     <FiMail className="text-primary mt-0.5 shrink-0" />
-                                    <span className="text-foreground/80 text-sm">{translate('email_address')}</span>
+                                    <span className="text-foreground/80 text-sm">{translate('resume.email')}</span>
                                 </div>
                                 <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
                                     <FiPhone className="text-primary mt-0.5 shrink-0" />
-                                    <span className="text-foreground/80 text-sm">{translate('phone_number')}</span>
+                                    <span className="text-foreground/80 text-sm">{translate('resume.phone')}</span>
                                 </div>
                                 <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
                                     <FiGlobe className="text-primary mt-0.5 shrink-0" />
-                                    <span className="text-foreground/80 text-sm">{translate('turkish')} ({translate('native')}), {translate('english')} ({translate('english_level')})</span>
+                                    <span className="text-foreground/80 text-sm">{translate('resume.turkish')} ({translate('resume.native')}), {translate('resume.english')} ({translate('resume.english_level')})</span>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +78,7 @@ export const ResumeCard = () => {
                 return (
                     <div>
                         <h3 className="text-2xl font-heading font-bold text-foreground mb-8 text-center">
-                            {translate('resume_education_title')}
+                            {translate('resume.education_title')}
                         </h3>
 
                         {/* Timeline */}
@@ -96,13 +95,13 @@ export const ResumeCard = () => {
 
                                 <div className="bg-card/5 group-hover:bg-card/10 rounded-xl p-6 transition-colors duration-300 border border-primary/10 group-hover:border-primary/30 text-center">
                                     <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-3">
-                                        {translate('education_university_start')} - {translate('present')}
+                                        {translate('resume.education.university_start')} - {translate('resume.present')}
                                     </span>
                                     <h4 className="text-xl font-semibold text-foreground mb-2">
-                                        {translate('education_university_degree')}
+                                        {translate('resume.education.university_degree')}
                                     </h4>
                                     <p className="text-primary font-medium">
-                                        {translate('education_university_name')}
+                                        {translate('resume.education.university_name')}
                                     </p>
                                 </div>
                             </div>
@@ -115,13 +114,13 @@ export const ResumeCard = () => {
 
                                 <div className="bg-card/5 group-hover:bg-card/10 rounded-xl p-6 transition-colors duration-300 border border-primary/10 group-hover:border-primary/30 text-center">
                                     <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary/70 text-xs font-medium mb-3">
-                                        {translate('education_highschool_start')} - {translate('education_highschool_end')}
+                                        {translate('resume.education.highschool_start')} - {translate('resume.education.highschool_end')}
                                     </span>
                                     <h4 className="text-xl font-semibold text-foreground mb-2">
-                                        {translate('education_highschool_degree')}
+                                        {translate('resume.education.highschool_degree')}
                                     </h4>
                                     <p className="text-primary/70 font-medium">
-                                        {translate('education_highschool_name')}
+                                        {translate('resume.education.highschool_name')}
                                     </p>
                                 </div>
                             </div>
@@ -132,7 +131,7 @@ export const ResumeCard = () => {
                 return (
                     <div>
                         <h3 className="text-2xl font-heading font-bold text-foreground mb-8 text-center">
-                            {translate('resume_experience_title')}
+                            {translate('resume.experience_title')}
                         </h3>
 
                         {/* Timeline */}
@@ -149,16 +148,16 @@ export const ResumeCard = () => {
 
                                 <div className="bg-card/5 group-hover:bg-card/10 rounded-xl p-6 transition-colors duration-300 border border-primary/10 group-hover:border-primary/30 text-center">
                                     <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-3">
-                                        {translate('experience_yapiradar_start')} - {translate('present')}
+                                        {translate('resume.experience.yapiradar_start')} - {translate('resume.present')}
                                     </span>
                                     <h4 className="text-xl font-semibold text-foreground mb-2">
-                                        {translate('experience_yapiradar_title')}
+                                        {translate('resume.experience.yapiradar_title')}
                                     </h4>
                                     <p className="text-primary font-medium mb-3">
-                                        {translate('experience_yapiradar_company')}
+                                        {translate('resume.experience.yapiradar_company')}
                                     </p>
                                     <p className="text-sm text-foreground/70 leading-relaxed">
-                                        {translate('experience_yapiradar_description')}
+                                        {translate('resume.experience.yapiradar_description')}
                                     </p>
                                 </div>
                             </div>

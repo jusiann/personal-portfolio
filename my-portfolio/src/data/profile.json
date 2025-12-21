@@ -1,30 +1,30 @@
 {
-    "nameKey": "profile_name",
-    "surnameKey": "profile_surname",
-    "aboutTextKey": "profile_about_text",
-    "taglineKey": "profile_tagline",
+    "name": "profile_name",
+    "surname": "profile_surname",
+    "aboutText": "profile_about_text",
+    "tagline": "profile_tagline",
     "avatar": "/assets/images/profile_photo.png",
     "education": [
         {
-            "degreeKey": "education_university_degree",
-            "schoolKey": "education_university_name",
-            "startKey": "education_university_start",
-            "endKey": "present"
+            "degree": "education_university_degree",
+            "school": "education_university_name",
+            "start": "education_university_start",
+            "end": "present"
         },
         {
-            "degreeKey": "education_highschool_degree",
-            "schoolKey": "education_highschool_name",
-            "startKey": "education_highschool_start",
-            "endKey": "education_highschool_end"
+            "degree": "education_highschool_degree",
+            "school": "education_highschool_name",
+            "start": "education_highschool_start",
+            "end": "education_highschool_end"
         }
     ],
     "experience": [
         {
-            "titleKey": "experience_yapiradar_title",
-            "companyKey": "experience_yapiradar_company",
-            "startKey": "experience_yapiradar_start",
-            "endKey": "present",
-            "descriptionKey": "experience_yapiradar_description"
+            "title": "experience_yapiradar_title",
+            "company": "experience_yapiradar_company",
+            "start": "experience_yapiradar_start",
+            "end": "present",
+            "description": "experience_yapiradar_description"
         }
     ]
 }

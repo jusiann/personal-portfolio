@@ -40,7 +40,7 @@ export const HomeCard = () => {
                         <div className="md:hidden mb-8">
                             <HomeImage
                                 src="/assets/images/profile_photo.png"
-                                alt={`${translate('profile_name')} ${translate('profile_surname')}`}
+                                alt={`${translate('home.name')} ${translate('home.surname')}`}
                             />
                         </div>
 
@@ -55,9 +55,9 @@ export const HomeCard = () => {
                                 mb-2
                                 tracking-tight
                             ">
-                                {translate('profile_name')}{' '}
+                                {translate('home.name')}{' '}
                                 <span className="text-primary">
-                                    {translate('profile_surname')}
+                                    {translate('home.surname')}
                                 </span>
                             </h1>
                             <p className="
@@ -85,7 +85,7 @@ export const HomeCard = () => {
                                 leading-relaxed
                                 text-justify
                             ">
-                                {translate('profile_tagline')}
+                                {translate('home.tagline')}
                             </p>
                         </div>
 
@@ -97,7 +97,7 @@ export const HomeCard = () => {
                 <div className="hidden md:flex items-center justify-center shrink-0">
                     <HomeImage
                         src="/assets/images/profile_photo.png"
-                        alt={`${translate('profile_name')} ${translate('profile_surname')}`}
+                        alt={`${translate('home.name')} ${translate('home.surname')}`}
                         size="large"
                     />
                 </div>

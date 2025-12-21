@@ -12,10 +12,10 @@ export const Navbar = () => {
   const { translate } = useLanguage();
 
   const navItems = [
-    { name: translate('home'), href: '/' },
-    { name: translate('resume'), href: '/resume' },
-    { name: translate('projects'), href: '/projects' },
-    { name: translate('contact'), href: '/contact' },
+    { name: translate('nav.home'), href: '/' },
+    { name: translate('nav.resume'), href: '/resume' },
+    { name: translate('nav.skills'), href: '/skills' },
+    { name: translate('nav.projects'), href: '/projects' },
   ];
 
   const isActiveRoute = (href) => {
@@ -84,6 +84,19 @@ export const Navbar = () => {
                 </span>
               </Link>
             ))}
+
+          {/* HIRE ME BUTTON - Special Styling */}
+          <Link
+            to="/contact"
+            className={cn(
+              "relative px-5 py-2 font-semibold rounded-full transition-all duration-300 border-2",
+              isActiveRoute('/contact')
+                ? "bg-primary text-white border-primary shadow-lg shadow-primary/30"
+                : "text-primary border-primary hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/30"
+            )}
+          >
+            {translate('nav.hireme')}
+          </Link>
         </div>
 
 
@@ -130,6 +143,20 @@ export const Navbar = () => {
                   </span>
                 </Link>
               ))}
+
+            {/* HIRE ME BUTTON - Mobile */}
+            <Link
+              to="/contact"
+              className={cn(
+                "px-6 py-3 font-semibold rounded-full transition-all duration-300 border-2 text-center",
+                isActiveRoute('/contact')
+                  ? "bg-primary text-white border-primary"
+                  : "text-primary border-primary hover:bg-primary hover:text-white"
+              )}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {translate('nav.hireme')}
+            </Link>
           </div>
         </div>
       </div>

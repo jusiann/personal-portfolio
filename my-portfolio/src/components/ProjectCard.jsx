@@ -1,188 +1,181 @@
-import { useState, useEffect } from 'react';
-import { useLanguage } from '../lib/utils';
+import { useState } from 'react';
+import { useLanguage, cn } from '../lib/utils';
+import { getSkillIcon, SiGithub } from '../lib/icons';
 
 import projectsData from '../data/projects.json';
 
 export const ProjectCard = () => {
     const { translate } = useLanguage();
-    const [currentProject, setCurrentProject] = useState(0);
+    const [selectedProject, setSelectedProject] = useState(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const [isZoomed, setIsZoomed] = useState(false);
+    const [activeFilter, setActiveFilter] = useState('all');
+
+    // Filter categories
+    const categories = [
+        { id: 'all', labelKey: 'projects.filter_all' },
+        { id: 'fullstack', labelKey: 'projects.filter_fullstack' },
+        { id: 'mobile', labelKey: 'projects.filter_mobile' },
+        { id: 'desktop', labelKey: 'projects.filter_desktop' },
+    ];
 
     // Map JSON data to expected format with dynamic translation
-    const projects = projectsData.map(project => ({
+    const allProjects = projectsData.map(project => ({
         ...project,
-        name: translate(project.nameKey),
-        description: translate(project.descriptionKey)
+        name: translate(project.name),
+        description: translate(project.description)
     }));
 
-    useEffect(() => {
-        if (isZoomed)
-            return;
+    // Filter projects based on active filter
+    const projects = activeFilter === 'all'
+        ? allProjects
+        : allProjects.filter(p => p.category === activeFilter);
 
-        const timer = setInterval(() => {
-            setCurrentImageIndex((prev) => {
-                return (prev + 1) % projects[currentProject].images.length;
-            });
-        }, 5000);
-
-        return () => clearInterval(timer);
-    }, [currentProject, isZoomed]);
-
-    const project = projects[currentProject];
-    const totalImages = project.images.length;
-
-    const nextImage = (event) => {
-        event?.stopPropagation();
-        setCurrentImageIndex((previous) => (previous + 1) % totalImages);
-    };
-
-    const prevImage = (event) => {
-        event?.stopPropagation();
-        setCurrentImageIndex((previous) => (previous - 1 + totalImages) % totalImages);
-    };
-
-    const nextProject = () => {
-        setCurrentProject((previous) => (previous + 1) % projects.length);
+    const openModal = (project) => {
+        setSelectedProject(project);
         setCurrentImageIndex(0);
     };
 
-    const prevProject = () => {
-        setCurrentProject((previous) => (previous - 1 + projects.length) % projects.length);
+    const closeModal = () => {
+        setSelectedProject(null);
         setCurrentImageIndex(0);
     };
+
+    const nextImage = (e) => {
+        e?.stopPropagation();
+        if (selectedProject) {
+            setCurrentImageIndex((prev) => (prev + 1) % selectedProject.images.length);
+        }
+    };
+
+    const prevImage = (e) => {
+        e?.stopPropagation();
+        if (selectedProject) {
+            setCurrentImageIndex((prev) => (prev - 1 + selectedProject.images.length) % selectedProject.images.length);
+        }
+    };
+
+    // Single Project Card Component
+    const SingleProjectCard = ({ project }) => (
+        <div
+            onClick={() => openModal(project)}
+            className="
+                group
+                relative
+                bg-card/10
+                backdrop-blur-sm
+                rounded-2xl
+                border-l-4
+                border-primary
+                overflow-hidden
+                cursor-pointer
+                transition-all
+                duration-300
+                hover:scale-[1.02]
+                shadow-xl
+                hover:shadow-2xl
+                hover:shadow-primary/10
+            "
+        >
+            {/* Project Image */}
+            <div className="relative aspect-video overflow-hidden">
+                <img
+                    src={project.images[0]}
+                    alt={project.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+
+                {/* Click to view hint */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="px-4 py-2 rounded-full bg-primary/90 text-white text-sm font-medium backdrop-blur-sm">
+                        {translate('projects.view_details')}
+                    </span>
+                </div>
+            </div>
+
+            {/* Project Info */}
+            <div className="p-4">
+                {/* Title */}
+                <h3 className="text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-1 mb-3">
+                    {project.name}
+                </h3>
+
+                {/* GitHub and Technology Icons - Same Row */}
+                <div className="flex items-center justify-between">
+                    {/* Technology Icons */}
+                    <div className="flex items-center gap-3">
+                        {project.technologies?.map((techName, index) => {
+                            const TechIcon = getSkillIcon(techName);
+                            return (
+                                <div key={index} className="text-foreground/50 hover:text-primary transition-colors duration-300">
+                                    <TechIcon className="w-6 h-6" />
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    {/* GitHub Link */}
+                    {project.githubUrl && (
+                        <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-foreground/50 hover:text-primary transition-colors duration-300"
+                        >
+                            <SiGithub className="w-6 h-6" />
+                        </a>
+                    )}
+                </div>
+            </div>
+
+            {/* Glow effect on hover */}
+            <div className="absolute -inset-1 bg-primary/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300 -z-10" />
+        </div>
+    );
+
 
     return (
-        <div className="relative w-[90%] mx-auto min-h-[calc(100vh-8rem)] flex flex-col items-center justify-center pt-32 pb-8">
-            <div className="w-full max-w-6xl relative">
-                <div
-                    className="
-                        relative 
-                        bg-card/10 
-                        backdrop-blur-sm
-                        rounded-2xl 
-                        border-l-4 
-                        border-primary
-                        shadow-2xl
-                        p-6
-                        md:p-8
-                        min-h-[400px]
-                        transition-all 
-                        duration-500
-                        hover:scale-[1.01]
-                ">
+        <div className="relative w-[90%] mx-auto min-h-[calc(100vh-8rem)] flex flex-col items-center pt-32 pb-8">
+            <div className="w-full max-w-6xl">
 
-                    <div className="flex flex-col gap-6">
-                        {/* PROJECT INFO AND IMAGE */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 md:gap-y-2 md:gap-x-12 md:items-start mb-16">
-                            <div className="text-left order-1 md:col-start-1 md:row-start-1">
-                                <h2 className="text-2xl md:text-4xl font-heading font-bold text-foreground mb-4">
-                                    {project.name}
-                                </h2>
-                            </div>
+                {/* FILTER BUTTONS */}
+                <div className="mb-8 flex flex-wrap justify-center gap-2">
+                    {categories.map((category) => (
+                        <button
+                            key={category.id}
+                            onClick={() => setActiveFilter(category.id)}
+                            className={cn(
+                                "px-5 py-2 text-sm font-medium rounded-full transition-all duration-300",
+                                activeFilter === category.id
+                                    ? "bg-primary text-white shadow-lg shadow-primary/30 border-2 border-primary"
+                                    : "bg-transparent text-foreground/70 hover:text-primary hover:border-primary border-2 border-foreground/30"
+                            )}
+                        >
+                            {translate(category.labelKey)}
+                        </button>
+                    ))}
 
-                            <div className="w-full md:w-[500px] md:shrink-0 order-2 md:col-start-2 md:row-start-1 md:row-span-2">
-                                <div
-                                    className="relative aspect-video bg-black/40 rounded-lg overflow-hidden border border-primary/50 cursor-zoom-in group"
-                                    onClick={() => setIsZoomed(true)}
-                                >
-                                    <img
-                                        src={project.images[currentImageIndex]}
-                                        alt={project.name}
-                                        className="w-full h-full object-contain"
-                                    />
-
-                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                                        <span className="bg-black/50 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
-                                            Click to zoom
-                                        </span>
-                                    </div>
-
-                                    {totalImages > 1 && (
-                                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 z-10" onClick={(e) => e.stopPropagation()}>
-                                            {project.images.map((_, index) => (
-                                                <button
-                                                    key={index}
-                                                    onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        setCurrentImageIndex(index);
-                                                    }}
-                                                    className={`w-2 h-2 rounded-full transition-all ${index === currentImageIndex
-                                                        ? 'bg-primary w-6'
-                                                        : 'bg-white/50 hover:bg-white/80'
-                                                        }`}
-                                                    aria-label={`Go to image ${index + 1}`}
-                                                />
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-
-                            <div className="text-left order-3 md:col-start-1 md:row-start-2">
-                                <p className="text-foreground/80 leading-relaxed text-justify">
-                                    {project.description}
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* PROJECT NAVIGATION */}
-                        <div className="flex items-center justify-between">
-                            {/* Project Counter */}
-                            <div className="flex items-center gap-3">
-                                <span className="text-4xl font-bold text-primary font-heading">
-                                    {String(currentProject + 1).padStart(2, '0')}
-                                </span>
-                                <div className="flex flex-col">
-                                    <span className="text-xs text-foreground/40 uppercase tracking-widest">of</span>
-                                    <span className="text-lg text-foreground/60 font-medium">{String(projects.length).padStart(2, '0')}</span>
-                                </div>
-                            </div>
-
-                            {/* Navigation Buttons */}
-                            <div className="flex gap-4">
-                                <button
-                                    onClick={prevProject}
-                                    className="
-                                        group
-                                        relative
-                                        p-2
-                                        text-primary hover:text-primary/80
-                                        transition-all duration-300
-                                        hover:scale-110
-                                    "
-                                    aria-label="Previous project"
-                                >
-                                    {/* Pulse effect on hover */}
-                                    <span className="absolute inset-2.5 rounded-full bg-primary/20 opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
-                                    <svg className="w-10 h-10 relative z-10 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
-                                    </svg>
-                                </button>
-                                <button
-                                    onClick={nextProject}
-                                    className="
-                                        group
-                                        relative
-                                        p-2
-                                        text-primary hover:text-primary/80
-                                        transition-all duration-300
-                                        hover:scale-110
-                                    "
-                                    aria-label="Next project"
-                                >
-                                    {/* Pulse effect on hover */}
-                                    <span className="absolute inset-2.5 rounded-full bg-primary/20 opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
-                                    <svg className="w-10 h-10 relative z-10 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
-                {/* GLOW EFFECT FOR CARD */}
+                {/* PROJECTS GRID */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {projects.map((project) => (
+                        <SingleProjectCard key={project.id} project={project} />
+                    ))}
+                </div>
+
+                {/* No projects message */}
+                {projects.length === 0 && (
+                    <div className="text-center py-12">
+                        <p className="text-foreground/50 text-lg">
+                            {translate('no_projects_found') || 'No projects found in this category'}
+                        </p>
+                    </div>
+                )}
+
+                {/* GLOW EFFECT */}
                 <div
                     className="
                         absolute 
@@ -192,56 +185,107 @@ export const ProjectCard = () => {
                         -z-10 
                         opacity-50
                         animate-pulse-subtle
-                "/>
+                    "
+                />
             </div>
 
-            {/* ZOOM LIGHTBOX */}
-            {
-                isZoomed && (
+            {/* PROJECT DETAIL MODAL */}
+            {selectedProject && (
+                <div
+                    className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fade-in"
+                    onClick={closeModal}
+                >
                     <div
-                        className="fixed inset-0 z-100 flex items-center justify-center bg-black/95 backdrop-blur-md p-4 animate-fade-in"
-                        onClick={() => setIsZoomed(false)}
+                        className="
+                            relative 
+                            w-full 
+                            max-w-3xl 
+                            max-h-[90vh]
+                            bg-background
+                            rounded-2xl
+                            border-l-4
+                            border-primary
+                            shadow-2xl
+                            overflow-hidden
+                        "
+                        onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="relative w-full max-w-7xl h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
-                            <img
-                                src={project.images[currentImageIndex]}
-                                alt={project.name}
-                                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-                            />
+                        {/* Modal Content */}
+                        <div className="p-6 md:p-8 overflow-y-auto max-h-[90vh]">
+                            {/* Title */}
+                            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-6">
+                                {selectedProject.name}
+                            </h2>
 
-                            {/* LIGHTBOX NAVIGATION */}
-                            <button
-                                className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white bg-black/20 hover:bg-black/40 p-2 rounded-full transition-all"
-                                onClick={prevImage}
-                            >
-                                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                </svg>
-                            </button>
-                            <button
-                                className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white bg-black/20 hover:bg-black/40 p-2 rounded-full transition-all"
-                                onClick={nextImage}
-                            >
-                                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </button>
+                            {/* Image Gallery */}
+                            <div className="relative w-full max-w-lg mx-auto aspect-video bg-black/20 rounded-xl overflow-hidden mb-6 border border-primary/20">
+                                <img
+                                    src={selectedProject.images[currentImageIndex]}
+                                    alt={selectedProject.name}
+                                    className="w-full h-full object-contain"
+                                />
+
+                                {/* Image Navigation */}
+                                {selectedProject.images.length > 1 && (
+                                    <>
+                                        <button
+                                            className="absolute left-2 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-black/40 hover:bg-black/60 p-1.5 rounded-full transition-all"
+                                            onClick={prevImage}
+                                        >
+                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                            </svg>
+                                        </button>
+                                        <button
+                                            className="absolute right-2 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-black/40 hover:bg-black/60 p-1.5 rounded-full transition-all"
+                                            onClick={nextImage}
+                                        >
+                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </button>
+
+                                        {/* Image indicators */}
+                                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                                            {selectedProject.images.map((_, index) => (
+                                                <button
+                                                    key={index}
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        setCurrentImageIndex(index);
+                                                    }}
+                                                    className={`w-1.5 h-1.5 rounded-full transition-all ${index === currentImageIndex
+                                                        ? 'bg-primary w-4'
+                                                        : 'bg-white/50 hover:bg-white/80'
+                                                        }`}
+                                                />
+                                            ))}
+                                        </div>
+                                    </>
+                                )}
+                            </div>
+
+                            {/* Description */}
+                            <p className="text-foreground/80 leading-relaxed text-justify text-sm md:text-base">
+                                {selectedProject.description}
+                            </p>
                         </div>
 
-                        {/* CLOSE BUTTON */}
+                        {/* Close Button */}
                         <button
-                            className="absolute top-4 right-4 text-white/70 hover:text-white p-2 z-110 bg-black/20 hover:bg-black/40 rounded-full transition-all"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                setIsZoomed(false);
-                            }}
+                            className="absolute top-4 right-4 text-foreground/60 hover:text-foreground p-2 hover:bg-primary/10 rounded-full transition-all"
+                            onClick={closeModal}
                         >
-                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
+
+                        {/* Glow effect */}
+                        <div className="absolute -inset-4 bg-primary/10 blur-3xl -z-10 opacity-50" />
                     </div>
-                )}
+                </div>
+            )}
         </div>
     );
 };

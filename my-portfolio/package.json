@@ -11,6 +11,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.1.17",
     "bootstrap": "^5.3.8",
     "clsx": "^2.1.1",

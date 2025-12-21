@@ -1,10 +1,10 @@
- import { CrimsonWebBackground } from "../components/CrimsonWebBackground";
+import { CrimsonWebBackground } from "../components/CrimsonWebBackground";
 import { Navbar } from "../components/Navbar";
 import { PageTransition } from "../components/PageTransition";
-import { HomeCard } from "../components/HomeCard";
+import { SkillsCard } from "../components/SkillsCard";
 import { Footer } from "../components/Footer";
 
-export const Home = () => {
+export const Skills = () => {
     return (
         <PageTransition>
             <div className="
@@ -23,7 +23,7 @@ export const Home = () => {
                 <Navbar />
 
                 {/* MAIN CONTENT */}
-                <HomeCard />
+                <SkillsCard />
 
                 {/* FOOTER */}
                 <Footer />

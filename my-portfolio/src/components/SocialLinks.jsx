@@ -73,11 +73,11 @@ export const SocialLinks = () => {
                         hover:scale-105
                         active:scale-95
                     "
-                    aria-label={translate('download_cv')}
+                    aria-label={translate('home.download_cv')}
                 >
                     <span className="absolute inset-y-1 inset-x-5 rounded-full bg-primary/25 opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
                     <FiDownload className="w-5 h-5 relative z-10" />
-                    <span className="relative z-10">{translate('download_cv')}</span>
+                    <span className="relative z-10">{translate('home.download_cv')}</span>
                 </a>
 
                 {/* SOCIAL MEDIA LINKS */}
