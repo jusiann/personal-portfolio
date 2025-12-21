@@ -9,6 +9,7 @@ const LanguageContext = createContext();
 export const LanguageProvider = ({ children }) => {
     const [language, setLanguage] = useState(() => {
         const stored = localStorage.getItem("language");
+
         return (stored === "tr" || stored === "en") ? stored : "en";
     });
 
@@ -16,14 +17,17 @@ export const LanguageProvider = ({ children }) => {
         localStorage.setItem("language", language);
     }, [language]);
 
-    const getNestedTranslation = (obj, path) => {
-        return path.split('.').reduce((acc, part) => acc && acc[part], obj);
-    };
-
     const translate = (key) => {
-        const langData = translations[language];
-        const text = getNestedTranslation(langData, key);
-        return text || key;
+        const keys = key.split('.');
+        let value = translations[language];
+
+        for (const k of keys) {
+            value = value?.[k];
+
+            if (!value)
+                return key;
+        }
+        return value;
     };
 
     const toggleLanguage = () => {

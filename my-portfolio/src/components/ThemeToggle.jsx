@@ -6,7 +6,7 @@ import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const ThemeToggle = () => {
-    const { isDarkMode, toggleTheme, isMounted } = useTheme();
+    const { isDarkMode, toggleTheme } = useTheme();
     const [isTransitioning, setIsTransitioning] = useState(false);
 
     const handleToggle = () => {
@@ -56,7 +56,7 @@ export const ThemeToggle = () => {
             </button>
 
             {/* THEME TRANSITION - Rendered via Portal to ensure it covers the entire viewport */}
-            {isMounted && createPortal(
+            {createPortal(
                 <AnimatePresence>
                     {
                         isTransitioning && (
