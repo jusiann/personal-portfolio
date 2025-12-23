@@ -1,0 +1,105 @@
+{
+    "nav": {
+        "home": "Home",
+        "resume": "Resume",
+        "skills": "Skills",
+        "projects": "Projects",
+        "hireme": "Hire Me"
+    },
+    "home": {
+        "name": "Adil",
+        "surname": "Efe",
+        "tagline": "Passionate developer focused on web technologies and software development. I create modern and performant applications with user experience as a top priority.",
+        "download_cv": "Download CV"
+    },
+    "resume": {
+        "about_title": "About Me",
+        "about_text": "I am a 3rd year Computer Engineering student at Istanbul Rumeli University. I am particularly interested in backend development and web technologies. I am team-oriented, open to learning, and responsible. I constantly strive to improve myself and learn new technologies in my projects.",
+        "birth_day": "7",
+        "birth_year": "2004",
+        "february": "February",
+        "email": "adilefe257@gmail.com",
+        "phone": "+90 545 676 43 24",
+        "location": "Istanbul / Turkey",
+        "position": "Backend Development and Technical Support",
+        "present": "Present",
+        "turkish": "Turkish",
+        "english": "English",
+        "native": "Native",
+        "english_level": "B1",
+        "education_title": "Education",
+        "experience_title": "Work Experience",
+        "education": {
+            "university_degree": "Computer Engineering",
+            "university_name": "Istanbul Rumeli University",
+            "university_start": "2023",
+            "highschool_degree": "High School",
+            "highschool_name": "Atilla Uras Anatolian High School",
+            "highschool_start": "2018",
+            "highschool_end": "2022"
+        },
+        "experience": {
+            "yapiradar_title": "Backend Technical Support",
+            "yapiradar_company": "YAPIRADAR INC.",
+            "yapiradar_start": "2024",
+            "yapiradar_description": "Actively working on backend development processes, providing technical support, debugging and performing system maintenance."
+        }
+    },
+    "skills": {
+        "title": "Technical Skills",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "tools": "Tools & Platform"
+    },
+    "projects": {
+        "view_details": "View Details",
+        "filter_all": "All",
+        "filter_fullstack": "Full Stack",
+        "filter_mobile": "Mobile",
+        "filter_desktop": "Desktop",
+        "parkour": {
+            "name": "Parkour/Shooter Game",
+            "description": "Developed using Unity engine and C#, this project is a desktop shooter parkour game enriched with original assets modeled in Blender. Players face falling platforms and dynamic obstacles while trying to survive in challenging courses filled with enemy drones and lasers. (Prototype)"
+        },
+        "endless": {
+            "name": "Endless Survival Game",
+            "description": "An endless survival game designed for mobile platforms, developed with Unity and C#. Inspired by \"OnPipe\" style games, players progress by avoiding obstacles on a cylinder and collecting coins. Each cylinder has different radii and dangers; the goal is to gain health by collecting points and reach the highest score. (Prototype)"
+        },
+        "myhabits": {
+            "name": "MyHabits Desktop App",
+            "description": "Developed using Java and JavaFX framework, this desktop application allows users to track their daily habits. Data is securely stored locally in JSON format. Progress can be easily monitored via the calendar view, and the application can be customized through the settings menu."
+        },
+        "chatting": {
+            "name": "Chatting App",
+            "description": "A comprehensive messaging application designed for inter-corporate communication, working on both web and mobile platforms. The backend is structured with Node.js and Express, and the database with PostgreSQL. React and Flutter were used on the frontend. (I undertook the Backend development alone in this project and made optimizations on the Frontend side)"
+        },
+        "habits_mobile": {
+            "name": "Habits Mobile App",
+            "description": "A mobile habit tracking application developed using React Native, Node.js, Express, and MongoDB technologies. Users can create custom habits, set goals, and analyze their processes in detail via the calendar. Additionally, the user experience is enriched with profile customization features."
+        }
+    },
+    "hireme": {
+        "title": "Work With Me",
+        "subtitle": "The right choice for your project",
+        "description": "I have experience in full stack development, mobile apps, and game development. Let's create amazing projects together!",
+        "email_label": "Email",
+        "phone_label": "Phone",
+        "skills_label": "Expertise",
+        "first_name": "First Name",
+        "first_name_placeholder": "Your first name",
+        "name_label": "Full Name",
+        "name_placeholder": "Your Full Name",
+        "last_name": "Last Name",
+        "last_name_placeholder": "Your last name",
+        "subject": "Subject",
+        "message": "Your Message",
+        "message_placeholder": "Describe your project or job offer here...",
+        "submit": "Send Message",
+        "sending": "Sending...",
+        "sent": "Sent!",
+        "error": "Error occurred"
+    },
+    "common": {
+        "rights_reserved": "All rights reserved"
+    }
+}
