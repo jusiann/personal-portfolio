@@ -1,8 +1,8 @@
-import {useState, useEffect} from 'react';
-import {useLanguage} from '../lib/utils';
-import {FiDownload, SiGithub, SiLinkedin, SiInstagram, SiReact, SiNodedotjs, SiCplusplus, SiUnity} from '../lib/icons';
+import { useState, useEffect } from 'react';
+import { useLanguage } from '../lib/utils';
+import { FiDownload, SiGithub, SiLinkedin, SiInstagram, SiReact, SiNodedotjs, SiCplusplus, SiUnity } from '../lib/icons';
 
-export const SocialLinks = () => {
+function SocialLinks() {
     const { translate } = useLanguage();
     const [currentIconIndex, setCurrentIconIndex] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
@@ -47,7 +47,7 @@ export const SocialLinks = () => {
 
             {/* LEFT SIDE */}
             <div className="flex flex-col md:flex-row items-center gap-4">
-                
+
                 {/* CV DOWNLOAD BUTTON */}
                 <a
                     href="/cv.pdf"
@@ -149,4 +149,6 @@ export const SocialLinks = () => {
             </div>
         </div>
     );
-};
+}
+
+export default SocialLinks;

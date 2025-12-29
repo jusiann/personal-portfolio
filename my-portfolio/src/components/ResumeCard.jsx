@@ -1,8 +1,8 @@
-import {useState, useRef, useEffect } from 'react';
-import {useLanguage, cn} from '../lib/utils';
-import {FiMail, FiPhone, FiUser, FiCalendar, FiBriefcase, FiMapPin, FiGlobe } from '../lib/icons';
+import { useState, useRef, useEffect } from 'react';
+import { useLanguage, cn } from '../lib/utils';
+import { FiMail, FiPhone, FiUser, FiCalendar, FiBriefcase, FiMapPin, FiGlobe } from '../lib/icons';
 
-export const ResumeCard = () => {
+function ResumeCard() {
     const { translate } = useLanguage();
     const [activeTab, setActiveTab] = useState('about');
     const contentRef = useRef(null);
@@ -22,7 +22,7 @@ export const ResumeCard = () => {
 
     const renderContent = () => {
         switch (activeTab) {
-           case 'about':
+            case 'about':
                 return (
                     <div>
 
@@ -54,7 +54,7 @@ export const ResumeCard = () => {
                                     <span className="text-foreground/80 text-sm">{translate('resume.location')}</span>
                                 </div>
                             </div>
-                            
+
                             <div className="space-y-3">
                                 <div className="flex items-start gap-3 p-2 pl-3 rounded-lg bg-primary/2 border border-primary/10 hover:bg-primary/4 transition-colors duration-200">
                                     <FiMail className="text-primary mt-0.5 shrink-0" />
@@ -133,7 +133,7 @@ export const ResumeCard = () => {
                             {translate('resume.experience_title')}
                         </h3>
 
-                            {/* TIMELINE */}
+                        {/* TIMELINE */}
                         <div className="relative pl-8">
                             <div className="absolute left-[7px] top-12 bottom-0 w-0.5 bg-gradient-to-b from-primary to-primary/30" />
 
@@ -226,4 +226,6 @@ export const ResumeCard = () => {
             </div>
         </div>
     );
-};
+}
+
+export default ResumeCard;

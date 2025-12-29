@@ -1,6 +1,6 @@
-import {useLanguage} from "../lib/utils";
+import { useLanguage } from "../lib/utils";
 
-export const Footer = () => {
+function Footer() {
     const { translate } = useLanguage();
     const currentYear = new Date().getFullYear();
 
@@ -22,4 +22,6 @@ export const Footer = () => {
             </div>
         </footer>
     );
-};
+}
+
+export default Footer;

@@ -1,8 +1,8 @@
-import CrimsonWebBackground from "../components/CrimsonWebBackground";
-import Navbar from "../components/Navbar";
-import PageTransition from "../components/PageTransition";
-import SkillsCard from "../components/SkillsCard";
-import Footer from "../components/Footer";
+import { CrimsonWebBackground } from "../components/CrimsonWebBackground";
+import { Navbar } from "../components/Navbar";
+import { PageTransition } from "../components/PageTransition";
+import { SkillsCard } from "../components/SkillsCard";
+import { Footer } from "../components/Footer";
 
 function Skills() {
     return (

@@ -1,7 +1,7 @@
 import { useLanguageContext } from '../context/LanguageContext';
 import { cn } from '../lib/utils';
 
-export const LanguageToggle = () => {
+function LanguageToggle() {
     const { language, toggleLanguage } = useLanguageContext();
 
     return (
@@ -20,4 +20,6 @@ export const LanguageToggle = () => {
             </button>
         </>
     );
-};
+}
+
+export default LanguageToggle;

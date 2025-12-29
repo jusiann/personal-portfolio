@@ -1,10 +1,10 @@
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
-export const PageTransition = ({ children }) => {
+function PageTransition({ children }) {
     return (
         <>
             {children}
-            
+
             {/* LEFT TRIANGLE */}
             <motion.div
                 className="fixed inset-0 bg-background z-100 pointer-events-none"
@@ -13,13 +13,13 @@ export const PageTransition = ({ children }) => {
                 }}
                 initial={{ x: '0%' }}
                 animate={{ x: '-100%' }}
-                transition={{ 
-                    duration: 0.6, 
+                transition={{
+                    duration: 0.6,
                     ease: [0.65, 0, 0.35, 1],
                     delay: 0.4
                 }}
             />
-            
+
             {/* RIGHT TRIANGLE */}
             <motion.div
                 className="fixed inset-0 bg-background z-100 pointer-events-none"
@@ -28,13 +28,13 @@ export const PageTransition = ({ children }) => {
                 }}
                 initial={{ x: '0%' }}
                 animate={{ x: '100%' }}
-                transition={{ 
-                    duration: 0.6, 
+                transition={{
+                    duration: 0.6,
                     ease: [0.65, 0, 0.35, 1],
                     delay: 0.4
                 }}
             />
-            
+
             {/* RED DIAGONAL LINE */}
             <motion.div
                 className="fixed inset-0 pointer-events-none z-101"
@@ -44,7 +44,7 @@ export const PageTransition = ({ children }) => {
                 }}
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 0 }}
-                transition={{ 
+                transition={{
                     duration: 0.3,
                     ease: "easeOut",
                     delay: 0.3
@@ -52,4 +52,6 @@ export const PageTransition = ({ children }) => {
             />
         </>
     );
-};
+}
+
+export default PageTransition;

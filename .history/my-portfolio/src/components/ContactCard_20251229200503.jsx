@@ -9,7 +9,7 @@ const EMAILJS_SERVICE_ID = 'service_4tkmm6c';
 const EMAILJS_TEMPLATE_ID = 'template_ugb57q9';
 const EMAILJS_PUBLIC_KEY = 'nIPGEoAjQwSBWiens';
 
-function ContactCard() {
+export const ContactCard = () => {
     const { translate } = useLanguage();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -28,6 +28,7 @@ function ContactCard() {
         setStatus('loading');
 
         try {
+            // EmailJS ile mail gönder
             await emailjs.send(
                 EMAILJS_SERVICE_ID,
                 EMAILJS_TEMPLATE_ID,
@@ -44,6 +45,7 @@ function ContactCard() {
             setEmail('');
             setMessage('');
 
+            // 3 saniye sonra durumu sıfırla
             setTimeout(() => setStatus('idle'), 3000);
         } catch (error) {
             console.error('EmailJS Error:', error);
@@ -55,7 +57,7 @@ function ContactCard() {
     return (
         <div className="relative w-[90%] mx-auto min-h-[calc(100vh-8rem)] flex items-center justify-center pt-32 pb-8">
 
-            {/* HIRE ME CARD */}
+            {/* HIRE ME CARD - Sağlı Sollu Eşit Düzen */}
             <div className="flex items-center justify-center w-full max-w-6xl">
                 <div
                     className="
@@ -75,9 +77,9 @@ function ContactCard() {
                 >
                     <div className="grid md:grid-cols-2">
 
-                        {/* LEFT SIDE */}
+                        {/* SOL TARAF - İletişim Bilgileri */}
                         <div className="p-8 md:p-12 flex flex-col justify-center">
-                            {/* TITLE */}
+                            {/* Başlık */}
                             <h2 className="
                                 text-3xl 
                                 md:text-4xl 
@@ -93,7 +95,7 @@ function ContactCard() {
                                 {translate('hireme.description')}
                             </p>
 
-                            {/* CONTACT INFO */}
+                            {/* İletişim Bilgileri */}
                             <div className="space-y-4 mb-8">
                                 <a
                                     href="mailto:adilefe257@gmail.com"
@@ -123,7 +125,7 @@ function ContactCard() {
                                 </div>
                             </div>
 
-                            {/* SKILLS */}
+                            {/* Uzmanlık Alanları */}
                             <div>
                                 <span className="text-sm text-foreground/50 uppercase tracking-wider mb-3 block">
                                     {translate('hireme.skills_label')}
@@ -144,14 +146,14 @@ function ContactCard() {
 
                         </div>
 
-                        {/* RIGHT SIDE */}
+                        {/* SAĞ TARAF - İletişim Formu */}
                         <div className="p-8 md:p-12 flex flex-col justify-center">
                             <h3 className="text-xl font-heading font-semibold text-foreground mb-6">
                                 {translate('hireme.subtitle')}
                             </h3>
 
                             <form onSubmit={handleSubmit} className="space-y-5">
-                                {/* NAME FIELD */}
+                                {/* AD SOYAD */}
                                 <div className="space-y-2">
                                     <label className="flex items-center gap-2 text-sm font-medium text-foreground/80">
                                         <FiUser className="text-primary" />
@@ -183,7 +185,7 @@ function ContactCard() {
                                     />
                                 </div>
 
-                                {/* EMAIL FIELD */}
+                                {/* E-POSTA */}
                                 <div className="space-y-2">
                                     <label className="flex items-center gap-2 text-sm font-medium text-foreground/80">
                                         <FiMail className="text-primary" />
@@ -215,7 +217,7 @@ function ContactCard() {
                                     />
                                 </div>
 
-                                {/* MESSAGE FIELD */}
+                                {/* MESAJ */}
                                 <div className="space-y-2">
                                     <label className="flex items-center gap-2 text-sm font-medium text-foreground/80">
                                         <FiSend className="text-primary" />
@@ -248,7 +250,7 @@ function ContactCard() {
                                     />
                                 </div>
 
-                                {/* SEND BUTTON */}
+                                {/* GÖNDER BUTONU */}
                                 <button
                                     type="submit"
                                     disabled={status === 'loading'}
@@ -319,6 +321,4 @@ function ContactCard() {
             </div>
         </div>
     );
-}
-
-export default ContactCard;
+};

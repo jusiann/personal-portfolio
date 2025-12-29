@@ -1,11 +1,11 @@
-import {cn, useLanguage} from '../lib/utils';
-import {Menu, X} from 'lucide-react';
-import {useEffect, useState} from 'react';
-import {useLocation, Link} from 'react-router-dom';
-import {ThemeToggle} from './ThemeToggle';
-import {LanguageToggle} from './LanguageToggle';
+import { cn, useLanguage } from '../lib/utils';
+import { Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { useLocation, Link } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
+import LanguageToggle from './LanguageToggle';
 
-export const Navbar = () => {
+function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -162,4 +162,6 @@ export const Navbar = () => {
       </div>
     </nav>
   );
-};
+}
+
+export default Navbar;

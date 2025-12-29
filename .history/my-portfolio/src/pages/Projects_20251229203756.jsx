@@ -1,8 +1,8 @@
-import CrimsonWebBackground from "../components/CrimsonWebBackground";
-import Navbar from "../components/Navbar";
-import PageTransition from "../components/PageTransition";
-import ProjectCard from "../components/ProjectCard";
-import Footer from "../components/Footer";
+import { CrimsonWebBackground } from "../components/CrimsonWebBackground";
+import { Navbar } from "../components/Navbar";
+import { PageTransition } from "../components/PageTransition";
+import { ProjectCard } from "../components/ProjectCard";
+import { Footer } from "../components/Footer";
 
 function Projects() {
     return (

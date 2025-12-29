@@ -1,20 +1,14 @@
-import { useState } from 'react';
-import { useLanguage } from '../lib/utils';
-import { FiMail, FiPhone, FiMapPin, FiSend, FiCheck, FiAlertCircle, FiUser } from 'react-icons/fi';
-import { SiReact, SiNodedotjs, SiUnity, SiJavascript } from 'react-icons/si';
-import emailjs from '@emailjs/browser';
+import {useState} from 'react';
+import {useLanguage} from '../lib/utils';
+import {FiMail, FiPhone, FiMapPin, FiSend, FiCheck, FiAlertCircle, FiUser, FiBookmark, SiReact, SiNodedotjs, SiUnity, SiJavascript} from '../lib/icons';
 
-// EmailJS Credentials
-const EMAILJS_SERVICE_ID = 'service_4tkmm6c';
-const EMAILJS_TEMPLATE_ID = 'template_ugb57q9';
-const EMAILJS_PUBLIC_KEY = 'nIPGEoAjQwSBWiens';
-
-function ContactCard() {
-    const { translate } = useLanguage();
+export const ContactCard = () => {
+    const {translate} = useLanguage();
     const [name, setName] = useState('');
+    
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
-    const [status, setStatus] = useState('idle'); // idle, loading, success, error
+    const [status, setStatus] = useState('idle');
 
     const techSkills = [
         { Icon: SiReact, name: "React" },
@@ -23,35 +17,7 @@ function ContactCard() {
         { Icon: SiUnity, name: "Unity" },
     ];
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        setStatus('loading');
-
-        try {
-            await emailjs.send(
-                EMAILJS_SERVICE_ID,
-                EMAILJS_TEMPLATE_ID,
-                {
-                    from_name: name,
-                    from_email: email,
-                    from_message: message,
-                },
-                EMAILJS_PUBLIC_KEY
-            );
-
-            setStatus('success');
-            setName('');
-            setEmail('');
-            setMessage('');
-
-            setTimeout(() => setStatus('idle'), 3000);
-        } catch (error) {
-            console.error('EmailJS Error:', error);
-            setStatus('error');
-            setTimeout(() => setStatus('idle'), 3000);
-        }
-    };
-
+    
     return (
         <div className="relative w-[90%] mx-auto min-h-[calc(100vh-8rem)] flex items-center justify-center pt-32 pb-8">
 
@@ -75,8 +41,9 @@ function ContactCard() {
                 >
                     <div className="grid md:grid-cols-2">
 
-                        {/* LEFT SIDE */}
+                        {/* LEFT SIDE - CONTACT INFORMATION */}
                         <div className="p-8 md:p-12 flex flex-col justify-center">
+                            
                             {/* TITLE */}
                             <h2 className="
                                 text-3xl 
@@ -89,11 +56,12 @@ function ContactCard() {
                             ">
                                 {translate('hireme.title')}
                             </h2>
+
                             <p className="text-foreground/60 mb-8 leading-relaxed">
                                 {translate('hireme.description')}
                             </p>
 
-                            {/* CONTACT INFO */}
+                            {/* CONTENT */}
                             <div className="space-y-4 mb-8">
                                 <a
                                     href="mailto:adilefe257@gmail.com"
@@ -128,14 +96,14 @@ function ContactCard() {
                                 <span className="text-sm text-foreground/50 uppercase tracking-wider mb-3 block">
                                     {translate('hireme.skills_label')}
                                 </span>
-                                <div className="flex gap-3">
+                                <div className="flex justify-center gap-3">
                                     {techSkills.map((skill, index) => (
                                         <div
                                             key={index}
-                                            className="p-2 rounded-lg bg-primary/10 text-foreground/70 hover:text-primary hover:bg-primary/20 transition-all"
+                                            className="p-3 rounded-lg bg-primary/10"
                                             title={skill.name}
                                         >
-                                            <skill.Icon className="w-6 h-6" />
+                                            <skill.Icon className="w-5 h-5 text-primary" />
                                         </div>
                                     ))}
                                 </div>
@@ -144,7 +112,7 @@ function ContactCard() {
 
                         </div>
 
-                        {/* RIGHT SIDE */}
+                        {/* RIGHT SIDE - CONTACT FORM */}
                         <div className="p-8 md:p-12 flex flex-col justify-center">
                             <h3 className="text-xl font-heading font-semibold text-foreground mb-6">
                                 {translate('hireme.subtitle')}
@@ -218,7 +186,7 @@ function ContactCard() {
                                 {/* MESSAGE FIELD */}
                                 <div className="space-y-2">
                                     <label className="flex items-center gap-2 text-sm font-medium text-foreground/80">
-                                        <FiSend className="text-primary" />
+                                        <FiBookmark className="text-primary" />
                                         {translate('hireme.message')}
                                     </label>
                                     <textarea
@@ -248,7 +216,7 @@ function ContactCard() {
                                     />
                                 </div>
 
-                                {/* SEND BUTTON */}
+                                {/* SUBMIT BUTTON */}
                                 <button
                                     type="submit"
                                     disabled={status === 'loading'}
@@ -319,6 +287,4 @@ function ContactCard() {
             </div>
         </div>
     );
-}
-
-export default ContactCard;
+};

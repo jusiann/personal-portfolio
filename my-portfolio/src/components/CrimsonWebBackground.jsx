@@ -1,6 +1,6 @@
-import {useEffect, useState, useCallback} from "react";
+import { useEffect, useState, useCallback } from "react";
 
-export const CrimsonWebBackground = () => {
+function CrimsonWebBackground() {
   const [nodes, setNodes] = useState([]);
   const [lines, setLines] = useState([]);
 
@@ -198,4 +198,6 @@ export const CrimsonWebBackground = () => {
         ))}
     </div>
   );
-};
+}
+
+export default CrimsonWebBackground;

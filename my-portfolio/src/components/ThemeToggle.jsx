@@ -5,7 +5,7 @@ import { Sun, Moon } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export const ThemeToggle = () => {
+function ThemeToggle() {
     const { isDarkMode, toggleTheme } = useTheme();
     const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -116,4 +116,6 @@ export const ThemeToggle = () => {
             )}
         </>
     );
-};
+}
+
+export default ThemeToggle;

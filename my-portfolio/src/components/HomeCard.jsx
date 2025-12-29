@@ -1,8 +1,8 @@
-import { SocialLinks } from './SocialLinks';
-import { TypingEffect } from './TypingEffect';
+import SocialLinks from './SocialLinks';
+import TypingEffect from './TypingEffect';
 import { useLanguage } from '../lib/utils';
 
-export const HomeCard = () => {
+function HomeCard() {
     const { translate, lang } = useLanguage();
 
     const typingTexts = lang === 'tr'
@@ -130,4 +130,6 @@ export const HomeCard = () => {
             </div>
         </div>
     );
-};
+}
+
+export default HomeCard;

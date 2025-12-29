@@ -1,10 +1,10 @@
- import { CrimsonWebBackground } from "../components/CrimsonWebBackground";
-import { Navbar } from "../components/Navbar";
-import { PageTransition } from "../components/PageTransition";
-import { HomeCard } from "../components/HomeCard";
-import { Footer } from "../components/Footer";
+import CrimsonWebBackground from "../components/CrimsonWebBackground";
+import Navbar from "../components/Navbar";
+import PageTransition from "../components/PageTransition";
+import HomeCard from "../components/HomeCard";
+import Footer from "../components/Footer";
 
-export const Home = () => {
+function Home() {
     return (
         <PageTransition>
             <div className="
@@ -30,4 +30,6 @@ export const Home = () => {
             </div>
         </PageTransition>
     );
-};
+}
+
+export default Home;

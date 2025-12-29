@@ -6,7 +6,7 @@ const translations = { tr, en };
 
 const LanguageContext = createContext();
 
-export const LanguageProvider = ({ children }) => {
+function LanguageProvider({ children }) {
     const [language, setLanguage] = useState(() => {
         const stored = localStorage.getItem("language");
 
@@ -48,6 +48,7 @@ export const LanguageProvider = ({ children }) => {
             {children}
         </LanguageContext.Provider>
     );
-};
+}
 
+export { LanguageProvider };
 export const useLanguageContext = () => useContext(LanguageContext);

@@ -1,11 +1,11 @@
 import {BrowserRouter, Routes, Route, useLocation} from "react-router-dom"
 import {AnimatePresence} from "framer-motion"
-import Home from "./pages/Home"
-import Resume from "./pages/Resume"
-import Skills from "./pages/Skills"
-import Projects from "./pages/Projects"
-import Contact from "./pages/Contact"
-import NotFound from "./pages/NotFound"
+import {Home} from "./pages/Home"
+import {Resume} from "./pages/Resume"
+import {Skills} from "./pages/Skills"
+import {Projects} from "./pages/Projects"
+import {Contact} from "./pages/Contact"
+import {NotFound} from "./pages/NotFound"
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -32,4 +32,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

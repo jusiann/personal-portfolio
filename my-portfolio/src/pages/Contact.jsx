@@ -1,10 +1,10 @@
-import {CrimsonWebBackground} from "../components/CrimsonWebBackground";
-import {Navbar} from "../components/Navbar";
-import {PageTransition} from "../components/PageTransition";
-import {ContactCard} from "../components/ContactCard";
-import {Footer} from "../components/Footer";
+import CrimsonWebBackground from "../components/CrimsonWebBackground";
+import Navbar from "../components/Navbar";
+import PageTransition from "../components/PageTransition";
+import ContactCard from "../components/ContactCard";
+import Footer from "../components/Footer";
 
-export const Contact = () => {
+function Contact() {
     return (
         <PageTransition>
             <div className="
@@ -30,4 +30,6 @@ export const Contact = () => {
             </div>
         </PageTransition>
     );
-};
+}
+
+export default Contact;

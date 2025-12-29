@@ -1,18 +1,18 @@
-import CrimsonWebBackground from "../components/CrimsonWebBackground";
-import Navbar from "../components/Navbar";
-import PageTransition from "../components/PageTransition";
-import SkillsCard from "../components/SkillsCard";
-import Footer from "../components/Footer";
+import {CrimsonWebBackground} from "../components/CrimsonWebBackground";
+import {Navbar} from "../components/Navbar";
+import {PageTransition} from "../components/PageTransition";
+import {ContactCard} from "../components/ContactCard";
+import {Footer} from "../components/Footer";
 
-function Skills() {
+function Contact() {
     return (
         <PageTransition>
             <div className="
                 min-h-screen 
-                bg-background
+                bg-background 
                 text-foreground 
-                overflow-x-hidden
-                flex
+                overflow-x-hidden 
+                flex 
                 flex-col
             ">
 
@@ -23,7 +23,7 @@ function Skills() {
                 <Navbar />
 
                 {/* MAIN CONTENT */}
-                <SkillsCard />
+                <ContactCard />
 
                 {/* FOOTER */}
                 <Footer />
@@ -32,4 +32,4 @@ function Skills() {
     );
 }
 
-export default Skills;
+export default Contact;

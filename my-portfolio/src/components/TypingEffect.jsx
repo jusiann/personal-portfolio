@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export const TypingEffect = ({ texts, typingSpeed = 100, deletingSpeed = 50, pauseTime = 2000 }) => {
+function TypingEffect({ texts, typingSpeed = 100, deletingSpeed = 50, pauseTime = 2000 }) {
     const [currentTextIndex, setCurrentTextIndex] = useState(0);
     const [displayText, setDisplayText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
@@ -45,4 +45,6 @@ export const TypingEffect = ({ texts, typingSpeed = 100, deletingSpeed = 50, pau
             <span className="animate-pulse text-primary ml-0.5">|</span>
         </span>
     );
-};
+}
+
+export default TypingEffect;

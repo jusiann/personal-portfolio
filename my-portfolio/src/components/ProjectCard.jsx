@@ -4,7 +4,7 @@ import { getSkillIcon, SiGithub } from '../lib/icons';
 
 import projectsData from '../data/projects.json';
 
-export const ProjectCard = () => {
+function ProjectCard() {
     const { translate } = useLanguage();
     const [selectedProject, setSelectedProject] = useState(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -96,7 +96,7 @@ export const ProjectCard = () => {
 
             {/* INFO */}
             <div className="p-4">
-                
+
                 {/* TITLE */}
                 <h3 className="text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-1 mb-3">
                     {project.name}
@@ -104,7 +104,7 @@ export const ProjectCard = () => {
 
                 {/* GITHUB AND TECHNOLOGY ICONS */}
                 <div className="flex items-center justify-between">
-                    
+
                     {/* TECHNOLOGY ICONS */}
                     <div className="flex items-center gap-3">
                         {project.technologies?.map((techName, index) => {
@@ -290,4 +290,6 @@ export const ProjectCard = () => {
             )}
         </div>
     );
-};
+}
+
+export default ProjectCard;

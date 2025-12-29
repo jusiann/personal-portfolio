@@ -1,10 +1,10 @@
-import CrimsonWebBackground from "../components/CrimsonWebBackground";
-import Navbar from "../components/Navbar";
-import PageTransition from "../components/PageTransition";
-import SkillsCard from "../components/SkillsCard";
-import Footer from "../components/Footer";
+import { CrimsonWebBackground } from "../components/CrimsonWebBackground";
+import { Navbar } from "../components/Navbar";
+import { PageTransition } from "../components/PageTransition";
+import { HomeCard } from "../components/HomeCard";
+import { Footer } from "../components/Footer";
 
-function Skills() {
+function Home() {
     return (
         <PageTransition>
             <div className="
@@ -23,7 +23,7 @@ function Skills() {
                 <Navbar />
 
                 {/* MAIN CONTENT */}
-                <SkillsCard />
+                <HomeCard />
 
                 {/* FOOTER */}
                 <Footer />
@@ -32,4 +32,4 @@ function Skills() {
     );
 }
 
-export default Skills;
+export default Home;
