@@ -119,15 +119,21 @@ function ProjectCard() {
 
                     {/* GITHUB LINK */}
                     {project.githubUrl && (
-                        <a
-                            href={project.githubUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="text-foreground/50 hover:text-primary transition-colors duration-300"
-                        >
-                            <SiGithub className="w-6 h-6" />
-                        </a>
+                        project.githubUrl === '#' ? (
+                            <div className="text-foreground/20 cursor-not-allowed" title="Repository not available">
+                                <SiGithub className="w-6 h-6" />
+                            </div>
+                        ) : (
+                            <a
+                                href={project.githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="text-foreground/50 hover:text-primary transition-colors duration-300"
+                            >
+                                <SiGithub className="w-6 h-6" />
+                            </a>
+                        )
                     )}
                 </div>
             </div>

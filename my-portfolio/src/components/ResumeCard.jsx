@@ -70,6 +70,23 @@ function ResumeCard() {
                                 </div>
                             </div>
                         </div>
+
+                        {/* HOBBIES & INTERESTS */}
+                        <div className="mt-8 text-center">
+                            <h4 className="text-lg font-heading font-semibold text-foreground mb-4">
+                                {translate('resume.hobbies_title')}
+                            </h4>
+                            <div className="flex flex-wrap justify-center gap-3">
+                                {['fitness', 'walking', 'origami', 'reading', 'photography', 'music'].map((hobby) => (
+                                    <span
+                                        key={hobby}
+                                        className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20 hover:bg-primary/20 transition-colors duration-200"
+                                    >
+                                        {translate(`resume.hobbies.${hobby}`)}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 );
             case 'education':

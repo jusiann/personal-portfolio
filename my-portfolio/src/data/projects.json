@@ -44,7 +44,7 @@
         "technologies": [
             "FaJava"
         ],
-        "githubUrl": "https://github.com/jusiann/myhabits",
+        "githubUrl": "https://github.com/jusiann/ProjectMyHabits",
         "images": [
             "/assets/images/projects/myhabits_desktop_app/1.png",
             "/assets/images/projects/myhabits_desktop_app/2.png",
@@ -64,7 +64,7 @@
             "SiPostgresql",
             "SiFlutter"
         ],
-        "githubUrl": "#",
+        "githubUrl": "https://github.com/jusiann/Chatting-Application",
         "images": [
             "/assets/images/projects/chatting_app/1.jpg",
             "/assets/images/projects/chatting_app/2.jpg",
@@ -83,7 +83,7 @@
             "SiNodedotjs",
             "SiMongodb"
         ],
-        "githubUrl": "https://github.com/jusiann/habits-mobile",
+        "githubUrl": "https://github.com/jusiann/habits-mobile-app",
         "images": [
             "/assets/images/projects/habits_mobile_app/1.jpg",
             "/assets/images/projects/habits_mobile_app/2.jpg",

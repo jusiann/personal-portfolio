@@ -1,4 +1,4 @@
-import {CrimsonWebBackground} from '../components/CrimsonWebBackground';
+import CrimsonWebBackground from '../components/CrimsonWebBackground';
 
 function NotFound() {
     return (
@@ -11,12 +11,12 @@ function NotFound() {
                 items-center
                 justify-center
         ">
-                {/* BACKGROUND EFFECTS */}
-                <CrimsonWebBackground />
+            {/* BACKGROUND EFFECTS */}
+            <CrimsonWebBackground />
 
-                {/* 404 CONTENT */}
-                <div className="relative z-10 text-center px-8">
-                    <h1 className="
+            {/* 404 CONTENT */}
+            <div className="relative z-10 text-center px-8">
+                <h1 className="
                         text-8xl 
                         md:text-9xl 
                         font-heading 
@@ -25,16 +25,16 @@ function NotFound() {
                         mb-4
                         tracking-tight
                     ">
-                        404
-                    </h1>
-                    <p className="
+                    404
+                </h1>
+                <p className="
                         text-2xl 
                         md:text-3xl 
                         text-white/80
                     ">
-                        Page Not Found
-                    </p>
-                </div>
+                    Page Not Found
+                </p>
+            </div>
         </div>
     );
 }

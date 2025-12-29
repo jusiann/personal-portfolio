@@ -66,23 +66,23 @@ function CrimsonWebBackground() {
 
     generateNodes();
 
-    // // GENERATE NODES ON RESIZE
-    // const handleResize = () => {
-    //   generateNodes();
-    // };
+    // GENERATE NODES ON RESIZE
+    const handleResize = () => {
+      generateNodes();
+    };
 
-    // window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize);
 
-    // return () => {
-    //   window.removeEventListener("resize", handleResize);
-    // };
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [generatelines]);
 
   useEffect(() => {
     let animationId;
     let lastTime = 0;
     let frameCount = 0;
-    const targetFPS = 50;
+    const targetFPS = 60;
     const frameInterval = 1000 / targetFPS;
 
     const animate = (currentTime) => {
