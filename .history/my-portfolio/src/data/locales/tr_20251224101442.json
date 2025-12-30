@@ -43,15 +43,6 @@
             "yapiradar_company": "YAPIRADAR A.Ş.",
             "yapiradar_start": "2024",
             "yapiradar_description": "Backend geliştirme süreçlerinde aktif olarak çalışıyor, teknik destek sağlıyor, hata ayıklama ve sistem bakımı yapıyorum."
-        },
-        "hobbies_title": "İlgi Alanları & Hobiler",
-        "hobbies": {
-            "fitness": "Fitness",
-            "walking": "Yürüyüş",
-            "origami": "Origami",
-            "reading": "Kitap Okuma",
-            "photography": "Video Oyunları",
-            "music": "Müzik Dinleme"
         }
     },
     "skills": {
@@ -102,8 +93,6 @@
         "last_name": "Soyad",
         "last_name_placeholder": "Soyadınız",
         "subject": "Konu",
-        "subject_label": "Konu",
-        "subject_placeholder": "Mesajınızın konusu",
         "message": "Mesajınız",
         "message_placeholder": "Projenizi veya iş teklifinizi buraya yazın...",
         "submit": "Mesaj Gönder",

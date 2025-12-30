@@ -43,15 +43,6 @@
             "yapiradar_company": "YAPIRADAR INC.",
             "yapiradar_start": "2024",
             "yapiradar_description": "Actively working on backend development processes, providing technical support, debugging and performing system maintenance."
-        },
-        "hobbies_title": "Interests & Hobbies",
-        "hobbies": {
-            "fitness": "Fitness",
-            "walking": "Walking",
-            "origami": "Origami",
-            "reading": "Reading",
-            "photography": "Video Games",
-            "music": "Listening to Music"
         }
     },
     "skills": {
@@ -102,8 +93,6 @@
         "last_name": "Last Name",
         "last_name_placeholder": "Your last name",
         "subject": "Subject",
-        "subject_label": "Subject",
-        "subject_placeholder": "Subject of your message",
         "message": "Your Message",
         "message_placeholder": "Describe your project or job offer here...",
         "submit": "Send Message",
