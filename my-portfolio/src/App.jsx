@@ -1,5 +1,5 @@
-import {BrowserRouter, Routes, Route, useLocation} from "react-router-dom"
-import {AnimatePresence} from "framer-motion"
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
+import { AnimatePresence } from "framer-motion"
 import Home from "./pages/Home"
 import Resume from "./pages/Resume"
 import Skills from "./pages/Skills"
@@ -8,6 +8,7 @@ import Contact from "./pages/Contact"
 import NotFound from "./pages/NotFound"
 
 function AnimatedRoutes() {
+
   const location = useLocation();
 
   return (

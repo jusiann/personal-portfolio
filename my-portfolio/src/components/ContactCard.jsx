@@ -21,7 +21,6 @@ function ContactCard() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         setStatus('loading');
-
         try {
             await emailjs.send(
                 import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -34,7 +33,6 @@ function ContactCard() {
                 },
                 import.meta.env.VITE_EMAILJS_PUBLIC_KEY
             );
-
             setStatus('success');
             setName('');
             setSubject('');
@@ -59,11 +57,11 @@ function ContactCard() {
                         bg-card/10 
                         backdrop-blur-sm
                         rounded-2xl 
-                        border-l-4 
+                        border-l-4
                         border-primary
                         shadow-2xl
                         overflow-hidden
-                        transition-all 
+                        transition-all
                         duration-500
                         hover:scale-[1.01]
                     "
@@ -148,6 +146,7 @@ function ContactCard() {
                             </h3>
 
                             <form onSubmit={handleSubmit} className="space-y-5">
+
                                 {/* NAME FIELD */}
                                 <div className="space-y-2">
                                     <label className="flex items-center gap-2 text-sm font-medium text-foreground/80">

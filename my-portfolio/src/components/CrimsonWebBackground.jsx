@@ -66,7 +66,6 @@ function CrimsonWebBackground() {
 
     generateNodes();
 
-    // GENERATE NODES ON RESIZE
     const handleResize = () => {
       generateNodes();
     };
@@ -101,7 +100,6 @@ function CrimsonWebBackground() {
           let newSpeedX = node.speedX;
           let newSpeedY = node.speedY;
 
-          // BOUNCE OFF EDGES - REVERSE DIRECTION
           if (newX <= 0 || newX >= 100) {
             newSpeedX = -node.speedX;
             newX = newX <= 0 ? 0 : 100;

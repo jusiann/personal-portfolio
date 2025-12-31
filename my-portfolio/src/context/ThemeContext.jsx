@@ -5,17 +5,6 @@ const ThemeContext = createContext();
 function ThemeProvider({ children }) {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
-    useEffect(() => {
-        const storedTheme = localStorage.getItem("theme");
-        if (storedTheme === "dark") {
-            document.documentElement.classList.add("dark");
-            setIsDarkMode(true);
-        } else {
-            document.documentElement.classList.remove("dark");
-            setIsDarkMode(false);
-        }
-    }, []);
-
     const toggleTheme = (callback) => {
         if (isDarkMode) {
             document.documentElement.classList.remove("dark");
@@ -30,6 +19,17 @@ function ThemeProvider({ children }) {
         if (callback)
             callback();
     };
+
+    useEffect(() => {
+        const storedTheme = localStorage.getItem("theme");
+        if (storedTheme === "dark") {
+            document.documentElement.classList.add("dark");
+            setIsDarkMode(true);
+        } else {
+            document.documentElement.classList.remove("dark");
+            setIsDarkMode(false);
+        }
+    }, []);
 
     return (
         <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>

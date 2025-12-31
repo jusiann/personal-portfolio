@@ -13,10 +13,6 @@ function LanguageProvider({ children }) {
         return (stored === "tr" || stored === "en") ? stored : "en";
     });
 
-    useEffect(() => {
-        localStorage.setItem("language", language);
-    }, [language]);
-
     const translate = (key) => {
         const keys = key.split('.');
         let value = translations[language];
@@ -42,6 +38,10 @@ function LanguageProvider({ children }) {
         t: translate,
         isRtl: false
     };
+
+    useEffect(() => {
+        localStorage.setItem("language", language);
+    }, [language]);
 
     return (
         <LanguageContext.Provider value={value}>

@@ -7,18 +7,18 @@ function ResumeCard() {
     const [activeTab, setActiveTab] = useState('about');
     const contentRef = useRef(null);
 
+    const tabs = [
+        { id: 'about', label: translate('resume.about_title') },
+        { id: 'education', label: translate('resume.education_title') },
+        { id: 'experience', label: translate('resume.experience_title') },
+    ];
+
     // RESET SCROLL POSITION
     useEffect(() => {
         if (contentRef.current) {
             contentRef.current.scrollTop = 0;
         }
     }, [activeTab]);
-
-    const tabs = [
-        { id: 'about', label: translate('resume.about_title') },
-        { id: 'education', label: translate('resume.education_title') },
-        { id: 'experience', label: translate('resume.experience_title') },
-    ];
 
     const renderContent = () => {
         switch (activeTab) {
@@ -89,6 +89,7 @@ function ResumeCard() {
                         </div>
                     </div>
                 );
+
             case 'education':
                 return (
                     <div>
@@ -143,6 +144,7 @@ function ResumeCard() {
                         </div>
                     </div>
                 );
+
             case 'experience':
                 return (
                     <div>
@@ -179,6 +181,7 @@ function ResumeCard() {
                         </div>
                     </div>
                 );
+
             default:
                 return null;
         }

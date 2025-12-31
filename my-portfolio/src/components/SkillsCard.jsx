@@ -13,6 +13,7 @@ function SkillsCard() {
     };
 
     const SingleSkillCard = ({ skill }) => {
+
         const totalSegments = 5;
         const filledSegments = skill.level;
         const circleRadius = 16;

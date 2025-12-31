@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useLanguage, cn } from '../lib/utils';
 import { getSkillIcon, SiGithub } from '../lib/icons';
-
 import projectsData from '../data/projects.json';
 
 function ProjectCard() {
@@ -10,7 +9,6 @@ function ProjectCard() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [activeFilter, setActiveFilter] = useState('all');
 
-    //  FILTER
     const categories = [
         { id: 'all', labelKey: 'projects.filter_all' },
         { id: 'fullstack', labelKey: 'projects.filter_fullstack' },
@@ -18,14 +16,12 @@ function ProjectCard() {
         { id: 'desktop', labelKey: 'projects.filter_desktop' },
     ];
 
-    // MAP PROJECT JSON DATA
     const allProjects = projectsData.map(project => ({
         ...project,
         name: translate(project.name),
         description: translate(project.description)
     }));
 
-    // FILTER PROJECT BY CATEGORY
     const projects = activeFilter === 'all'
         ? allProjects
         : allProjects.filter(p => p.category === activeFilter);
@@ -54,7 +50,6 @@ function ProjectCard() {
         }
     };
 
-    // PROJECT CARD COMPONENT
     const SingleProjectCard = ({ project }) => (
         <div
             onClick={() => openModal(project)}
