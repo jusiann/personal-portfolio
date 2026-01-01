@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { createPortal } from 'react-dom';
 import { Sun, Moon } from 'lucide-react';

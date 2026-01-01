@@ -3,7 +3,6 @@ import TypingEffect from './TypingEffect';
 import { useLanguage } from '../lib/utils';
 
 function HomeCard() {
-
     const { translate, lang } = useLanguage();
 
     const typingTexts = lang === 'tr'

@@ -1,7 +1,6 @@
 import { useLanguage } from "../lib/utils";
 
 function Footer() {
-
     const { translate } = useLanguage();
     const currentYear = new Date().getFullYear();
 
