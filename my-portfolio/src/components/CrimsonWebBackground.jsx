@@ -1,7 +1,8 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 function CrimsonWebBackground() {
-  const [nodes, setNodes] = useState([]);
+  const nodesRef = useRef([]);
+  const [renderTrigger, setRenderTrigger] = useState(0);
   const [lines, setLines] = useState([]);
 
   const generatelines = useCallback((nodeList) => {
@@ -43,7 +44,7 @@ function CrimsonWebBackground() {
   useEffect(() => {
     const generateNodes = () => {
       const numberOfNodes = Math.floor(
-        (window.innerWidth * window.innerHeight) / 50000 + 12
+        (window.innerWidth * window.innerHeight) / 60000 + 8
       );
 
       const newNodes = [];
@@ -54,14 +55,15 @@ function CrimsonWebBackground() {
           x: Math.random() * 100,
           y: Math.random() * 100,
           size: Math.random() * 2 + 1.5,
-          speedX: (Math.random() - 0.5) * 0.05,
-          speedY: (Math.random() - 0.5) * 0.05,
+          speedX: (Math.random() - 0.5) * 0.04,
+          speedY: (Math.random() - 0.5) * 0.04,
           opacity: Math.random() * 0.3 + 0.6,
           pulseDelay: Math.random() * 5,
         });
       }
-      setNodes(newNodes);
+      nodesRef.current = newNodes;
       generatelines(newNodes);
+      setRenderTrigger(prev => prev + 1);
     };
 
     generateNodes();
@@ -93,43 +95,38 @@ function CrimsonWebBackground() {
       lastTime = currentTime - (deltaTime % frameInterval);
       frameCount++;
 
-      setNodes((previousNodes) => {
-        const newNodes = previousNodes.map((node) => {
-          let newX = node.x + node.speedX;
-          let newY = node.y + node.speedY;
-          let newSpeedX = node.speedX;
-          let newSpeedY = node.speedY;
+      const nodes = nodesRef.current;
+      for (let i = 0; i < nodes.length; i++) {
+        const node = nodes[i];
+        let newX = node.x + node.speedX;
+        let newY = node.y + node.speedY;
 
-          if (newX <= 0 || newX >= 100) {
-            newSpeedX = -node.speedX;
-            newX = newX <= 0 ? 0 : 100;
-          }
-          if (newY <= 0 || newY >= 100) {
-            newSpeedY = -node.speedY;
-            newY = newY <= 0 ? 0 : 100;
-          }
-
-          return {
-            ...node,
-            x: newX,
-            y: newY,
-            speedX: newSpeedX,
-            speedY: newSpeedY,
-          };
-        });
-
-        if (frameCount % 4 === 0) {
-          generatelines(newNodes);
+        if (newX <= 0 || newX >= 100) {
+          node.speedX = -node.speedX;
+          newX = newX <= 0 ? 0 : 100;
+        }
+        if (newY <= 0 || newY >= 100) {
+          node.speedY = -node.speedY;
+          newY = newY <= 0 ? 0 : 100;
         }
 
-        return newNodes;
-      });
+        node.x = newX;
+        node.y = newY;
+      }
+
+      if (frameCount % 4 === 0) {
+        generatelines(nodes);
+      }
+
+      setRenderTrigger(prev => prev + 1);
     };
 
     animationId = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(animationId);
   }, [generatelines]);
+
+  const nodes = nodesRef.current;
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
@@ -148,18 +145,9 @@ function CrimsonWebBackground() {
             <stop offset="100%" className="crimson-stop-end" />
           </linearGradient>
 
-          {/* SVG FOR GLOW EFFECT */}
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="1.2" result="coloredBlur" />
-            <feMerge>
-              <feMergeNode in="coloredBlur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-
         </defs>
 
-        {/* RENDER LINES WITH GLOW EFFECT */}
+        {/* RENDER LINES */}
         {
           lines.map((connection) => (
             <line
@@ -169,11 +157,9 @@ function CrimsonWebBackground() {
               x2={`${connection.x2}%`}
               y2={`${connection.y2}%`}
               stroke="url(#lineGradient)"
-              strokeWidth="1.6"
+              strokeWidth="1.4"
               opacity={connection.opacity}
               className="web-thread"
-              style={{ transition: 'opacity 0.5s ease-out' }}
-              filter="url(#glow)"
             />
           ))}
       </svg>

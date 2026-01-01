@@ -2,11 +2,11 @@ import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { useLanguageContext } from '../context/LanguageContext';
 
-export const cn = (...inputs) => {
+export function cn(...inputs) {
     return twMerge(clsx(...inputs));
 };
 
-export const useLanguage = () => {
+export function useLanguage() {
     const { language, translate, t, toggleLanguage } = useLanguageContext();
 
     return {

@@ -6,9 +6,9 @@ import {
 } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
 import { VscVscode } from 'react-icons/vsc';
-import { 
+import {
     FiMail, FiPhone, FiUser, FiCalendar, FiBriefcase,
-    FiMapPin, FiGlobe, FiDownload, FiSend, FiCheck, FiAlertCircle, FiBookmark 
+    FiMapPin, FiGlobe, FiDownload, FiSend, FiCheck, FiAlertCircle, FiBookmark
 } from 'react-icons/fi';
 
 export const skillIconMap = {
@@ -17,8 +17,6 @@ export const skillIconMap = {
     SiGit, VscVscode, SiPostman, SiJsonwebtokens, SiNpm, SiJira, SiEslint, SiBlender, SiUnity,
     SiFlutter
 };
-
-export const getSkillIcon = (iconName) => skillIconMap[iconName] || SiJavascript;
 
 export const socialIcons = {
     github: SiGithub,
@@ -50,3 +48,5 @@ export {
     FiMail, FiPhone, FiUser, FiCalendar, FiBriefcase, FiMapPin, FiGlobe, FiDownload,
     FiSend, FiCheck, FiAlertCircle, FiBookmark,
 };
+
+export const getSkillIcon = (iconName) => skillIconMap[iconName] || SiJavascript;
