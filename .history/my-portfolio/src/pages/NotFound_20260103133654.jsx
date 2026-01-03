@@ -40,24 +40,16 @@ function NotFound() {
                 <Link
                     to="/"
                     className="
-                        px-8
-                        py-4
-                        rounded-lg
-                        bg-primary
+                        inline-block
+                        px-8 py-3
+                        bg-[#C46A2B]
                         text-white
                         font-semibold
-                        text-lg
-                        hover:bg-primary/90
-                        hover:scale-[1.02]
-                        active:scale-95
-                        shadow-lg
-                        shadow-primary/30
+                        rounded-xl
+                        hover:bg-[#A85A24]
+                        hover:scale-105
                         transition-all
                         duration-300
-                        inline-flex
-                        items-center
-                        justify-center
-                        gap-2
                     "
                 >
                     Back to Home
