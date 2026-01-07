@@ -1,21 +1,21 @@
 import {useState} from 'react';
 import {useLanguage} from '../lib/utils';
-import {FiMail, FiPhone, FiMapPin, FiSend, FiCheck, FiAlertCircle, FiUser, FiBookmark, SiReact, SiNodedotjs, SiUnity, SiJavascript} from '../lib/icons';
+import {FiMail,FiPhone,FiMapPin,FiSend,FiCheck,FiAlertCircle,FiUser,FiBookmark,SiReact,SiNodedotjs,SiUnity,SiJavascript} from '../lib/icons';
 import emailjs from '@emailjs/browser';
 
 function ContactSection() {
-    const { translate } = useLanguage();
-    const [name, setName] = useState('');
-    const [subject, setSubject] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
-    const [status, setStatus] = useState('idle');
+    const {translate} = useLanguage();
+    const [name,setName] = useState('');
+    const [subject,setSubject] = useState('');
+    const [email,setEmail] = useState('');
+    const [message,setMessage] = useState('');
+    const [status,setStatus] = useState('idle');
 
     const techSkills = [
-        { Icon: SiReact, name: "React" },
-        { Icon: SiNodedotjs, name: "Node.js" },
-        { Icon: SiJavascript, name: "JavaScript" },
-        { Icon: SiUnity, name: "Unity" },
+        {Icon: SiReact, name: "React"},
+        {Icon: SiNodedotjs, name: "Node.js"},
+        {Icon: SiJavascript, name: "JavaScript"},
+        {Icon: SiUnity, name: "Unity"},
     ];
 
     const handleSubmit = async (event) => {
@@ -50,37 +50,14 @@ function ContactSection() {
 
             {/* HIRE ME CARD */}
             <div className="flex items-center justify-center w-full max-w-6xl">
-                <div
-                    className="
-                        relative 
-                        w-full
-                        bg-card/10 
-                        backdrop-blur-sm
-                        rounded-2xl 
-                        border-l-4
-                        border-primary
-                        shadow-2xl
-                        overflow-hidden
-                        transition-all
-                        duration-500
-                        hover:scale-[1.01]
-                    "
-                >
+                <div className="relative w-full bg-card/10 backdrop-blur-sm rounded-2xl border-l-4 border-primary shadow-2xl overflow-hidden transition-all duration-500 hover:scale-[1.01]">
                     <div className="grid md:grid-cols-2">
 
                         {/* LEFT SIDE - CONTACT INFORMATION */}
                         <div className="p-8 md:p-12 flex flex-col justify-center">
 
                             {/* TITLE */}
-                            <h2 className="
-                                text-3xl 
-                                md:text-4xl 
-                                font-heading 
-                                font-bold 
-                                text-foreground
-                                mb-4
-                                tracking-tight
-                            ">
+                            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 tracking-tight">
                                 {translate('hireme.title')}
                             </h2>
 
@@ -99,7 +76,6 @@ function ContactSection() {
                                     </div>
                                     <span>adilefe257@gmail.com</span>
                                 </a>
-
                                 <a
                                     href="tel:+905456764324"
                                     className="flex items-center gap-4 text-foreground/80 hover:text-primary transition-colors group"
@@ -109,7 +85,6 @@ function ContactSection() {
                                     </div>
                                     <span>+90 545 676 43 24</span>
                                 </a>
-
                                 <div className="flex items-center gap-4 text-foreground/80">
                                     <div className="p-3 rounded-lg bg-primary/10">
                                         <FiMapPin className="w-5 h-5 text-primary" />
@@ -124,7 +99,7 @@ function ContactSection() {
                                     {translate('hireme.skills_label')}
                                 </span>
                                 <div className="flex justify-center gap-3">
-                                    {techSkills.map((skill, index) => (
+                                    {techSkills.map((skill,index) => (
                                         <div
                                             key={index}
                                             className="p-3 rounded-lg bg-primary/10"
@@ -156,25 +131,9 @@ function ContactSection() {
                                     <input
                                         type="text"
                                         value={name}
-                                        onChange={(e) => setName(e.target.value)}
+                                        onChange={(event) => setName(event.target.value)}
                                         required
-                                        className="
-                                            w-full
-                                            px-4
-                                            py-3
-                                            rounded-lg
-                                            bg-background/50
-                                            backdrop-blur-sm
-                                            border
-                                            border-foreground/10
-                                            text-foreground
-                                            placeholder:text-foreground/40
-                                            focus:outline-none
-                                            focus:border-primary
-                                            focus:ring-2
-                                            focus:ring-primary/20
-                                            transition-all
-                                        "
+                                        className="w-full px-4 py-3 rounded-lg bg-background/50 backdrop-blur-sm border border-foreground/10 text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
                                         placeholder={translate('hireme.name_placeholder') || 'Adınız Soyadınız'}
                                     />
                                 </div>
@@ -188,25 +147,9 @@ function ContactSection() {
                                     <input
                                         type="email"
                                         value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
+                                        onChange={(event) => setEmail(event.target.value)}
                                         required
-                                        className="
-                                            w-full
-                                            px-4
-                                            py-3
-                                            rounded-lg
-                                            bg-background/50
-                                            backdrop-blur-sm
-                                            border
-                                            border-foreground/10
-                                            text-foreground
-                                            placeholder:text-foreground/40
-                                            focus:outline-none
-                                            focus:border-primary
-                                            focus:ring-2
-                                            focus:ring-primary/20
-                                            transition-all
-                                        "
+                                        className="w-full px-4 py-3 rounded-lg bg-background/50 backdrop-blur-sm border border-foreground/10 text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
                                         placeholder={translate('hireme.email_placeholder')}
                                     />
                                 </div>
@@ -220,25 +163,9 @@ function ContactSection() {
                                     <input
                                         type="text"
                                         value={subject}
-                                        onChange={(e) => setSubject(e.target.value)}
+                                        onChange={(event) => setSubject(event.target.value)}
                                         required
-                                        className="
-                                            w-full
-                                            px-4
-                                            py-3
-                                            rounded-lg
-                                            bg-background/50
-                                            backdrop-blur-sm
-                                            border
-                                            border-foreground/10
-                                            text-foreground
-                                            placeholder:text-foreground/40
-                                            focus:outline-none
-                                            focus:border-primary
-                                            focus:ring-2
-                                            focus:ring-primary/20
-                                            transition-all
-                                        "
+                                        className="w-full px-4 py-3 rounded-lg bg-background/50 backdrop-blur-sm border border-foreground/10 text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
                                         placeholder={translate('hireme.subject_placeholder')}
                                     />
                                 </div>
@@ -251,27 +178,10 @@ function ContactSection() {
                                     </label>
                                     <textarea
                                         value={message}
-                                        onChange={(e) => setMessage(e.target.value)}
+                                        onChange={(event) => setMessage(event.target.value)}
                                         required
                                         rows="5"
-                                        className="
-                                            w-full
-                                            px-4
-                                            py-3
-                                            rounded-lg
-                                            bg-background/50
-                                            backdrop-blur-sm
-                                            border
-                                            border-foreground/10
-                                            text-foreground
-                                            placeholder:text-foreground/40
-                                            focus:outline-none
-                                            focus:border-primary
-                                            focus:ring-2
-                                            focus:ring-primary/20
-                                            transition-all
-                                            resize-none
-                                        "
+                                        className="w-full px-4 py-3 rounded-lg bg-background/50 backdrop-blur-sm border border-foreground/10 text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-none"
                                         placeholder={translate('hireme.message_placeholder')}
                                     />
                                 </div>
@@ -280,27 +190,12 @@ function ContactSection() {
                                 <button
                                     type="submit"
                                     disabled={status === 'loading'}
-                                    className={`
-                                        w-full
-                                        px-6
-                                        py-4
-                                        rounded-lg
-                                        font-semibold
-                                        text-lg
-                                        transition-all
-                                        duration-300
-                                        flex
-                                        items-center
-                                        justify-center
-                                        gap-2
-                                        ${status === 'success'
-                                            ? 'bg-primary text-white'
-                                            : status === 'error'
-                                                ? 'bg-red-500 text-white'
-                                                : 'bg-primary text-white hover:bg-primary/90 hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/30'
-                                        }
-                                        ${status === 'loading' ? 'opacity-70 cursor-not-allowed' : ''}
-                                    `}
+                                    className={`w-full px-6 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2 ${status === 'success'
+                                        ? 'bg-primary text-white'
+                                        : status === 'error'
+                                            ? 'bg-red-500 text-white'
+                                            : 'bg-primary text-white hover:bg-primary/90 hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/30'
+                                    } ${status === 'loading' ? 'opacity-70 cursor-not-allowed' : ''}`}
                                 >
                                     {status === 'loading' && (
                                         <>
@@ -333,20 +228,10 @@ function ContactSection() {
                 </div>
 
                 {/* GLOW EFFECT FOR CARD */}
-                <div
-                    className="
-                        absolute 
-                        -inset-4 
-                        bg-primary/5 
-                        blur-3xl 
-                        -z-10 
-                        opacity-50
-                        animate-pulse-subtle
-                    "
-                />
+                <div className="absolute -inset-4 bg-primary/5 blur-3xl -z-10 opacity-50 animate-pulse-subtle" />
             </div>
         </div>
     );
-};
+}
 
 export default ContactSection;

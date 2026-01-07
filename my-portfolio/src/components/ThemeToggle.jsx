@@ -1,13 +1,13 @@
 import {useState} from 'react';
 import {useTheme} from '../context/ThemeContext';
 import {createPortal} from 'react-dom';
-import {Sun, Moon} from 'lucide-react';
+import {Sun,Moon} from 'lucide-react';
 import {cn} from '../lib/utils';
-import {motion, AnimatePresence} from 'framer-motion';
+import {motion,AnimatePresence} from 'framer-motion';
 
 function ThemeToggle() {
-    const { isDarkMode, toggleTheme } = useTheme();
-    const [isTransitioning, setIsTransitioning] = useState(false);
+    const {isDarkMode,toggleTheme} = useTheme();
+    const [isTransitioning,setIsTransitioning] = useState(false);
 
     const handleToggle = () => {
         setIsTransitioning(true);

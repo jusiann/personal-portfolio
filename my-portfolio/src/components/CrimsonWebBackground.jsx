@@ -1,9 +1,9 @@
-import {useEffect, useRef, useState, useCallback} from 'react';
+import {useEffect,useRef,useState,useCallback} from 'react';
 
 function CrimsonWebBackground() {
   const nodesRef = useRef([]);
-  const [renderTrigger, setRenderTrigger] = useState(0);
-  const [lines, setLines] = useState([]);
+  const [renderTrigger,setRenderTrigger] = useState(0);
+  const [lines,setLines] = useState([]);
 
   const generatelines = useCallback((nodeList) => {
     const newLines = [];
@@ -11,29 +11,29 @@ function CrimsonWebBackground() {
     const maxLinesPerNode = 5;
     const nodeLines = new Array(nodeList.length).fill(0);
 
-    for (let i = 0; i < nodeList.length; i++) {
-      for (let j = i + 1; j < nodeList.length; j++) {
-        if (nodeLines[i] >= maxLinesPerNode ||
-          nodeLines[j] >= maxLinesPerNode) {
+    for (let nodeIndex = 0; nodeIndex < nodeList.length; nodeIndex++) {
+      for (let compareIndex = nodeIndex + 1; compareIndex < nodeList.length; compareIndex++) {
+        if (nodeLines[nodeIndex] >= maxLinesPerNode ||
+          nodeLines[compareIndex] >= maxLinesPerNode) {
           continue;
         }
 
-        const dx = nodeList[i].x - nodeList[j].x;
-        const dy = nodeList[i].y - nodeList[j].y;
+        const dx = nodeList[nodeIndex].x - nodeList[compareIndex].x;
+        const dy = nodeList[nodeIndex].y - nodeList[compareIndex].y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < maxDistance) {
           newLines.push({
-            id: `${i}-${j}`,
-            x1: nodeList[i].x,
-            y1: nodeList[i].y,
-            x2: nodeList[j].x,
-            y2: nodeList[j].y,
+            id: `${nodeIndex}-${compareIndex}`,
+            x1: nodeList[nodeIndex].x,
+            y1: nodeList[nodeIndex].y,
+            x2: nodeList[compareIndex].x,
+            y2: nodeList[compareIndex].y,
             opacity: (1 - distance / maxDistance) * 0.7,
             distance: distance,
           });
-          nodeLines[i]++;
-          nodeLines[j]++;
+          nodeLines[nodeIndex]++;
+          nodeLines[compareIndex]++;
         }
       }
     }
@@ -49,9 +49,9 @@ function CrimsonWebBackground() {
 
       const newNodes = [];
 
-      for (let i = 0; i < numberOfNodes; i++) {
+      for (let nodeIndex = 0; nodeIndex < numberOfNodes; nodeIndex++) {
         newNodes.push({
-          id: i,
+          id: nodeIndex,
           x: Math.random() * 100,
           y: Math.random() * 100,
           size: Math.random() * 2 + 1.5,
@@ -96,8 +96,8 @@ function CrimsonWebBackground() {
       frameCount++;
 
       const nodes = nodesRef.current;
-      for (let i = 0; i < nodes.length; i++) {
-        const node = nodes[i];
+      for (let nodeIndex = 0; nodeIndex < nodes.length; nodeIndex++) {
+        const node = nodes[nodeIndex];
         let newX = node.x + node.speedX;
         let newY = node.y + node.speedY;
 

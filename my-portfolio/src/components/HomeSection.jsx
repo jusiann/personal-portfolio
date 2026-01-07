@@ -17,16 +17,18 @@ function HomeSection() {
             <div className="relative flex-1 bg-card/10 backdrop-blur-sm rounded-2xl border-l-4 border-primary shadow-2xl p-8 md:p-12 transition-all duration-500 hover:scale-[1.01] z-10">
 
             {/* PROFILE IMAGE FOR MOBILE */}
-            <div className="md:hidden flex justify-center mb-8 relative group animate-pulse-subtle">
-                <div className="absolute -inset-1 bg-linear-to-br from-primary via-primary/60 to-primary/30 rounded-full blur-md group-hover:blur-lg transition-all duration-300" />
-                <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl group-hover:scale-105 transition-transform duration-300">
-                <img
-                    src="/assets/images/profile_photo.png"
-                    alt={`${translate('home.name')} ${translate('home.surname')}`}
-                    className="w-full h-full object-cover filter group-hover:brightness-110 transition-all duration-300"
-                />
+            <div className="md:hidden flex justify-center mb-8 animate-pulse-subtle">
+                <div className="relative group">
+                    <div className="absolute -inset-1 bg-linear-to-br from-primary via-primary/60 to-primary/30 rounded-full blur-md group-hover:blur-lg transition-all duration-300" />
+                    <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl group-hover:scale-105 transition-transform duration-300">
+                        <img
+                            src="/assets/images/profile_photo.png"
+                            alt={`${translate('home.name')} ${translate('home.surname')}`}
+                            className="w-full h-full object-cover filter group-hover:brightness-110 transition-all duration-300"
+                        />
+                    </div>
+                    <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(220,38,38,0.2)] pointer-events-none" />
                 </div>
-                <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(220,38,38,0.2)] pointer-events-none" />
             </div>
 
             {/* NAME SURNAME TITLE */}
@@ -42,7 +44,7 @@ function HomeSection() {
             </p>
 
             {/* DESCRIPTION */}
-            <p className="text-base md:text-lg text-foreground/80 leading-relaxed text-justify mb-8 max-w-2xl text-center md:text-left">
+            <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-8 max-w-2xl text-center md:text-left">
                 {translate('home.summary')}
             </p>
 
@@ -50,16 +52,18 @@ function HomeSection() {
         </div>
 
         {/* PROFILE IMAGE FOR DESKTOP */}
-        <div className="hidden md:flex items-center justify-center shrink-0 relative group animate-pulse-subtle">
-            <div className="absolute -inset-1 bg-linear-to-br from-primary via-primary/60 to-primary/30 rounded-full blur-md group-hover:blur-lg transition-all duration-300" />
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl group-hover:scale-105 transition-transform duration-300">
-                <img
-                src="/assets/images/profile_photo.png"
-                alt={`${translate('home.name')} ${translate('home.surname')}`}
-                className="w-full h-full object-cover filter group-hover:brightness-110 transition-all duration-300"
-                />
+        <div className="hidden md:flex items-center justify-center shrink-0 animate-pulse-subtle">
+            <div className="relative group">
+                <div className="absolute -inset-1 bg-linear-to-br from-primary via-primary/60 to-primary/30 rounded-full blur-md group-hover:blur-lg transition-all duration-300" />
+                <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl group-hover:scale-105 transition-transform duration-300">
+                    <img
+                    src="/assets/images/profile_photo.png"
+                    alt={`${translate('home.name')} ${translate('home.surname')}`}
+                    className="w-full h-full object-cover filter group-hover:brightness-110 transition-all duration-300"
+                    />
+                </div>
+                <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(220,38,38,0.2)] pointer-events-none" />
             </div>
-            <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(220,38,38,0.2)] pointer-events-none" />
         </div>
 
         {/* GLOW EFFECT FOR CARD */}

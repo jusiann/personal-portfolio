@@ -1,19 +1,18 @@
-import {useState, useRef, useEffect} from 'react';
-import {useLanguage, cn} from '../lib/utils';
-import {FiMail, FiPhone, FiUser, FiCalendar, FiBriefcase, FiMapPin, FiGlobe} from '../lib/icons';
+import {useState,useRef,useEffect} from 'react';
+import {useLanguage,cn} from '../lib/utils';
+import {FiMail,FiPhone,FiUser,FiCalendar,FiBriefcase,FiMapPin,FiGlobe} from '../lib/icons';
 
 function ResumeSection() {
-    const { translate } = useLanguage();
-    const [activeTab, setActiveTab] = useState('about');
+    const {translate} = useLanguage();
+    const [activeTab,setActiveTab] = useState('about');
     const contentRef = useRef(null);
 
     const tabs = [
-        { id: 'about', label: translate('resume.about_title') },
-        { id: 'education', label: translate('resume.education_title') },
-        { id: 'experience', label: translate('resume.experience_title') },
+        {id: 'about', label: translate('resume.about_title')},
+        {id: 'education', label: translate('resume.education_title')},
+        {id: 'experience', label: translate('resume.experience_title')},
     ];
 
-    // RESET SCROLL POSITION
     useEffect(() => {
         if (contentRef.current) {
             contentRef.current.scrollTop = 0;
@@ -100,7 +99,7 @@ function ResumeSection() {
                         {/* TIMELINE */}
                         <div className="relative pl-8">
 
-                            <div className="absolute left-[7px] top-12 bottom-8 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20" />
+                            <div className="absolute left-1.75 top-12 bottom-8 w-0.5 bg-linear-to-b from-primary via-primary/50 to-primary/20" />
 
                             {/* UNIVERSITY */}
                             <div className="relative pb-6 group">
@@ -154,7 +153,7 @@ function ResumeSection() {
 
                         {/* TIMELINE */}
                         <div className="relative pl-8">
-                            <div className="absolute left-[7px] top-12 bottom-0 w-0.5 bg-gradient-to-b from-primary to-primary/30" />
+                            <div className="absolute left-1.75 top-12 bottom-0 w-0.5 bg-linear-to-b from-primary to-primary/30" />
 
                             {/* YAPIRADAR */}
                             <div className="relative group">
@@ -210,39 +209,16 @@ function ResumeSection() {
                 </div>
 
                 {/* CARD */}
-                <div
-                    className="
-                        relative 
-                        bg-card/10 
-                        backdrop-blur-sm
-                        rounded-2xl 
-                        border-l-4 
-                        border-primary
-                        shadow-2xl
-                        overflow-hidden
-                        transition-transform 
-                        duration-500
-                        hover:scale-[1.01]
-                    "
-                >
+                <div className="relative bg-card/10 backdrop-blur-sm rounded-2xl border-l-4 border-primary shadow-2xl overflow-hidden transition-transform duration-500 hover:scale-[1.01]">
+
                     {/* CONTENT */}
-                    <div ref={contentRef} className="p-6 md:p-8 h-[460px] overflow-y-auto">
+                    <div ref={contentRef} className="p-6 md:p-8 h-115 overflow-y-auto">
                         {renderContent()}
                     </div>
                 </div>
 
                 {/* GLOW EFFECT */}
-                <div
-                    className="
-                        absolute 
-                        -inset-4 
-                        bg-primary/5 
-                        blur-3xl 
-                        -z-10 
-                        opacity-50
-                        animate-pulse-subtle
-                    "
-                />
+                <div className="absolute -inset-4 bg-primary/5 blur-3xl -z-10 opacity-50 animate-pulse-subtle" />
             </div>
         </div>
     );

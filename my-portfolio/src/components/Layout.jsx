@@ -3,12 +3,7 @@ import Navbar from './Navbar';
 import PageTransition from './PageTransition';
 import Footer from './Footer';
 
-function Layout({
-    children,
-    showFooter = true,
-    showNavbar = true,
-    showBackground = true
-}) {
+function Layout({children,showFooter = true,showNavbar = true,showBackground = true}) {
     return (
         <PageTransition>
             <div className="min-h-screen bg-background text-foreground overflow-x-hidden flex flex-col">

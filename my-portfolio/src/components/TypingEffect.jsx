@@ -1,10 +1,10 @@
-import {useState, useEffect} from 'react';
+import {useState,useEffect} from 'react';
 
-function TypingEffect({ texts, typingSpeed = 100, deletingSpeed = 50, pauseTime = 2000 }) {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
+function TypingEffect({texts,typingSpeed = 100,deletingSpeed = 50,pauseTime = 2000}) {
+  const [currentTextIndex,setCurrentTextIndex] = useState(0);
+  const [displayText,setDisplayText] = useState('');
+  const [isDeleting,setIsDeleting] = useState(false);
+  const [isPaused,setIsPaused] = useState(false);
 
   useEffect(() => {
     const currentFullText = texts[currentTextIndex];
@@ -37,7 +37,7 @@ function TypingEffect({ texts, typingSpeed = 100, deletingSpeed = 50, pauseTime 
         return () => clearTimeout(timeout);
       }
     }
-  }, [displayText, isDeleting, isPaused, currentTextIndex, texts, typingSpeed, deletingSpeed, pauseTime]);
+  }, [displayText,isDeleting,isPaused,currentTextIndex,texts,typingSpeed,deletingSpeed,pauseTime]);
 
   return (
     <span className="inline-flex items-center">

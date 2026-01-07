@@ -13,11 +13,9 @@ function NotFound() {
         <h1 className="text-8xl md:text-9xl font-heading font-bold text-primary mb-4 tracking-tight">
           404
         </h1>
-        
         <p className="text-2xl md:text-3xl text-white/80 mb-8">
           Page Not Found
         </p>
-        
         <Link
           to="/"
           className="px-8 py-4 rounded-lg bg-primary text-white font-semibold text-lg hover:bg-primary/90 hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/30 transition-all duration-300 inline-flex items-center justify-center gap-2"

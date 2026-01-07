@@ -1,19 +1,19 @@
 import {useState} from 'react';
-import {useLanguage, cn} from '../lib/utils';
-import {getSkillIcon, SiGithub} from '../lib/icons';
+import {useLanguage,cn} from '../lib/utils';
+import {getSkillIcon,SiGithub} from '../lib/icons';
 import projectsData from '../data/projects.json';
 
 function ProjectSection() {
-    const { translate } = useLanguage();
-    const [selectedProject, setSelectedProject] = useState(null);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const [activeFilter, setActiveFilter] = useState('all');
+    const {translate} = useLanguage();
+    const [selectedProject,setSelectedProject] = useState(null);
+    const [currentImageIndex,setCurrentImageIndex] = useState(0);
+    const [activeFilter,setActiveFilter] = useState('all');
 
     const categories = [
-        { id: 'all', labelKey: 'projects.filter_all' },
-        { id: 'fullstack', labelKey: 'projects.filter_fullstack' },
-        { id: 'mobile', labelKey: 'projects.filter_mobile' },
-        { id: 'desktop', labelKey: 'projects.filter_desktop' },
+        {id: 'all', labelKey: 'projects.filter_all'},
+        {id: 'fullstack', labelKey: 'projects.filter_fullstack'},
+        {id: 'mobile', labelKey: 'projects.filter_mobile'},
+        {id: 'desktop', labelKey: 'projects.filter_desktop'}
     ];
 
     const allProjects = projectsData.map(project => ({
@@ -24,7 +24,7 @@ function ProjectSection() {
 
     const projects = activeFilter === 'all'
         ? allProjects
-        : allProjects.filter(p => p.category === activeFilter);
+        : allProjects.filter(project => project.category === activeFilter);
 
     const openModal = (project) => {
         setSelectedProject(project);
@@ -36,73 +36,45 @@ function ProjectSection() {
         setCurrentImageIndex(0);
     };
 
-    const nextImage = (e) => {
-        e?.stopPropagation();
+    const nextImage = (event) => {
+        event?.stopPropagation();
         if (selectedProject) {
             setCurrentImageIndex((prev) => (prev + 1) % selectedProject.images.length);
         }
     };
 
-    const prevImage = (e) => {
-        e?.stopPropagation();
+    const prevImage = (event) => {
+        event?.stopPropagation();
         if (selectedProject) {
             setCurrentImageIndex((prev) => (prev - 1 + selectedProject.images.length) % selectedProject.images.length);
         }
     };
 
-    const SingleProjectCard = ({ project }) => (
+    const SingleProjectCard = ({project}) => (
         <div
             onClick={() => openModal(project)}
-            className="
-                group
-                relative
-                bg-card/10
-                backdrop-blur-sm
-                rounded-2xl
-                border-l-4
-                border-primary
-                overflow-hidden
-                cursor-pointer
-                transition-all
-                duration-300
-                hover:scale-[1.02]
-                shadow-xl
-                hover:shadow-2xl
-                hover:shadow-primary/10
-            "
+            className="group relative bg-card/10 backdrop-blur-sm rounded-2xl border-l-4 border-primary overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] shadow-xl hover:shadow-2xl hover:shadow-primary/10"
         >
-            {/* IMAGE */}
             <div className="relative aspect-video overflow-hidden">
                 <img
                     src={project.images[0]}
                     alt={project.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                {/* OVERLAY ON HOVER */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-
-                {/* CLICK TO VIEW HINT */}
+                <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="px-4 py-2 rounded-full bg-primary/90 text-white text-sm font-medium backdrop-blur-sm">
                         {translate('projects.view_details')}
                     </span>
                 </div>
             </div>
-
-            {/* INFO */}
             <div className="p-4">
-
-                {/* TITLE */}
                 <h3 className="text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-1 mb-3">
                     {project.name}
                 </h3>
-
-                {/* GITHUB AND TECHNOLOGY ICONS */}
                 <div className="flex items-center justify-between">
-
-                    {/* TECHNOLOGY ICONS */}
                     <div className="flex items-center gap-3">
-                        {project.technologies?.map((techName, index) => {
+                        {project.technologies?.map((techName,index) => {
                             const TechIcon = getSkillIcon(techName);
                             return (
                                 <div key={index} className="text-foreground/50 hover:text-primary transition-colors duration-300">
@@ -111,8 +83,6 @@ function ProjectSection() {
                             );
                         })}
                     </div>
-
-                    {/* GITHUB LINK */}
                     {project.githubUrl && (
                         project.githubUrl === '#' ? (
                             <div className="text-foreground/20 cursor-not-allowed" title="Repository not available">
@@ -123,7 +93,7 @@ function ProjectSection() {
                                 href={project.githubUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                onClick={(e) => e.stopPropagation()}
+                                onClick={(event) => event.stopPropagation()}
                                 className="text-foreground/50 hover:text-primary transition-colors duration-300"
                             >
                                 <SiGithub className="w-6 h-6" />
@@ -132,12 +102,9 @@ function ProjectSection() {
                     )}
                 </div>
             </div>
-
-            {/* GLOW EFFECT ON HOVER */}
             <div className="absolute -inset-1 bg-primary/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300 -z-10" />
         </div>
     );
-
 
     return (
         <div className="relative w-[90%] mx-auto min-h-[calc(100vh-8rem)] flex flex-col items-center pt-32 pb-8">
@@ -159,7 +126,6 @@ function ProjectSection() {
                             {translate(category.labelKey)}
                         </button>
                     ))}
-
                 </div>
 
                 {/* PROJECTS GRID */}
@@ -179,17 +145,7 @@ function ProjectSection() {
                 )}
 
                 {/* GLOW EFFECT */}
-                <div
-                    className="
-                        absolute 
-                        -inset-4 
-                        bg-primary/5 
-                        blur-3xl 
-                        -z-10 
-                        opacity-50
-                        animate-pulse-subtle
-                    "
-                />
+                <div className="absolute -inset-4 bg-primary/5 blur-3xl -z-10 opacity-50 animate-pulse-subtle" />
             </div>
 
             {/* DETAIL MODAL */}
@@ -199,23 +155,14 @@ function ProjectSection() {
                     onClick={closeModal}
                 >
                     <div
-                        className="
-                            relative 
-                            w-full 
-                            max-w-3xl 
-                            max-h-[90vh]
-                            bg-background
-                            rounded-2xl
-                            border-l-4
-                            border-primary
-                            shadow-2xl
-                            overflow-hidden
-                        "
-                        onClick={(e) => e.stopPropagation()}
+                        className="relative w-full max-w-3xl max-h-[90vh] bg-background rounded-2xl border-l-4 border-primary shadow-2xl overflow-hidden"
+                        onClick={(event) => event.stopPropagation()}
                     >
+
                         {/* MODAL CONTENT */}
                         <div className="p-6 md:p-8 overflow-y-auto max-h-[90vh]">
-                            {/* Title */}
+
+                            {/* TITLE */}
                             <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-6">
                                 {selectedProject.name}
                             </h2>
@@ -250,7 +197,7 @@ function ProjectSection() {
 
                                         {/* INDICATORS */}
                                         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
-                                            {selectedProject.images.map((_, index) => (
+                                            {selectedProject.images.map((_,index) => (
                                                 <button
                                                     key={index}
                                                     onClick={(event) => {
@@ -260,7 +207,7 @@ function ProjectSection() {
                                                     className={`w-1.5 h-1.5 rounded-full transition-all ${index === currentImageIndex
                                                         ? 'bg-primary w-4'
                                                         : 'bg-white/50 hover:bg-white/80'
-                                                        }`}
+                                                    }`}
                                                 />
                                             ))}
                                         </div>

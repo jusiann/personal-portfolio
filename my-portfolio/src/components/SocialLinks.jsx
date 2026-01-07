@@ -1,11 +1,11 @@
-import {useState, useEffect} from 'react';
+import {useState,useEffect} from 'react';
 import {useLanguage} from '../lib/utils';
-import {FiDownload, SiGithub, SiLinkedin, SiInstagram, SiReact, SiNodedotjs, SiCplusplus, SiUnity} from '../lib/icons';
+import {FiDownload,SiGithub,SiLinkedin,SiInstagram,SiReact,SiNodedotjs,SiCplusplus,SiUnity} from '../lib/icons';
 
 function SocialLinks() {
-    const { translate } = useLanguage();
-    const [currentIconIndex, setCurrentIconIndex] = useState(0);
-    const [isHovered, setIsHovered] = useState(false);
+    const {translate} = useLanguage();
+    const [currentIconIndex,setCurrentIconIndex] = useState(0);
+    const [isHovered,setIsHovered] = useState(false);
 
     const socialMedia = [
         {
@@ -26,10 +26,10 @@ function SocialLinks() {
     ];
 
     const rotatingSkills = [
-        { Icon: SiReact, name: 'React' },
-        { Icon: SiNodedotjs, name: 'Node.js' },
-        { Icon: SiCplusplus, name: 'C++' },
-        { Icon: SiUnity, name: 'Unity' },
+        {Icon: SiReact, name: 'React'},
+        {Icon: SiNodedotjs, name: 'Node.js'},
+        {Icon: SiCplusplus, name: 'C++'},
+        {Icon: SiUnity, name: 'Unity'},
     ];
 
     useEffect(() => {

@@ -1,21 +1,21 @@
-import {cn, useLanguage} from '../lib/utils';
-import {Menu, X} from 'lucide-react';
-import {useEffect, useState} from 'react';
-import {useLocation, Link} from 'react-router-dom';
+import {cn,useLanguage} from '../lib/utils';
+import {Menu,X} from 'lucide-react';
+import {useEffect,useState} from 'react';
+import {useLocation,Link} from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
 
 function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {translate} = useLanguage();
+  const [isScrolled,setIsScrolled] = useState(false);
+  const [isMenuOpen,setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const { translate } = useLanguage();
 
   const navItems = [
-    { name: translate('nav.home'), href: '/' },
-    { name: translate('nav.resume'), href: '/resume' },
-    { name: translate('nav.skills'), href: '/skills' },
-    { name: translate('nav.projects'), href: '/projects' },
+    {name: translate('nav.home'), href: '/'},
+    {name: translate('nav.resume'), href: '/resume'},
+    {name: translate('nav.skills'), href: '/skills'},
+    {name: translate('nav.projects'), href: '/projects'}
   ];
 
   const isActiveRoute = (href) => {
@@ -63,9 +63,9 @@ function Navbar() {
 
         {/* NAVIGATION LINKS */}
         <div className="hidden md:flex items-center space-x-4">
-          {navItems.map((item, key) => (
+          {navItems.map((item,itemIndex) => (
               <Link
-                key={key}
+                key={itemIndex}
                 to={item.href}
                 className={`relative px-4 py-3 font-medium transition-colors duration-300 group ${isActiveRoute(item.href)
                   ? 'text-primary'
@@ -121,9 +121,9 @@ function Navbar() {
 
           {/* MOBILE NAVIGATION LINKS */}
           <div className="flex flex-col space-y-8 text-xl">
-            {navItems.map((item, key) => (
+            {navItems.map((item,itemIndex) => (
                 <Link
-                  key={key}
+                  key={itemIndex}
                   to={item.href}
                   className={`relative px-4 py-2 transition-colors duration-300 group ${isActiveRoute(item.href)
                     ? 'text-primary'
