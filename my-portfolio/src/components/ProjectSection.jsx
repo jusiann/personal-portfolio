@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { useLanguage, cn } from '../lib/utils';
-import { getSkillIcon, SiGithub } from '../lib/icons';
+import {useState} from 'react';
+import {useLanguage, cn} from '../lib/utils';
+import {getSkillIcon, SiGithub} from '../lib/icons';
 import projectsData from '../data/projects.json';
 
-function ProjectCard() {
+function ProjectSection() {
     const { translate } = useLanguage();
     const [selectedProject, setSelectedProject] = useState(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -293,4 +293,4 @@ function ProjectCard() {
     );
 }
 
-export default ProjectCard;
+export default ProjectSection;

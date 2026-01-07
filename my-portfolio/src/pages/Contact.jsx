@@ -1,10 +1,10 @@
-import Layout from "../components/Layout";
-import ContactCard from "../components/ContactCard";
+import Layout from '../components/Layout';
+import ContactSection from '../components/ContactSection';
 
 function Contact() {
     return (
         <Layout>
-            <ContactCard />
+            <ContactSection />
         </Layout>
     );
 }

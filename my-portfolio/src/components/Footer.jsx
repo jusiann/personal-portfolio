@@ -1,4 +1,4 @@
-import { useLanguage } from "../lib/utils";
+import {useLanguage} from '../lib/utils';
 
 function Footer() {
     const { translate } = useLanguage();

@@ -1,7 +1,7 @@
-import CrimsonWebBackground from "./CrimsonWebBackground";
-import Navbar from "./Navbar";
-import PageTransition from "./PageTransition";
-import Footer from "./Footer";
+import CrimsonWebBackground from './CrimsonWebBackground';
+import Navbar from './Navbar';
+import PageTransition from './PageTransition';
+import Footer from './Footer';
 
 function Layout({
     children,
@@ -11,14 +11,7 @@ function Layout({
 }) {
     return (
         <PageTransition>
-            <div className="
-                min-h-screen 
-                bg-background 
-                text-foreground 
-                overflow-x-hidden
-                flex
-                flex-col
-            ">
+            <div className="min-h-screen bg-background text-foreground overflow-x-hidden flex flex-col">
 
                 {/* BACKGROUND EFFECTS */}
                 {showBackground && <CrimsonWebBackground />}

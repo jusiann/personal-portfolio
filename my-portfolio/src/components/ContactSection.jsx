@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { useLanguage } from '../lib/utils';
-import { FiMail, FiPhone, FiMapPin, FiSend, FiCheck, FiAlertCircle, FiUser, FiBookmark, SiReact, SiNodedotjs, SiUnity, SiJavascript } from '../lib/icons';
+import {useState} from 'react';
+import {useLanguage} from '../lib/utils';
+import {FiMail, FiPhone, FiMapPin, FiSend, FiCheck, FiAlertCircle, FiUser, FiBookmark, SiReact, SiNodedotjs, SiUnity, SiJavascript} from '../lib/icons';
 import emailjs from '@emailjs/browser';
 
-function ContactCard() {
+function ContactSection() {
     const { translate } = useLanguage();
     const [name, setName] = useState('');
     const [subject, setSubject] = useState('');
@@ -349,4 +349,4 @@ function ContactCard() {
     );
 };
 
-export default ContactCard;
+export default ContactSection;

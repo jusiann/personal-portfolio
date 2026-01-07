@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
-import { useLanguage, cn } from '../lib/utils';
-import { FiMail, FiPhone, FiUser, FiCalendar, FiBriefcase, FiMapPin, FiGlobe } from '../lib/icons';
+import {useState, useRef, useEffect} from 'react';
+import {useLanguage, cn} from '../lib/utils';
+import {FiMail, FiPhone, FiUser, FiCalendar, FiBriefcase, FiMapPin, FiGlobe} from '../lib/icons';
 
-function ResumeCard() {
+function ResumeSection() {
     const { translate } = useLanguage();
     const [activeTab, setActiveTab] = useState('about');
     const contentRef = useRef(null);
@@ -248,4 +248,4 @@ function ResumeCard() {
     );
 }
 
-export default ResumeCard;
+export default ResumeSection;

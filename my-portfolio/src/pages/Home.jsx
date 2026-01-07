@@ -1,10 +1,10 @@
-import Layout from "../components/Layout";
-import HomeCard from "../components/HomeCard";
+import Layout from '../components/Layout';
+import HomeSection from '../components/HomeSection';
 
 function Home() {
     return (
         <Layout>
-            <HomeCard />
+            <HomeSection />
         </Layout>
     );
 }

@@ -1,9 +1,9 @@
-import { useLanguage } from '../lib/utils';
-import { getSkillIcon } from '../lib/icons';
+import {useLanguage} from '../lib/utils';
+import {getSkillIcon} from '../lib/icons';
 
 import skillsData from '../data/skills.json';
 
-function SkillsCard() {
+function SkillsSection() {
     const { translate } = useLanguage();
 
     const allSkills = {
@@ -162,4 +162,4 @@ function SkillsCard() {
     );
 }
 
-export default SkillsCard;
+export default SkillsSection;

@@ -1,10 +1,10 @@
-import Layout from "../components/Layout";
-import SkillsCard from "../components/SkillsCard";
+import Layout from '../components/Layout';
+import SkillsSection from '../components/SkillsSection';
 
 function Skills() {
     return (
         <Layout>
-            <SkillsCard />
+            <SkillsSection />
         </Layout>
     );
 }

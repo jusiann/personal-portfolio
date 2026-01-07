@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { useTheme } from '../context/ThemeContext';
-import { createPortal } from 'react-dom';
-import { Sun, Moon } from 'lucide-react';
-import { cn } from '../lib/utils';
-import { motion, AnimatePresence } from 'framer-motion';
+import {useState} from 'react';
+import {useTheme} from '../context/ThemeContext';
+import {createPortal} from 'react-dom';
+import {Sun, Moon} from 'lucide-react';
+import {cn} from '../lib/utils';
+import {motion, AnimatePresence} from 'framer-motion';
 
 function ThemeToggle() {
     const { isDarkMode, toggleTheme } = useTheme();

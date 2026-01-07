@@ -1,5 +1,5 @@
-import { useLanguageContext } from '../context/LanguageContext';
-import { cn } from '../lib/utils';
+import {useLanguageContext} from '../context/LanguageContext';
+import {cn} from '../lib/utils';
 
 function LanguageToggle() {
     const { language, toggleLanguage } = useLanguageContext();

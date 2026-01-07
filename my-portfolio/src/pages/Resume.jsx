@@ -1,10 +1,10 @@
-import Layout from "../components/Layout";
-import ResumeCard from "../components/ResumeCard";
+import Layout from '../components/Layout';
+import ResumeSection from '../components/ResumeSection';
 
 function Resume() {
     return (
         <Layout>
-            <ResumeCard />
+            <ResumeSection />
         </Layout>
     );
 }

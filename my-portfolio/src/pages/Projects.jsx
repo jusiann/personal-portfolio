@@ -1,10 +1,10 @@
-import Layout from "../components/Layout";
-import ProjectCard from "../components/ProjectCard";
+import Layout from '../components/Layout';
+import ProjectSection from '../components/ProjectSection';
 
 function Projects() {
     return (
         <Layout>
-            <ProjectCard />
+            <ProjectSection />
         </Layout>
     );
 }

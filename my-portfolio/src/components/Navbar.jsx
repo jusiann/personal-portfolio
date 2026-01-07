@@ -1,7 +1,7 @@
-import { cn, useLanguage } from '../lib/utils';
-import { Menu, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import {cn, useLanguage} from '../lib/utils';
+import {Menu, X} from 'lucide-react';
+import {useEffect, useState} from 'react';
+import {useLocation, Link} from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
 
@@ -63,8 +63,7 @@ function Navbar() {
 
         {/* NAVIGATION LINKS */}
         <div className="hidden md:flex items-center space-x-4">
-          {
-            navItems.map((item, key) => (
+          {navItems.map((item, key) => (
               <Link
                 key={key}
                 to={item.href}
@@ -83,7 +82,7 @@ function Navbar() {
                   {item.name}
                 </span>
               </Link>
-            ))}
+          ))}
 
           {/* HIRE ME BUTTON */}
           <Link
@@ -122,8 +121,7 @@ function Navbar() {
 
           {/* MOBILE NAVIGATION LINKS */}
           <div className="flex flex-col space-y-8 text-xl">
-            {
-              navItems.map((item, key) => (
+            {navItems.map((item, key) => (
                 <Link
                   key={key}
                   to={item.href}
@@ -142,7 +140,7 @@ function Navbar() {
                     {item.name}
                   </span>
                 </Link>
-              ))}
+            ))}
 
             {/* HIRE ME BUTTON - MOBILE */}
             <Link

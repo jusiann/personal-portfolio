@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { useLanguage } from '../lib/utils';
-import { FiDownload, SiGithub, SiLinkedin, SiInstagram, SiReact, SiNodedotjs, SiCplusplus, SiUnity } from '../lib/icons';
+import {useState, useEffect} from 'react';
+import {useLanguage} from '../lib/utils';
+import {FiDownload, SiGithub, SiLinkedin, SiInstagram, SiReact, SiNodedotjs, SiCplusplus, SiUnity} from '../lib/icons';
 
 function SocialLinks() {
     const { translate } = useLanguage();
