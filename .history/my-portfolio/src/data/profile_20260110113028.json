@@ -1,0 +1,30 @@
+// {
+//     "name": "profile_name",
+//     "surname": "profile_surname",
+//     "aboutText": "profile_about_text",
+//     "summary": "profile_tagline",
+//     "avatar": "/assets/images/profile_photo.png",
+//     "education": [
+//         {
+//             "degree": "education_university_degree",
+//             "school": "education_university_name",
+//             "start": "education_university_start",
+//             "end": "present"
+//         },
+//         {
+//             "degree": "education_highschool_degree",
+//             "school": "education_highschool_name",
+//             "start": "education_highschool_start",
+//             "end": "education_highschool_end"
+//         }
+//     ],
+//     "experience": [
+//         {
+//             "title": "experience_yapiradar_title",
+//             "company": "experience_yapiradar_company",
+//             "start": "experience_yapiradar_start",
+//             "end": "present",
+//             "description": "experience_yapiradar_description"
+//         }
+//     ]
+// }

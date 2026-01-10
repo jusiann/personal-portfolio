@@ -12,6 +12,6 @@ export function useLanguage() {
     return {
         lang: language,
         translate,
-        toggleLanguage
+        toggleLanguage,
     };
 };

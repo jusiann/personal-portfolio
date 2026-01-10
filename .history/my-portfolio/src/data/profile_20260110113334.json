@@ -1,0 +1,130 @@
+{
+    "name": "profile_name",
+    "surname": "profile_surname",
+    "aboutText": "profile_about_text",
+    "summary": "profile_tagline",
+    "avatar": "/assets/images/profile_photo.png",
+    "education": [
+        {
+            "degree": "education_university_degree",
+            "school": "education_university_name",
+            "start": "education_university_start",
+            "end": "present"
+        },
+        {
+            "degree": "education_highschool_degree",
+            "school": "education_highschool_name",
+            "start": "education_highschool_start",
+            "end": "education_highschool_end"
+        }
+    ],
+    "experience": [
+        {
+            "title": "experience_yapiradar_title",
+            "company": "experience_yapiradar_company",
+            "start": "experience_yapiradar_start",
+            "end": "present",
+            "description": "experience_yapiradar_description"
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "title": "projects.parkour.name",
+            "description": "projects.parkour.description",
+            "image": "/assets/images/projects/parkour_shooter_game/1.png",
+            "technologies": [
+                "SiUnity",
+                "SiCplusplus",
+                "SiBlender"
+            ],
+            "category": "desktop",
+            "githubUrl": "#",
+            "images": [
+                "/assets/images/projects/parkour_shooter_game/1.png",
+                "/assets/images/projects/parkour_shooter_game/2.png",
+                "/assets/images/projects/parkour_shooter_game/3.png",
+                "/assets/images/projects/parkour_shooter_game/4.png",
+                "/assets/images/projects/parkour_shooter_game/5.png"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "projects.endless.name",
+            "description": "projects.endless.description",
+            "image": "/assets/images/projects/endless_survival_game/1.png",
+            "technologies": [
+                "SiUnity",
+                "SiCplusplus"
+            ],
+            "category": "mobile",
+            "githubUrl": "#",
+            "images": [
+                "/assets/images/projects/endless_survival_game/1.png",
+                "/assets/images/projects/endless_survival_game/2.png",
+                "/assets/images/projects/endless_survival_game/3.png",
+                "/assets/images/projects/endless_survival_game/4.png",
+                "/assets/images/projects/endless_survival_game/5.png"
+            ]
+        },
+        {
+            "id": 3,
+            "title": "projects.myhabits.name",
+            "description": "projects.myhabits.description",
+            "image": "/assets/images/projects/myhabits_desktop_app/1.png",
+            "technologies": [
+                "FaJava"
+            ],
+            "category": "desktop",
+            "githubUrl": "https://github.com/jusiann/ProjectMyHabits",
+            "images": [
+                "/assets/images/projects/myhabits_desktop_app/1.png",
+                "/assets/images/projects/myhabits_desktop_app/2.png",
+                "/assets/images/projects/myhabits_desktop_app/3.png",
+                "/assets/images/projects/myhabits_desktop_app/4.png",
+                "/assets/images/projects/myhabits_desktop_app/5.png"
+            ]
+        },
+        {
+            "id": 4,
+            "title": "projects.chatting.name",
+            "description": "projects.chatting.description",
+            "image": "/assets/images/projects/chatting_app/1.jpg",
+            "technologies": [
+                "SiReact",
+                "SiNodedotjs",
+                "SiPostgresql",
+                "SiFlutter"
+            ],
+            "category": "fullstack",
+            "githubUrl": "https://github.com/jusiann/Chatting-Application",
+            "images": [
+                "/assets/images/projects/chatting_app/1.jpg",
+                "/assets/images/projects/chatting_app/2.jpg",
+                "/assets/images/projects/chatting_app/3.jpg",
+                "/assets/images/projects/chatting_app/4.jpg",
+                "/assets/images/projects/chatting_app/5.jpg"
+            ]
+        },
+        {
+            "id": 5,
+            "title": "projects.habits_mobile.name",
+            "description": "projects.habits_mobile.description",
+            "image": "/assets/images/projects/habits_mobile_app/1.jpg",
+            "technologies": [
+                "SiReact",
+                "SiNodedotjs",
+                "SiMongodb"
+            ],
+            "category": "mobile",
+            "githubUrl": "https://github.com/jusiann/habits-mobile-app",
+            "images": [
+                "/assets/images/projects/habits_mobile_app/1.jpg",
+                "/assets/images/projects/habits_mobile_app/2.jpg",
+                "/assets/images/projects/habits_mobile_app/3.jpg",
+                "/assets/images/projects/habits_mobile_app/4.png",
+                "/assets/images/projects/habits_mobile_app/5.jpg"
+            ]
+        }
+    ]
+}

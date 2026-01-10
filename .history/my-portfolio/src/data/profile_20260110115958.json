@@ -1,0 +1,59 @@
+{
+    "name": "Adil Efe",
+    "title": "Full Stack Developer",
+    "bio": "İstanbul Rumeli Üniversitesi'nde Bilgisayar Mühendisliği 3. sınıf öğrencisiyim. Özellikle backend geliştirme ve web teknolojilerine ilgi duyuyorum. Takım çalışmasına yatkın, öğrenmeye açık ve sorumluluk sahibi biriyim. Projelerimde sürekli kendimi geliştirmeye ve yeni teknolojiler öğrenmeye çalışıyorum.",
+    "avatar": "/assets/images/profile_photo.png",
+    "email": "adilefe257@gmail.com",
+    "phone": "+90 545 676 43 24",
+    "location": "İstanbul / Türkiye",
+    "social": {
+        "github": "https://github.com/jusiann",
+        "linkedin": "https://www.linkedin.com/in/adilefe/",
+        "twitter": "https://www.instagram.com/adilefe_"
+    },
+    "cvFile": "/cv/adil_efe_cv.pdf",
+    "education": [
+        {
+            "degree": {
+                "tr": "Bilgisayar Mühendisliği",
+                "en": "Computer Engineering"
+            },
+            "school": {
+                "tr": "İstanbul Rumeli Üniversitesi",
+                "en": "Istanbul Rumeli University"
+            },
+            "start": "2023",
+            "end": "present"
+        },
+        {
+            "degree": {
+                "tr": "Lise",
+                "en": "High School"
+            },
+            "school": {
+                "tr": "Atilla Uras Anadolu Lisesi",
+                "en": "Atilla Uras Anatolian High School"
+            },
+            "start": "2018",
+            "end": "2022"
+        }
+    ],
+    "experience": [
+        {
+            "title": {
+                "tr": "Backend Teknik Destek",
+                "en": "Backend Technical Support"
+            },
+            "company": {
+                "tr": "YAPIRADAR A.Ş.",
+                "en": "YAPIRADAR INC."
+            },
+            "start": "2024",
+            "end": "present",
+            "description": {
+                "tr": "Backend geliştirme süreçlerinde aktif olarak çalışıyor, teknik destek sağlıyor, hata ayıklama ve sistem bakımı yapıyorum.",
+                "en": "Actively working on backend development processes, providing technical support, debugging and performing system maintenance."
+            }
+        }
+    ]
+}
