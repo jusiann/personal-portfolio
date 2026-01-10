@@ -35,7 +35,9 @@ function LanguageProvider({ children }) {
         language,
         setLanguage,
         translate,
-        toggleLanguage
+        toggleLanguage,
+        t: translate,
+        isRtl: false
     };
 
     useEffect(() => {

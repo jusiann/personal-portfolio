@@ -140,6 +140,15 @@ function ProjectSection() {
                     ))}
                 </div>
 
+                {/* NO PROJECTS MESSAGE */}
+                {projects.length === 0 && (
+                    <div className="text-center py-12">
+                        <p className="text-foreground/50 text-lg">
+                            {translate('no_projects_found') || 'No projects found in this category'}
+                        </p>
+                    </div>
+                )}
+
                 {/* GLOW EFFECT */}
                 <div className="absolute -inset-4 bg-primary/5 blur-3xl -z-10 opacity-50 animate-pulse-subtle" />
             </div>

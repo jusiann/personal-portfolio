@@ -71,8 +71,6 @@ function ProjectSection() {
                     </span>
                 </div>
             </div>
-
-            {/* CONTENT */}
             <div className="p-4">
                 <h3 className="text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-1 mb-3">
                     {project.name}
@@ -139,6 +137,15 @@ function ProjectSection() {
                         <SingleProjectCard key={project.id} project={project} />
                     ))}
                 </div>
+
+                {/* NO PROJECTS MESSAGE */}
+                {projects.length === 0 && (
+                    <div className="text-center py-12">
+                        <p className="text-foreground/50 text-lg">
+                            {translate('no_projects_found') || 'No projects found in this category'}
+                        </p>
+                    </div>
+                )}
 
                 {/* GLOW EFFECT */}
                 <div className="absolute -inset-4 bg-primary/5 blur-3xl -z-10 opacity-50 animate-pulse-subtle" />

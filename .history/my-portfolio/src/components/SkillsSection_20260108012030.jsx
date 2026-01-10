@@ -42,11 +42,7 @@ function SkillsSection() {
 
         return (
             <div className="group relative flex flex-col items-center p-4 rounded-xl bg-card/5 hover:bg-primary/5 transition-all duration-300 hover:scale-105 cursor-default">
-                
-                {/* CONTAINER */}
                 <div className="absolute inset-0 rounded-xl bg-primary/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 -z-10" />
-                
-                {/* ICON WITH CIRCLE */}
                 <div className="relative w-14 h-14 mb-2">
                     <svg className="w-14 h-14" viewBox="0 0 44 44">
                         {[...Array(totalSegments)].map((_,index) => (
@@ -65,8 +61,6 @@ function SkillsSection() {
                         <skill.icon className="w-5 h-5 text-primary" />
                     </div>
                 </div>
-
-                {/* SKILL NAME */}
                 <span className="text-xs text-foreground/70 text-center font-medium group-hover:text-foreground/90 transition-colors">
                     {skill.name}
                 </span>

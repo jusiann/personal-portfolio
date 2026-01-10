@@ -2,12 +2,11 @@ import {createContext, useContext, useState, useEffect} from 'react';
 import tr from '../data/locales/tr.json';
 import en from '../data/locales/en.json';
 
+const translations = { tr, en };
+
 const LanguageContext = createContext();
 
 function LanguageProvider({ children }) {
-    const translations = { tr, en };
-
-
     const [language, setLanguage] = useState(() => {
         const stored = localStorage.getItem("language");
 
@@ -35,7 +34,9 @@ function LanguageProvider({ children }) {
         language,
         setLanguage,
         translate,
-        toggleLanguage
+        toggleLanguage,
+        t: translate,
+        isRtl: false
     };
 
     useEffect(() => {

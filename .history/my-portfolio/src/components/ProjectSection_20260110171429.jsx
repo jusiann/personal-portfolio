@@ -140,6 +140,8 @@ function ProjectSection() {
                     ))}
                 </div>
 
+
+
                 {/* GLOW EFFECT */}
                 <div className="absolute -inset-4 bg-primary/5 blur-3xl -z-10 opacity-50 animate-pulse-subtle" />
             </div>
