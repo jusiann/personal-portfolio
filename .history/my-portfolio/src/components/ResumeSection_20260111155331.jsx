@@ -4,7 +4,7 @@ import {FiMail,FiPhone,FiUser,FiCalendar,FiBriefcase,FiMapPin,FiGlobe} from '../
 import profileData from '../data/profile.json';
 
 function ResumeSection() {
-    const {translate} = useLanguage();
+    const {translate, lang} = useLanguage();
     const [activeTab,setActiveTab] = useState('about');
     const contentRef = useRef(null);
 

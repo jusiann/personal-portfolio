@@ -1,0 +1,14 @@
+{
+    "name": "Adil Efe",
+    "title": "Full Stack Developer",
+    "avatar": "/assets/images/profile_photo.png",
+    "email": "adilefe257@gmail.com",
+    "phone": "+90 545 676 43 24",
+    "location": "İstanbul / Türkiye",
+    "social": {
+        "github": "https://github.com/jusiann",
+        "linkedin": "https://www.linkedin.com/in/adilefe/",
+        "twitter": "https://www.instagram.com/adilefe_"
+    },
+    "cvFile": "/cv.pdf"
+}

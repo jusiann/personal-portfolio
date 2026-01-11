@@ -4,7 +4,7 @@ import {FiMail,FiPhone,FiUser,FiCalendar,FiBriefcase,FiMapPin,FiGlobe} from '../
 import profileData from '../data/profile.json';
 
 function ResumeSection() {
-    const {translate} = useLanguage();
+    const {translate, lang} = useLanguage();
     const [activeTab,setActiveTab] = useState('about');
     const contentRef = useRef(null);
 
@@ -31,7 +31,7 @@ function ResumeSection() {
                             {translate('resume.about_title')}
                         </h3>
                         <p className="text-foreground/80 leading-relaxed text-lg mb-8 text-justify">
-                            {translate('resume.bio')}
+                            {lang === 'tr' ? profileData.bioTr : profileData.bioEn}
                         </p>
 
                         {/* PERSONAL INFO */}
