@@ -1,17 +1,70 @@
-# Kişisel Portfolyo Web Sitesi
+# Personal Portfolio
 
-Bu proje, React ve Vite kullanılarak geliştirilmiş kişisel bir portfolyo web sitesidir. Yazılım/bilişim alanında kariyer hedefleyen bir öğrencinin profesyonel kimliğini yansıtmak amacıyla tasarlanmıştır.
+> Modern ve şık tasarıma sahip kişisel portfolyo web sitesi.
+
+![License](https://img.shields.io/github/license/jusiann/personal-portfolio)
+![Stars](https://img.shields.io/github/stars/jusiann/personal-portfolio?style=social)
+
+---
+
+## İçindekiler
+
+- [Hakkında](#hakkında)
+- [Özellikler](#özellikler)
+- [Kurulum](#kurulum)
+- [Kullanım](#kullanım)
+- [Konfigürasyon](#konfigürasyon)
+- [İletişim](#iletişim)
+
+---
+
+## Hakkında
+
+Yazılım geliştirici kimliğinizi profesyonel bir şekilde yansıtan modern portfolyo web sitesi. Projelerinizi, yeteneklerinizi ve deneyimlerinizi etkileyici animasyonlar ve responsive tasarım ile sergileyin.
+
+**Teknoloji Yığını:**
+
+- **Dil:** JavaScript (ES6+)
+- **Framework:** React 19.1.1 + Vite 7.1.7
+- **Stil:** Tailwind CSS 4.1.17 + Bootstrap 5.3.8
+- **Animasyon:** Framer Motion 12.23.24
+- **Diğer:** i18next, EmailJS, React Router DOM
+
+---
+
+## Özellikler
+
+- **Tema Desteği** — Dark/Light mode geçişi (LocalStorage ile kalıcı)
+- **Çoklu Dil** — Türkçe/İngilizce dil desteği
+- **Sayfa Animasyonları** — Framer Motion ile akıcı geçişler
+- **İletişim Formu** — EmailJS entegrasyonu ile çalışan form
+- **CV İndirme** — PDF formatında özgeçmiş paylaşımı
+- **Responsive Tasarım** — Tüm cihazlara uyumlu arayüz
+- **Typing Effect** — Dinamik yazı efekti
+- **Sosyal Linkler** — GitHub, LinkedIn ve diğer platformlar
+
+---
 
 ## Kurulum
 
-Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları izleyin:
+### Gereksinimler
+
+- Node.js >= 18
+- npm veya yarn
+
+### Hızlı Başlangıç
 
 ```bash
-# Proje dizinine git
-cd my-portfolio
+# Repoyu klonla
+git clone https://github.com/jusiann/personal-portfolio.git
+cd personal-portfolio/my-portfolio
 
 # Bağımlılıkları yükle
 npm install
+
+# Ortam değişkenlerini ayarla
+cp .env.example .env
+# EmailJS bilgilerinizi .env dosyasına ekleyin
 
 # Geliştirme sunucusunu başlat
 npm run dev
@@ -32,98 +85,54 @@ npm run preview
 npm run lint
 ```
 
-## Proje Yapısı
+---
 
-```
-my-portfolio/
-├── src/
-│   ├── assets/              # Statik dosyalar (görseller vb.)
-│   ├── components/          # React bileşenleri
-│   │   ├── ContactCard.jsx
-│   │   ├── CrimsonWebBackground.jsx
-│   │   ├── Footer.jsx
-│   │   ├── HomeCard.jsx
-│   │   ├── LanguageToggle.jsx
-│   │   ├── Layout.jsx
-│   │   ├── Navbar.jsx
-│   │   ├── PageTransition.jsx
-│   │   ├── ProjectCard.jsx
-│   │   ├── ResumeCard.jsx
-│   │   ├── SkillsCard.jsx
-│   │   ├── SocialLinks.jsx
-│   │   ├── ThemeToggle.jsx
-│   │   └── TypingEffect.jsx
-│   ├── context/             # Context API dosyaları
-│   │   ├── LanguageContext.jsx
-│   │   └── ThemeContext.jsx
-│   ├── data/                # Mock data dosyaları
-│   │   ├── locales/         # Dil dosyaları (tr.json, en.json)
-│   │   ├── profile.json
-│   │   ├── projects.json
-│   │   └── skills.json
-│   ├── lib/                 # Yardımcı fonksiyonlar
-│   ├── pages/               # Sayfa bileşenleri
-│   │   ├── Contact.jsx
-│   │   ├── Home.jsx
-│   │   ├── NotFound.jsx
-│   │   ├── Projects.jsx
-│   │   ├── Resume.jsx
-│   │   └── Skills.jsx
-│   ├── App.jsx              # Ana uygulama bileşeni
-│   ├── main.jsx             # Uygulama giriş noktası
-│   └── index.css            # Global stiller
-├── package.json
-└── vite.config.js
-```
+## Kullanım
 
-## Kullanılan Teknolojiler
+### Sayfalar
 
-### Temel Teknolojiler
-| Teknoloji | Versiyon | Açıklama |
-|-----------|----------|----------|
-| React | 19.1.1 | UI geliştirme kütüphanesi |
-| Vite | 7.1.7 | Build aracı ve geliştirme sunucusu |
-| React Router DOM | 7.9.5 | Sayfa yönlendirmeleri |
-
-### UI ve Stil
-| Teknoloji | Versiyon | Açıklama |
-|-----------|----------|----------|
-| Tailwind CSS | 4.1.17 | Utility-first CSS framework |
-| Bootstrap | 5.3.8 | CSS framework |
-| React Bootstrap | 2.10.10 | Bootstrap React bileşenleri |
-| Framer Motion | 12.23.24 | Animasyon kütüphanesi |
-
-### Araçlar ve Yardımcılar
-| Teknoloji | Versiyon | Açıklama |
-|-----------|----------|----------|
-| i18next | 25.6.0 | Çoklu dil desteği |
-| react-i18next | 16.2.1 | React için i18next entegrasyonu |
-| EmailJS | 4.4.1 | E-posta gönderimi |
-| clsx | 2.1.1 | Koşullu className yönetimi |
-| tailwind-merge | 3.3.1 | Tailwind sınıf birleştirme |
-
-### İkonlar
-| Teknoloji | Versiyon | Açıklama |
-|-----------|----------|----------|
-| Lucide React | 0.553.0 | İkon kütüphanesi |
-| React Icons | 5.5.0 | Popüler ikon setleri |
-| Simple Icons | 15.21.0 | Marka ikonları |
-
-## Özellikler
-
-- **Tema Desteği** - Dark/Light mode geçişi (Local Storage ile kalıcı)
-- **Çoklu Dil** - Türkçe/İngilizce dil desteği (Local Storage ile kalıcı)
-- **Responsive Tasarım** - Mobil uyumlu arayüz
-- **Sayfa Geçişleri** - Framer Motion ile animasyonlu geçişler
-- **İletişim Formu** - EmailJS entegrasyonu ile çalışan form
-- **CV İndirme** - PDF formatında CV indirme
-
-## Sayfalar
-
-| Sayfa | Route | Açıklama |
-|-------|-------|----------|
+| Sayfa | Yol | Açıklama |
+|-------|-----|----------|
 | Ana Sayfa | `/` | Hero section, profil ve sosyal medya |
-| Hakkımda | `/resume` | Biyografi, eğitim ve deneyim |
+| Özgeçmiş | `/resume` | Biyografi, eğitim ve deneyim |
 | Yetenekler | `/skills` | Teknik beceriler ve seviye göstergeleri |
-| Projeler | `/projects` | Proje kartları ve filtreleme |
-| İletişim | `/contact` | İletişim formu |
+| Projeler | `/projects` | Proje kartları ve detayları |
+| İletişim | `/contact` | EmailJS ile çalışan iletişim formu |
+
+### Özelleştirme
+
+Portfolyonuzu kişiselleştirmek için:
+
+1. `src/data/profile.json` — Kişisel bilgiler
+2. `src/data/projects.json` — Proje listesi
+3. `src/data/skills.json` — Yetenekler
+4. `src/data/locales/` — Dil dosyaları (tr.json, en.json)
+
+---
+
+## Konfigürasyon
+
+### Ortam Değişkenleri (.env)
+
+| Değişken | Açıklama |
+|----------|----------|
+| `VITE_EMAILJS_SERVICE_ID` | EmailJS servis ID'si |
+| `VITE_EMAILJS_TEMPLATE_ID` | EmailJS template ID'si |
+| `VITE_EMAILJS_PUBLIC_KEY` | EmailJS public key |
+
+### Tema ve Dil
+
+| Dosya | Açıklama |
+|-------|----------|
+| `src/context/ThemeContext.jsx` | Tema yönetimi |
+| `src/context/LanguageContext.jsx` | Dil yönetimi |
+| `src/data/locales/tr.json` | Türkçe çeviriler |
+| `src/data/locales/en.json` | İngilizce çeviriler |
+
+---
+
+## İletişim
+
+**Adil Aslan** — insta:adlefee — aslanadil8@gmail.com
+
+Proje: [https://github.com/jusiann/personal-portfolio](https://github.com/jusiann/personal-portfolio)
