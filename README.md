@@ -133,6 +133,6 @@ Portfolyonuzu kişiselleştirmek için:
 
 ## İletişim
 
-**Adil Aslan** — insta:adlefee — aslanadil8@gmail.com
+**Adil Efe** — insta:adlefee — adilefe257@gmail.com
 
 Proje: [https://github.com/jusiann/personal-portfolio](https://github.com/jusiann/personal-portfolio)
